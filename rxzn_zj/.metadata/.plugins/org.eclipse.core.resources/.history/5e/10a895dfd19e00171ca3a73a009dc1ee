@@ -1,0 +1,149 @@
+#ifndef INIT_H_
+#define INIT_H_
+
+// RF receiving port
+/*
+#define RF_GDO0_INT         (!IsClr(P2IFG & BIT2))
+#define RF_GDO0_INT_D       (P2IE &= ~BIT2)
+#define RF_GDO0_INT_E       (P2IE |= BIT2)
+#define RF_GDO0_INT_C       (P2IFG &= ~BIT2)*/
+
+#define RF_GDO2_INT         (!IsClr(P2IFG & BIT1))
+#define RF_GDO2_INT_D       (P2IE &= ~BIT1)
+#define RF_GDO2_INT_E       (P2IE |= BIT1)
+#define RF_GDO2_INT_C       (P2IFG &= ~BIT1)
+
+/*
+#define RF_2_GDO0_INT         (!IsClr(P2IFG & BIT3))
+#define RF_2_GDO0_INT_D       (P2IE &= ~BIT3)
+#define RF_2_GDO0_INT_E       (P2IE |= BIT3)
+#define RF_2_GDO0_INT_C       (P2IFG &= ~BIT3)
+*/
+#define RF_2_GDO2_INT         (!IsClr(P2IFG & BIT4))
+#define RF_2_GDO2_INT_D       (P2IE &= ~BIT4)
+#define RF_2_GDO2_INT_E       (P2IE |= BIT4)
+#define RF_2_GDO2_INT_C       (P2IFG &= ~BIT4)
+// UART485 control
+#define UART485_RX_E       (P4OUT &= ~BIT7)
+#define UART485_TX_E       (P4OUT |= BIT7)
+//system clock : 8MHz
+inline void InitSysClk(void){
+	// If calibration constant erased
+   if (CALBC1_8MHZ==0xFF){											
+     while(1);                               // do not load, trap CPU!!	
+   }
+	DCOCTL = 0;  
+	BCSCTL1 = CALBC1_8MHZ;
+	DCOCTL = CALDCO_8MHZ;
+	BCSCTL1 |= DIVA_2;       //ACLK /4
+	do{
+		IFG1 &= ~OFIFG;
+		for(INT8U i = 0xFF; i > 0; i--); 
+	}while((IFG1&OFIFG)!=0);
+}
+
+inline void InitLed(void){	
+	// other leds on the side
+	P1DIR |= (BIT0 + BIT1 + BIT2 + BIT3);
+	P1OUT |= (BIT0 + BIT1 + BIT2 + BIT3);
+	
+	// status led,P2.4-debug
+	P2DIR |= BIT4 + BIT5;
+	P2OUT |= BIT4 + BIT5;
+	P2OUT &= ~BIT4;
+	 // RJ45 leds
+	P4DIR |= (BIT3 + BIT4 + BIT5 + BIT6 );
+	P4OUT |= (BIT3 + BIT4 + BIT5 + BIT6 );
+}
+inline void init_button(void){
+	
+	P1DIR &= ~(BIT4 + BIT5 + BIT6 + BIT7); // input
+	P1REN |= (BIT4 + BIT5 + BIT6 + BIT7);
+	P1OUT |= (BIT4 + BIT5 + BIT6 + BIT7);
+	
+	P3DIR &= ~(BIT6 + BIT7); // input
+	P3REN |= BIT6 + BIT7;
+	P3OUT |= BIT6 + BIT7;
+}
+//timer_A clock: 8/8 MHZ
+//period : 10ms 
+inline void InitTimerA(void)
+{
+	TACCTL0 = CCIE;
+	TACCR0 = 10000;
+	TACTL = TASSEL_2 + ID_3 + MC_1;     // SMCLK, contmode, 1/8 div
+}
+
+inline void init_cc1101_gpio(void){
+	// GDO0A:P2.3 //GDO2A:P2.4
+	P2IES |= BIT3;
+  	P2DIR &= ~(BIT3) ;
+  	P2IFG &= ~(BIT3);
+ 	
+ 		//GDO2A
+  	P2IES &= ~BIT4;
+  	P2DIR &= ~BIT4; 
+  	P2IFG &= ~BIT4;
+  	// CS_A
+	P4DIR |= BIT1;
+	P4OUT |= BIT1;
+	
+  	// GDO0B
+	P2IES |= BIT2;
+  	P2DIR &= ~BIT2;
+  	P2IFG &= ~BIT2;
+  	//GDO2B
+  	P2IES &= ~BIT1;
+  	P2DIR &= ~BIT1; 
+  	P2IFG &= ~BIT1;
+  	// CS_B
+	P3DIR |= BIT0;
+	P3OUT |= BIT0;
+}
+inline void init_spi(void){
+   // P3.1->MOSI, P3.2<-MISO, P3.3->SCLK
+  	P3DIR |= (BIT1 + BIT3); 
+  	P3OUT |= (BIT1 + BIT3);
+  	P3DIR &= ~BIT2;
+}
+inline void InitUCA0(void){
+	P3SEL |= BIT4 + BIT5;                     // P3.4,5 = USCI_A0 TXD/RXD
+	UCA0CTL1 |= UCSSEL_2;                     // SMCLK
+  	UCA0BR0 = 208;                            // 430 user guide,page 424 ,8Mhz 38400 208
+  	UCA0BR1 = 0;                              // 
+  	UCA0MCTL = UCBRS2 + UCBRS0;               // Modulation UCBRSx = 5
+  	UCA0CTL1 &= ~UCSWRST;                     // **Initialize USCI state machine**
+  	IE2 |= UCA0RXIE;                         // Enable USCI_A0 RX interrupt
+}
+
+inline void Init485(void){
+	P4DIR |= BIT7;
+	P4OUT &= ~BIT7;
+}
+
+//-------------------------------------
+inline void status_led_reverse(void){
+	P2OUT ^= BIT5;
+}
+inline void uart_trx_led_on(void){
+	P1OUT &= ~BIT1;	
+}
+
+inline void uart_trx_led_off(void){
+	P1OUT |= BIT1;	
+}
+inline void uart_trx_led_reverse(void){
+	P1OUT ^= BIT1;	
+}
+
+inline void wireless_trx_led_on(void){
+	P1OUT &= ~BIT3;	
+}
+inline void wireless_trx_led_off(void){
+	P1OUT |= BIT3;	
+}
+inline void wireless_trx_led_reverse(void){
+	P1OUT ^= BIT3;	
+}
+
+#endif /*INIT_H_*/

@@ -1,0 +1,3 @@
+
+
+bool timeout(ulong last_time, ulong ms);

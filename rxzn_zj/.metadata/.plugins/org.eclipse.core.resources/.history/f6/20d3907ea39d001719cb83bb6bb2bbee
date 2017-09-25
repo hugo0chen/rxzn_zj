@@ -1,0 +1,58 @@
+#ifndef DEFINE_H_
+#define DEFINE_H_
+
+#define	uchar 	unsigned char
+#define uint	unsigned int
+#define INT8U   unsigned char
+#define INT16U  unsigned int
+#define ulong   unsigned long
+
+#define MAX_DATA_SIZE 128
+
+#define WIRE_PACKET_HEAD_1 0x55
+#define WIRE_PACKET_HEAD_2 0xAA
+
+#define ZJ_PARA_FLASH_ADDR 0x01010
+/*参数存储地址*/
+#define MAC_H_ADDR			1
+#define MAC_L_ADDR			2
+#define ID_H_ADDR			3
+#define ID_L_ADDR			4
+#define WEIGH_INIT_1_ADDR	5
+#define WEIGH_INIT_2_ADDR	6
+#define WEIGH_INIT_3_ADDR	7
+#define WEIGH_INIT_4_ADDR	8
+#define SYS_CH_ADDR			9
+
+
+/*type类型*/
+#define CH_REG	0x10	//频点匹配
+
+#define START	0x30	//输液开始
+#define RUN		0x31	//输液进行中
+#define STOP	0x32	//输液结束
+#define BEAT	0x33	//输液单元心跳信号
+#define BOND_REG	0x34	//输液单元配置
+
+#define	HEAD_H	    0x88
+#define	HEAD_L	    0xCC
+
+#define	TRUE	    1
+#define	FALSE	    0
+
+#define MSG_LEN          13  // total length of message, first two octets are 0
+#define MSG_HDR_H        2   // message header high byte postion
+#define MSG_HDR_L        3   // message header low byte postion
+#define MSG_DEV_ID       4   // device identifier
+#define MSG_OP_TYPE      5   // operation type
+#define MSG_BODY_0       6   // message body octet 0
+#define MSG_BODY_1       7   // message body octet 1
+#define MSG_BODY_2       8   // message body octet 2
+#define MSG_BODY_3       9   // message body octet 3
+#define MSG_BODY_4       10  // message body octet 4
+#define MSG_BODY_5       11  // message body octet 5
+/* dosen't work
+#define CPU_F            ((double)8000000) 
+#define Delay_ms(x)      __delay_cycles((long)(CPU_F *(double)(x)/8000))
+*/
+#endif /* DEFINE_H_ */
