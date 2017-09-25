@@ -1,0 +1,18 @@
+#include "msp430f2272.h"
+#include "define.h"
+#include "init.h"
+
+extern INT8U bRfRcv;
+
+// interrupt for receiving data
+#pragma vector = PORT2_VECTOR
+__interrupt void PORT2_ISR (void)
+{
+	if(RF_RCV_IFG_S){
+		RF_RCV_INT_D;
+		RF_RCV_IFG_C;
+		SET_FLG(bRfRcv);
+	    RF_RCV_INT_E;
+	    wireless_communicator_indicate();
+	}
+}

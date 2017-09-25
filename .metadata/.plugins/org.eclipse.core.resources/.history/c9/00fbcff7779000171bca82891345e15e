@@ -1,0 +1,4 @@
+#ifndef TIMER_A_H_
+#define TIMER_A_H_
+
+bool timeout(ulong last_time, ulong ms);

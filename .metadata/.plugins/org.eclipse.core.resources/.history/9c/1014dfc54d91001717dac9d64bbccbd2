@@ -1,0 +1,23 @@
+#include "define.h"
+#include "task.h"
+#include "interrupt.h"
+
+ulong  _local_time_tick;
+
+#define INTERVAL_TIME 10 // 10ms
+void sys_clock_tick(void){
+	_local_time_tick += INTERVAL_TIME;
+}
+
+ulong local_ticktime(void){
+	return _local_time_tick	;
+}
+
+bool timeout(ulong last_time, ulong ms){
+	return (bool)((_local_time_tick - last_time) > ms);
+}
+
+#pragma vector = TIMERB0_VECTOR
+__interrupt void Timer_B(void){	
+	sys_clock_tick();
+}

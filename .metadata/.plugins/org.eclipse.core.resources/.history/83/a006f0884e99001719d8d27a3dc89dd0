@@ -1,0 +1,31 @@
+#ifndef PROCESS_H_
+#define PROCESS_H_
+
+#include "define.h"
+#include "tools.h"
+
+#define DEBUG_MODE  1
+//#define TX_DEBUG    1
+
+#define WIRE_PACKET_HEAD_1 0x55
+#define WIRE_PACKET_HEAD_2 0xAA
+
+
+// UART485 control
+#define UART485_RX_E       (P4OUT &= ~BIT7)
+#define UART485_TX_E       (P4OUT |= BIT7)
+
+
+void delay(unsigned long nus);
+void Delay_1ms(void);
+void Delay_nms(unsigned long s);
+
+void uart_communication_indicate(void);
+void wireless_communicator_indicate(void);
+
+void RfTransmitPacket(INT8U *buf, INT8U len);
+void UartTransmitPacket(INT8U *buf, INT8U len);
+void process_data_from_node(INT8U*data, INT8U len);
+void send_freq_request_ack(void);
+
+#endif /*PROCESS_H_*/

@@ -1,0 +1,58 @@
+//#include "msp430f2272.h"
+#include "define.h"
+#include "task.h"
+#include "interrupt.h"
+
+static INT8U  hbcnt  = 0;
+
+ulong _local_time_tick;
+
+void sys_clcok_tick(void){
+	_local_time_tick++;
+	if(_local_time_tick%2 == 1){
+		LED_SIGN_ON;	
+	}
+	else{
+		LED_SIGN_OFF;	
+	}
+}
+
+ulong local_ticktime(void){
+	return _local_time_tick	;
+}
+
+bool timeout(ulong last_time, ulong ms){
+	return (bool)((_local_time_tick - last_time) > ms);
+}
+static void process_heart_blink_event(void){
+	if(b_node_configured == 1){
+		if (hbcnt++ >= HB_INTVL)
+		{
+			hbcnt = 0;
+			SET_FLG(bHeartBeat);
+			//__bic_SR_register_on_exit(LPM3_bits);
+		}
+	}
+		 
+		if (++BlinkIntvCnt >= BOT_BLINK_INTVL)
+		{
+			BlinkIntvCnt = 0;
+		 	
+		 	if (LED_SWITCH_ON)
+		 	{
+		 		if (BOTTLE == ContainerType)
+		 		{
+		 			LED_STATUS_BLINK;
+		 		}
+		 		else
+		 		{
+		 			LED_STATUS_ON;
+		 		}
+		 	}
+		}
+}
+#pragma vector = TIMERB0_VECTOR
+__interrupt void Timer_B(void){	
+	sys_clcok_tick();
+	process_heart_blink_event();
+}
