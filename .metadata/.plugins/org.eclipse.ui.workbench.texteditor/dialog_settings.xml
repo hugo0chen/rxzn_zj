@@ -8,18 +8,18 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value=""/>
+		<item key="selection" value="_gdsl_list_remove"/>
 		<item key="wrap" value="false"/>
 		<item key="casesensitive" value="false"/>
 		<list key="findhistory">
-			<item value="DEBUG_MODE"/>
-			<item value="main"/>
-			<item value="Delay_ms"/>
-			<item value="delay"/>
-			<item value="CC1101SendPacket"/>
-			<item value="CC1101_ADDR"/>
-			<item value="CC1101InitData"/>
-			<item value="CC1101_IOCFG2"/>
+			<item value="_gdsl_list_remove"/>
+			<item value="RST_FROM_OFIFG"/>
+			<item value="flash"/>
+			<item value="process_data_from_node"/>
+			<item value="mem"/>
+			<item value="sizeof"/>
+			<item value="32768不起振，"/>
+			<item value="MAX_DATA_SIZE"/>
 		</list>
 		<list key="replacehistory">
 			<item value="Delay_nms"/>

@@ -1,0 +1,92 @@
+#include "queue.h"
+
+#include <stdio.h>
+  
+ typedef struct node
+  	{
+  		struct node* prev;
+       INT8U data[20];
+  		INT8U data_len;
+  		INT8U flag_success;
+  		int time_delay;
+  		INT8U retry_times;
+       struct node* next;
+  }Rs_485_Node;
+  
+   typedef struct queue
+  {
+      Rs_485_Node* head;
+      Rs_485_Node* tail;
+  }Queue;
+  
+  void InitQueue(Queue*);
+  void EnQueue(Queue*, int);
+  int DeQueue(Queue* queue);
+  void PrintQueue(Queue* queue);
+ 19 int IsNull(Queue* queue);
+ 20 void DelQueue(Queue* queue);
+ 21 
+ 22 void DelQueue(Queue* queue)
+ 23 {
+ 24     while(queue->head != queue->tail)
+ 25     {
+ 26         DeQueue(queue);
+ 27     }
+ 28 
+ 29 }
+
+ 33 void PrintQueue(Queue* queue)
+ 34 {
+ 35     if(IsNull(queue))
+ 36     {
+ 37         printf("empty queue.\n");
+ 38         return ;
+ 39     }
+ 40     Node* curNode= queue->head->next;
+ 41     while(curNode)
+ 42     {
+ 43         if(curNode->next !=NULL)
+ 44         {
+ 45             printf("%d==>", curNode->data);
+ 46         }else
+ 47         {
+ 48             printf("%d ", curNode->data);
+ 49 
+ 50         }
+ 51         curNode = curNode->next;
+ 52     }
+ 53     printf("\n");
+ 54 
+ 55 }
+ 56 
+ 57 
+ 58 void InitQueue(Queue* queue)
+ 59 {
+ 60     queue->tail = (Node*)malloc(sizeof(Node));//warning
+ 61     queue->tail->data = -1;
+ 62     queue->head = queue->tail;
+ 63     queue->tail->next = NULL;
+ 64 }
+ 65 //入队列
+ 66 void EnQueue(Queue* queue, int data)
+ 67 {
+ 68     Node * newNode = (Node*)malloc(sizeof(Node));//warning
+ 69     newNode->data = data;
+ 70     newNode->next = NULL;
+ 71     queue->tail->next = newNode;//2b 这里漏了。。。导致链表连不上去
+ 72     queue->tail = newNode;
+ 73 }
+ 74 
+ 75 int DeQueue(Queue* queue)
+ 76 {
+ 77     int popValue = queue->head->data;
+ 78     Node *popNode = queue->head;
+ 79     queue->head = queue->head->next;
+ 80     free(popNode);//warning
+ 81     return popValue;
+ 82 }
+ 83 //1 means Null
+ 84 int IsNull(Queue* queue)
+ 85 {
+ 86     return (queue->head == queue->tail);
+ 87 }

@@ -1,0 +1,94 @@
+#include "queue.h"
+#include "define.h"
+#include "string.h"
+
+#include <stdio.h>
+  
+ typedef struct node
+ {
+ 	struct node* prev;
+    INT8U data[20];
+  	INT8U data_len;
+  	INT8U flag_success;
+  	unsigned int time_delay;
+  	INT8U retry_times;
+    struct node* next;
+  }Rs_485_Node;
+  
+  typedef struct queue
+  {
+      Rs_485_Node* head;
+      Rs_485_Node* tail;
+  }Queue;
+  
+  void InitQueue(Queue*);
+  void EnQueue(Queue*, int);
+  int DeQueue(Queue* queue);
+  void PrintQueue(Queue* queue);
+ int IsNull(Queue* queue);
+ void DelQueue(Queue* queue);
+ 
+ void DelQueue(Queue* queue)
+ {
+      while(queue->head != queue->tail)
+      {
+          DeQueue(queue);
+      }
+  
+ }
+
+ void PrintQueue(Queue* queue)
+ {
+    if(IsNull(queue))
+    {
+         printf("empty queue.\n");
+         return ;
+     }
+     Rs_485_Node* curNode= queue->head->next;
+     while(curNode)
+     {
+         if(curNode->next !=NULL)
+         {
+             printf("%d==>", curNode->data);
+         }else
+         {
+             printf("%d ", curNode->data);
+ 
+         }
+         curNode = curNode->next;
+     }
+     printf("\n");
+ 
+ }
+  
+  
+ void InitQueue(Queue* queue)
+ {
+     queue->tail = (Rs_485_Node*)malloc(sizeof(Rs_485_Node));//warning
+     queue->tail->data = -1;
+     queue->head = queue->tail;
+     queue->tail->next = NULL;
+ }
+  //入队列
+ void EnQueue(Queue* queue, int data)
+ {
+    Rs_485_Node * newNode = (Rs_485_Node*)malloc(sizeof(Rs_485_Node));//warning
+    newNode->data = data;
+    newNode->next = NULL;
+    queue->tail->next = newNode;//2b 这里漏了。。。导致链表连不上去
+    queue->tail = newNode;
+ }
+ 
+ int DeQueue(Queue* queue)
+ {
+     int popValue = queue->head->data;
+     Rs_485_Node *popNode = queue->head;
+     queue->head = queue->head->next;
+     free(popNode);//warning
+     return popValue;
+ }
+ //1 means Null
+ int IsNull(Queue* queue)
+ {
+     return (queue->head == queue->tail);
+ }

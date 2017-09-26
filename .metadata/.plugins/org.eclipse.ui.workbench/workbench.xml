@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<workbench progressCount="55" version="2.0">
+<workbench progressCount="56" version="2.0">
 <workbenchAdvisor/>
-<window height="768" maximized="true" width="1024" x="428" y="157">
+<window height="768" maximized="true" width="1024" x="674" y="179">
 <fastViewData fastViewLocation="1024">
 <orientation position="512" view="org.eclipse.cdt.ui.CView"/>
 <orientation position="512" view="com.ti.ccstudio.system.setup.ui.views.TargetConfigurationView"/>
@@ -11,7 +11,7 @@
 </perspectiveBar>
 <coolbarLayout locked="0">
 <coolItem id="group.file" itemType="typeGroupMarker"/>
-<coolItem id="org.eclipse.ui.workbench.file" itemType="typeToolBarContribution" x="115" y="22"/>
+<coolItem id="org.eclipse.ui.workbench.file" itemType="typeToolBarContribution" x="155" y="22"/>
 <coolItem id="additions" itemType="typeGroupMarker"/>
 <coolItem id="com.ti.ccstudio.debug.ui.DebugActionSet" itemType="typeToolBarContribution" x="107" y="22"/>
 <coolItem id="com.ti.ccstudio.debug.ui.RealTimeActionSet" itemType="typeToolBarContribution" x="61" y="22"/>
@@ -22,11 +22,12 @@
 <coolItem id="group.nav" itemType="typeGroupMarker"/>
 <coolItem id="org.eclipse.ui.workbench.navigate" itemType="typeToolBarContribution" x="198" y="22"/>
 <coolItem id="group.editor" itemType="typeGroupMarker"/>
+<coolItem id="com.ti.common.ui.cmdFileEditor" itemType="typePlaceholder" x="-1" y="-1"/>
 <coolItem id="org.eclipse.cdt.ui.editor.CEditor" itemType="typeToolBarContribution" x="-1" y="-1"/>
 <coolItem id="group.help" itemType="typeGroupMarker"/>
 <coolItem id="org.eclipse.ui.workbench.help" itemType="typeToolBarContribution" x="-1" y="-1"/>
 </coolbarLayout>
-<page aggregateWorkingSetId="Aggregate for window 1505365797494" focus="true" label="Workspace - Debug">
+<page aggregateWorkingSetId="Aggregate for window 1505365797494" focus="true" label="Workspace - C/C++">
 <editors>
 <editorArea activeWorkbook="DefaultEditorWorkbook">
 <info part="DefaultEditorWorkbook">
@@ -38,32 +39,64 @@
 <part id="3"/>
 <part id="4"/>
 <part id="5"/>
+<part id="6"/>
+<part id="7"/>
+<part id="8"/>
+<part id="9"/>
+<part id="10"/>
+<part id="11"/>
+<part id="12"/>
+<part id="13"/>
 </presentation>
 </folder>
 </info>
 </editorArea>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="process.cpp" partName="process.cpp" path="C:/Users/hugo/Desktop/cc1101_test/Transceiver/process.cpp" title="process.cpp" tooltip="Transceiver/process.cpp" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Transceiver/process.cpp"/>
-</editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="process.h" partName="process.h" path="C:/Users/hugo/Desktop/cc1101_test/Transceiver/process.h" title="process.h" tooltip="Transceiver/process.h" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Transceiver/process.h"/>
-</editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="CC1101.cpp" partName="CC1101.cpp" path="C:/Users/hugo/Desktop/cc1101_test/Transceiver/CC1101.cpp" title="CC1101.cpp" tooltip="Transceiver/CC1101.cpp" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Transceiver/CC1101.cpp"/>
-</editor>
-<editor focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="main.cpp" partName="main.cpp" path="C:/Users/hugo/Desktop/cc1101_test/Transceiver/main.cpp" title="main.cpp" tooltip="Transceiver/main.cpp" workbook="DefaultEditorWorkbook">
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="main.cpp" partName="main.cpp" path="C:/Users/hugo/Desktop/multi_product/Transceiver/main.cpp" title="main.cpp" tooltip="Transceiver/main.cpp" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Transceiver/main.cpp"/>
 </editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="timer_a.cpp" partName="timer_a.cpp" path="C:/Users/hugo/Desktop/cc1101_test/Transceiver/timer_a.cpp" title="timer_a.cpp" tooltip="Transceiver/timer_a.cpp" workbook="DefaultEditorWorkbook">
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="timer_a.cpp" partName="timer_a.cpp" path="C:/Users/hugo/Desktop/zj_single_1.2/Transceiver/timer_a.cpp" title="timer_a.cpp" tooltip="Transceiver/timer_a.cpp" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Transceiver/timer_a.cpp"/>
 </editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="rf_receive.cpp" partName="rf_receive.cpp" path="C:/Users/hugo/Desktop/cc1101_test/Transceiver/rf_receive.cpp" title="rf_receive.cpp" tooltip="Transceiver/rf_receive.cpp" workbook="DefaultEditorWorkbook">
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="process.cpp" partName="process.cpp" path="C:/Users/hugo/Desktop/zj_single_1.2/Transceiver/process.cpp" title="process.cpp" tooltip="Transceiver/process.cpp" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Transceiver/process.cpp"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="process.h" partName="process.h" path="C:/Users/hugo/Desktop/zj_single_1.2/Transceiver/process.h" title="process.h" tooltip="Transceiver/process.h" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Transceiver/process.h"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="timer_a.cpp" partName="timer_a.cpp" path="C:/Users/hugo/Desktop/zj_single_1.2/Transceiver/timer_a.cpp" title="timer_a.cpp" tooltip="Transceiver/timer_a.cpp" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Transceiver/timer_a.cpp"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="CC1101.h" partName="CC1101.h" path="C:/Users/hugo/Desktop/zj_single_1.2/Transceiver/CC1101.h" title="CC1101.h" tooltip="Transceiver/CC1101.h" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Transceiver/CC1101.h"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="CC1101.cpp" partName="CC1101.cpp" path="C:/Users/hugo/Desktop/multi_product/Transceiver/CC1101.cpp" title="CC1101.cpp" tooltip="Transceiver/CC1101.cpp" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Transceiver/CC1101.cpp"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="rf_receive.cpp" partName="rf_receive.cpp" path="C:/Users/hugo/Desktop/zj_single/Transceiver/rf_receive.cpp" title="rf_receive.cpp" tooltip="Transceiver/rf_receive.cpp" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Transceiver/rf_receive.cpp"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="timer_a.cpp" partName="timer_a.cpp" path="C:/Users/hugo/Desktop/multi_product/Transceiver/timer_a.cpp" title="timer_a.cpp" tooltip="Transceiver/timer_a.cpp" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Transceiver/timer_a.cpp"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="define.h" partName="define.h" path="C:/Users/hugo/Desktop/zj_single_1.2/Transceiver/define.h" title="define.h" tooltip="Transceiver/define.h" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Transceiver/define.h"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="net_intf_transceive.cpp" partName="net_intf_transceive.cpp" path="C:/Users/hugo/Desktop/zj_single_1.2/Transceiver/net_intf_transceive.cpp" title="net_intf_transceive.cpp" tooltip="Transceiver/net_intf_transceive.cpp" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Transceiver/net_intf_transceive.cpp"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="CC1101_reg.h" partName="CC1101_reg.h" path="C:/Users/hugo/Desktop/zj_single/Transceiver/CC1101_reg.h" title="CC1101_reg.h" tooltip="Transceiver/CC1101_reg.h" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Transceiver/CC1101_reg.h"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="init.h" partName="init.h" path="C:/Users/hugo/Desktop/multi_product/Transceiver/init.h" title="init.h" tooltip="Transceiver/init.h" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Transceiver/init.h"/>
+</editor>
+<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="queue.cpp" partName="queue.cpp" path="C:/Users/hugo/Desktop/multi_product/Transceiver/queue.cpp" title="queue.cpp" tooltip="Transceiver/queue.cpp" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Transceiver/queue.cpp"/>
 </editor>
 </editors>
 <views>
 <view id="com.ti.ccstudio.debug.registers.ui.Expressions" partName="Watch (1)">
-<viewState StatesFile="C:/Users/hugo/Desktop/cc1101_test/.metadata/.plugins/com.ti.ccstudio.debug.registers.ui/expressions.xml" columnName.0="Name" columnName.1="Value" columnName.2="Address" columnName.3="Type" columnName.4="Format" columnWidth.0="150" columnWidth.1="150" columnWidth.2="150" columnWidth.3="150" columnWidth.4="80" numberOfVisibleColumns="5"/>
+<viewState StatesFile="C:/Users/hugo/Desktop/multi_product/.metadata/.plugins/com.ti.ccstudio.debug.registers.ui/expressions.xml" columnName.0="Name" columnName.1="Value" columnName.2="Address" columnName.3="Type" columnName.4="Format" columnWidth.0="150" columnWidth.1="150" columnWidth.2="150" columnWidth.3="150" columnWidth.4="80" numberOfVisibleColumns="5"/>
 </view>
 <view id="org.eclipse.search.ui.views.SearchView" partName="Search">
 <viewState isPinned="false">
@@ -82,12 +115,12 @@
 <viewState/>
 </view>
 <view id="org.eclipse.cdt.ui.CView" partName="C/C++ Projects">
-<viewState horizontalPosition="60" verticalPosition="13">
+<viewState horizontalPosition="0" verticalPosition="0">
 <expanded>
-<element path="C:\Users\hugo\Desktop\cc1101_test\Transceiver"/>
+<element path="C:\Users\hugo\Desktop\multi_product\Transceiver"/>
 </expanded>
 <selection>
-<element path="C:/Users/hugo/Desktop/cc1101_test/Transceiver/main.cpp"/>
+<element path="C:/Users/hugo/Desktop/multi_product/Transceiver/queue.cpp"/>
 </selection>
 <customFilters userDefinedPatternsEnabled="false">
 <xmlDefinedFilters>
@@ -112,14 +145,11 @@
 <view id="com.ti.ccstudio.memory.ui.view.TIMemoryView" partName="Memory (1)">
 <viewState/>
 </view>
-<view id="com.ti.ccstudio.debug.registers.ui.Variables" partName="Local (1)">
-<viewState columnName.0="Name" columnName.1="Value" columnName.2="Address" columnName.3="Type" columnName.4="Format" columnWidth.0="150" columnWidth.1="150" columnWidth.2="150" columnWidth.3="150" columnWidth.4="80" numberOfVisibleColumns="5"/>
-</view>
 <view id="com.ti.ccstudio.debug.ui.TIDisassemblyView" partName="Disassembly">
 <viewState/>
 </view>
 <view id="org.eclipse.ui.views.ProblemView" partName="Problems">
-<viewState columnWidth0="370" columnWidth1="93" columnWidth2="168" columnWidth3="78" columnWidth4="0" horizontalPosition="0" verticalPosition="0">
+<viewState columnWidth0="617" columnWidth1="123" columnWidth2="198" columnWidth3="108" columnWidth4="0" horizontalPosition="0" verticalPosition="0">
 <columnOrder columnOrderIndex="0"/>
 <columnOrder columnOrderIndex="1"/>
 <columnOrder columnOrderIndex="2"/>
@@ -128,7 +158,7 @@
 </viewState>
 </view>
 </views>
-<perspectives activePart="org.eclipse.debug.ui.DebugView" activePerspective="org.eclipse.debug.ui.DebugPerspective">
+<perspectives activePart="org.eclipse.cdt.ui.editor.CEditor" activePerspective="org.eclipse.cdt.ui.CPerspective">
 <perspective editorAreaVisible="1" fixed="0" version="0.016">
 <descriptor class="org.eclipse.cdt.internal.ui.CPerspectiveFactory" id="org.eclipse.cdt.ui.CPerspective" label="C/C++"/>
 <alwaysOnActionSet id="org.eclipse.rtsc.xdaistools.ui.actionSet"/>
@@ -173,6 +203,7 @@
 <show_view_action id="org.eclipse.ui.views.PropertySheet"/>
 <show_view_action id="com.ti.ccstudio.scripting.console.ConsoleView"/>
 <show_view_action id="com.ti.ccstudio.system.setup.ui.views.TargetConfigurationView"/>
+<show_in_time id="org.eclipse.ui.views.ResourceNavigator" time="1505869714402"/>
 <new_wizard_action id="com.ti.ccstudio.managedbuild.ui.wizards.project.NewProjectWizard"/>
 <new_wizard_action id="org.eclipse.cdt.make.ui.wizards.NewMakeCCProjectWizard"/>
 <new_wizard_action id="org.eclipse.cdt.ui.wizards.NewFolderCreationWizard"/>
@@ -193,37 +224,55 @@
 <view id="org.eclipse.ui.cheatsheets.views.CheatSheetView"/>
 <view id="com.ti.ccstudio.debug.ui.TIDisassemblyView"/>
 <view id="org.eclipse.search.ui.views.SearchView"/>
-<layout>&#x0A;<mainWindow>&#x0A;<info folder="true" part="topLeft">&#x0A;<folder activePageID="org.eclipse.cdt.ui.CView" appearance="2" expanded="2">&#x0A;<page content="org.eclipse.cdt.ui.CView" label="C/C++ Projects"/>
+<layout>
+<mainWindow>
+<info folder="true" part="topLeft">
+<folder activePageID="org.eclipse.cdt.ui.CView" appearance="2" expanded="2">
+<page content="org.eclipse.cdt.ui.CView" label="C/C++ Projects"/>
 <page content="org.eclipse.ui.views.BookmarkView" label="LabelNotFound"/>
 <page content="com.ti.ccstudio.system.setup.ui.views.TargetConfigurationView" label="LabelNotFound"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">&#x0A;<part id="0"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
 </presentation>
 </folder>
 </info>
-<info folder="true" part="org.eclipse.ui.internal.ViewStack@a193fe" ratio="0.749499" ratioLeft="748" ratioRight="250" relationship="2" relative="topLeft">&#x0A;<folder activePageID="org.eclipse.search.ui.views.SearchView" appearance="2" expanded="2">&#x0A;<page content="org.eclipse.help.ui.HelpView" label="LabelNotFound"/>
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@a193fe" ratio="0.749499" ratioLeft="748" ratioRight="250" relationship="2" relative="topLeft">
+<folder activePageID="com.ti.ccstudio.debug.ui.TIDisassemblyView" appearance="2" expanded="2">
+<page content="org.eclipse.help.ui.HelpView" label="LabelNotFound"/>
 <page content="org.eclipse.ui.internal.introview" label="LabelNotFound"/>
 <page content="org.eclipse.ui.cheatsheets.views.CheatSheetView" label="Cheat Sheets"/>
-<page content="com.ti.ccstudio.debug.ui.TIDisassemblyView" label="Disassembly (main)"/>
+<page content="com.ti.ccstudio.debug.ui.TIDisassemblyView" label="Disassembly"/>
 <page content="org.eclipse.search.ui.views.SearchView" label="Search"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">&#x0A;<part id="0"/>
+<page content="org.eclipse.ui.views.ResourceNavigator" label="LabelNotFound"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
 <part id="1"/>
 <part id="2"/>
 </presentation>
 </folder>
 </info>
 <info part="org.eclipse.ui.editorss" ratio="0.249499" ratioLeft="249" ratioRight="749" relationship="2" relative="topLeft"/>
-<info folder="true" part="topRight" ratio="0.74899864" ratioLeft="561" ratioRight="188" relationship="2" relative="org.eclipse.ui.editorss">&#x0A;<folder activePageID="org.eclipse.ui.views.ContentOutline" appearance="2" expanded="2">&#x0A;<page content="org.eclipse.ui.views.ContentOutline" label="Outline"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">&#x0A;<part id="0"/>
+<info folder="true" part="topRight" ratio="0.74899864" ratioLeft="561" ratioRight="188" relationship="2" relative="org.eclipse.ui.editorss">
+<folder activePageID="org.eclipse.ui.views.ContentOutline" appearance="2" expanded="2">
+<page content="org.eclipse.ui.views.ContentOutline" label="Outline"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
 </presentation>
 </folder>
 </info>
-<info folder="true" part="org.eclipse.ui.internal.ViewStack@e07fc8" ratio="0.69929075" ratioLeft="493" ratioRight="212" relationship="4" relative="org.eclipse.ui.editorss">&#x0A;<folder activePageID="org.eclipse.ui.console.ConsoleView" appearance="2" expanded="2">&#x0A;<page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">&#x0A;<part id="0"/>
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@e07fc8" ratio="0.61790395" ratioLeft="566" ratioRight="350" relationship="4" relative="org.eclipse.ui.editorss">
+<folder activePageID="org.eclipse.ui.console.ConsoleView" appearance="2" expanded="2">
+<page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
 </presentation>
 </folder>
 </info>
-<info folder="true" part="org.eclipse.ui.internal.ViewStack@18ab25b" ratio="0.6275805" ratioLeft="760" ratioRight="451" relationship="2" relative="org.eclipse.ui.internal.ViewStack@e07fc8">&#x0A;<folder activePageID="org.eclipse.ui.views.ProblemView" appearance="2" expanded="2">&#x0A;<page content="org.eclipse.ui.views.ProblemView" label="Problems"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">&#x0A;<part id="0"/>
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@18ab25b" ratio="0.54913294" ratioLeft="665" ratioRight="546" relationship="2" relative="org.eclipse.ui.internal.ViewStack@e07fc8">
+<folder activePageID="org.eclipse.ui.views.ProblemView" appearance="2" expanded="2">
+<page content="org.eclipse.ui.views.ProblemView" label="Problems"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
 </presentation>
 </folder>
 </info>
@@ -289,85 +338,78 @@
 <show_view_action id="org.eclipse.pde.runtime.LogView"/>
 <new_wizard_action id="com.ti.ccstudio.system.setup.editor.wizards.SystemSetupNewWizard"/>
 <perspective_action id="org.eclipse.cdt.ui.CPerspective"/>
-<view id="org.eclipse.debug.ui.DebugView"/>
-<view id="com.ti.ccstudio.debug.registers.ui.Variables"/>
-<view id="com.ti.ccstudio.debug.registers.ui.Expressions"/>
-<view id="org.eclipse.ui.console.ConsoleView"/>
 <view id="com.ti.ccstudio.debug.ui.TIDisassemblyView"/>
 <view id="com.ti.ccstudio.memory.ui.view.TIMemoryView"/>
 <view id="org.eclipse.ui.views.ContentOutline"/>
+<view id="org.eclipse.debug.ui.DebugView"/>
+<view id="com.ti.ccstudio.debug.registers.ui.Expressions"/>
+<view id="org.eclipse.ui.console.ConsoleView"/>
 <view id="org.eclipse.ui.cheatsheets.views.CheatSheetView"/>
 <view id="org.eclipse.ui.views.ProblemView"/>
 <fastViews>
-<view id="org.eclipse.cdt.ui.CView" ratio="0.15078534"/>
+<view id="org.eclipse.cdt.ui.CView" ratio="0.15026177"/>
 <view id="com.ti.ccstudio.system.setup.ui.views.TargetConfigurationView" ratio="0.3"/>
 </fastViews>
 <layout>
 <mainWindow>
-<info folder="true" part="org.eclipse.debug.internal.ui.NavigatorFolderView">
-<folder activePageID="org.eclipse.debug.ui.DebugView" appearance="2" expanded="2">
-<page content="org.eclipse.debug.ui.DebugView" label="Debug"/>
-<page content="org.eclipse.ui.views.ResourceNavigator" label="LabelNotFound"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
-<part id="0"/>
-</presentation>
+<info folder="true" part="org.eclipse.debug.internal.ui.BreakpointFolderView">
+<folder appearance="2" expanded="2">
+<page content="org.eclipse.debug.ui.BreakpointView" label="LabelNotFound"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
 </info>
-<info folder="true" part="org.eclipse.ui.internal.ViewStack@518924" ratio="0.7497382" ratioLeft="1432" ratioRight="478" relationship="2" relative="org.eclipse.debug.internal.ui.NavigatorFolderView">
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@c33981" ratio="0.66596746" ratioLeft="1270" ratioRight="637" relationship="2" relative="org.eclipse.debug.internal.ui.BreakpointFolderView">
+<folder appearance="2" expanded="2">
+<page content="com.ti.ccstudio.debug.registers.ui.Registers" label="LabelNotFound"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
+</folder>
+</info>
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@518924" ratio="0.35782313" ratioLeft="263" ratioRight="472" relationship="2" relative="org.eclipse.ui.internal.ViewStack@c33981">
 <folder activePageID="org.eclipse.ui.cheatsheets.views.CheatSheetView" appearance="2" expanded="2">
 <page content="org.eclipse.help.ui.HelpView" label="LabelNotFound"/>
 <page content="org.eclipse.ui.internal.introview" label="LabelNotFound"/>
 <page content="org.eclipse.ui.cheatsheets.views.CheatSheetView" label="Cheat Sheets"/>
 <page content="org.eclipse.ui.views.ProblemView" label="Problems"/>
+<page content="com.ti.ccstudio.scripting.console.ConsoleView" label="LabelNotFound"/>
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
 <part id="0"/>
 <part id="1"/>
 </presentation>
 </folder>
 </info>
-<info folder="true" part="org.eclipse.ui.internal.ViewStack@3f9ad" ratio="0.7871179" ratioLeft="721" ratioRight="195" relationship="4" relative="org.eclipse.debug.internal.ui.NavigatorFolderView">
+<info part="org.eclipse.ui.views.ResourceNavigator" ratio="0.5" ratioLeft="208" ratioRight="208" relationship="2" relative="org.eclipse.ui.internal.ViewStack@518924"/>
+<info part="org.eclipse.ui.views.BookmarkView" ratio="0.5" ratioLeft="208" ratioRight="208" relationship="2" relative="org.eclipse.ui.internal.ViewStack@518924"/>
+<info part="com.ti.dvt.ui.views.line:SingleTime*" ratio="0.5" ratioLeft="208" ratioRight="208" relationship="2" relative="org.eclipse.ui.internal.ViewStack@518924"/>
+<info part="com.ti.dvt.ui.views.line:DualTimeA*" ratio="0.5" ratioLeft="208" ratioRight="208" relationship="2" relative="org.eclipse.ui.internal.ViewStack@518924"/>
+<info part="com.ti.dvt.ui.views.line:Real*" ratio="0.5" ratioLeft="208" ratioRight="208" relationship="2" relative="org.eclipse.ui.internal.ViewStack@518924"/>
+<info part="com.ti.dvt.ui.views.line:Magnitude*" ratio="0.5" ratioLeft="208" ratioRight="208" relationship="2" relative="org.eclipse.ui.internal.ViewStack@518924"/>
+<info part="com.ti.dvt.ui.views.line:MagnitudeOnly*" ratio="0.5" ratioLeft="208" ratioRight="208" relationship="2" relative="org.eclipse.ui.internal.ViewStack@518924"/>
+<info part="com.ti.ccstudio.debug.registers.ui.Variables" ratio="0.5" ratioLeft="208" ratioRight="208" relationship="2" relative="org.eclipse.ui.internal.ViewStack@518924"/>
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@150bbcb" ratio="0.53824365" ratioLeft="380" ratioRight="326" relationship="2" relative="org.eclipse.ui.internal.ViewStack@c33981">
 <folder activePageID="org.eclipse.ui.console.ConsoleView" appearance="2" expanded="2">
+<page content="com.ti.ccstudio.debug.registers.ui.Expressions" label="Watch (1)"/>
 <page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
-<page content="org.eclipse.ui.views.BookmarkView" label="LabelNotFound"/>
 <page content="org.eclipse.ui.views.PropertySheet" label="LabelNotFound"/>
-<page content="com.ti.dvt.ui.views.line:SingleTime*" label="LabelNotFound"/>
-<page content="com.ti.dvt.ui.views.line:DualTimeA*" label="LabelNotFound"/>
-<page content="com.ti.dvt.ui.views.line:Real*" label="LabelNotFound"/>
-<page content="com.ti.dvt.ui.views.line:Magnitude*" label="LabelNotFound"/>
-<page content="com.ti.dvt.ui.views.line:MagnitudeOnly*" label="LabelNotFound"/>
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
 <part id="0"/>
+<part id="1"/>
 </presentation>
 </folder>
 </info>
-<info part="org.eclipse.ui.editorss" ratio="0.15214385" ratioLeft="110" ratioRight="613" relationship="4" relative="org.eclipse.debug.internal.ui.NavigatorFolderView"/>
-<info folder="true" part="org.eclipse.ui.internal.ViewStack@15dff59" ratio="0.7314165" ratioLeft="1043" ratioRight="383" relationship="2" relative="org.eclipse.ui.editorss">
-<folder activePageID="org.eclipse.ui.views.ContentOutline" appearance="2" expanded="2">
+<info part="org.eclipse.ui.editorss" ratio="0.24757953" ratioLeft="179" ratioRight="544" relationship="4" relative="org.eclipse.debug.internal.ui.BreakpointFolderView"/>
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@15dff59" ratio="0.6603774" ratioLeft="840" ratioRight="432" relationship="2" relative="org.eclipse.ui.editorss">
+<folder activePageID="org.eclipse.debug.ui.DebugView" appearance="2" expanded="2">
 <page content="com.ti.ccstudio.debug.ui.TIDisassemblyView" label="Disassembly"/>
 <page content="com.ti.ccstudio.memory.ui.view.TIMemoryView" label="Memory (1)"/>
 <page content="org.eclipse.ui.views.ContentOutline" label="Outline"/>
 <page content="com.ti.ccstudio.debug.ui.views.KernelObjects" label="LabelNotFound"/>
+<page content="org.eclipse.debug.ui.DebugView" label="Debug"/>
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
 <part id="0"/>
 <part id="1"/>
 <part id="2"/>
+<part id="3"/>
 </presentation>
-</folder>
-</info>
-<info folder="true" part="org.eclipse.debug.internal.ui.ToolsFolderView" ratio="0.5" ratioLeft="955" ratioRight="955" relationship="2" relative="org.eclipse.debug.internal.ui.NavigatorFolderView">
-<folder activePageID="com.ti.ccstudio.debug.registers.ui.Expressions" appearance="2" expanded="2">
-<page content="com.ti.ccstudio.debug.registers.ui.Variables" label="Local (1)"/>
-<page content="com.ti.ccstudio.debug.registers.ui.Expressions" label="Watch (1)"/>
-<page content="com.ti.ccstudio.debug.registers.ui.Registers" label="LabelNotFound"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
-<part id="0"/>
-<part id="1"/>
-</presentation>
-</folder>
-</info>
-<info folder="true" part="org.eclipse.debug.internal.ui.BreakpointFolderView" ratio="0.49947643" ratioLeft="477" ratioRight="478" relationship="2" relative="org.eclipse.debug.internal.ui.ToolsFolderView">
-<folder appearance="2" expanded="2">
-<page content="org.eclipse.debug.ui.BreakpointView" label="LabelNotFound"/>
 </folder>
 </info>
 </mainWindow>
@@ -377,162 +419,160 @@
 <workingSets/>
 <navigationHistory>
 <editors>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Transceiver/main.cpp"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Transceiver/process.h"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Transceiver/process.cpp"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Transceiver/CC1101.cpp"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Transceiver/rf_receive.cpp"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Transceiver/process.cpp"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Transceiver/queue.cpp"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Transceiver/gdsl_types.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Transceiver/gdsl_list.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/Transceiver/init.h"/>
 </editors>
-<item historyLabel="main.cpp" index="0">
-<position info="not_deleted" x="913" y="0"/>
+<item historyLabel="queue.cpp" index="0">
+<position info="not_deleted" x="1201" y="0"/>
 </item>
-<item historyLabel="main.cpp" index="0">
-<position info="not_deleted" x="1383" y="0"/>
+<item historyLabel="queue.cpp" index="0">
+<position info="not_deleted" x="1154" y="0"/>
 </item>
-<item historyLabel="CC1101.cpp" index="3">
-<position info="not_deleted" x="326" y="40"/>
+<item historyLabel="gdsl_types.h" index="1">
+<position info="not_deleted" x="6306" y="0"/>
 </item>
-<item historyLabel="process.cpp" index="2">
-<position info="not_deleted" x="2647" y="0"/>
+<item historyLabel="queue.cpp" index="0">
+<position info="not_deleted" x="1155" y="23"/>
 </item>
-<item historyLabel="rf_receive.cpp" index="4">
+<item historyLabel="queue.cpp" index="0">
+<position info="not_deleted" x="1225" y="0"/>
+</item>
+<item historyLabel="queue.cpp" index="0">
+<position info="not_deleted" x="13990" y="36"/>
+</item>
+<item historyLabel="queue.cpp" index="0">
+<position info="not_deleted" x="14147" y="0"/>
+</item>
+<item historyLabel="queue.cpp" index="0">
+<position info="not_deleted" x="14121" y="0"/>
+</item>
+<item historyLabel="queue.cpp" index="0">
+<position info="not_deleted" x="14099" y="18"/>
+</item>
+<item historyLabel="gdsl_types.h" index="1">
+<position info="not_deleted" x="1901" y="0"/>
+</item>
+<item historyLabel="queue.cpp" index="0">
+<position info="not_deleted" x="13990" y="36"/>
+</item>
+<item historyLabel="queue.cpp" index="0">
+<position info="not_deleted" x="14122" y="0"/>
+</item>
+<item historyLabel="queue.cpp" index="0">
+<position info="not_deleted" x="6812" y="0"/>
+</item>
+<item historyLabel="gdsl_list.c" index="2">
 <position/>
 </item>
-<item historyLabel="CC1101.cpp" index="3">
-<position info="not_deleted" x="17201" y="0"/>
+<item historyLabel="queue.cpp" index="0">
+<position info="not_deleted" x="13990" y="36"/>
 </item>
-<item historyLabel="rf_receive.cpp" index="4">
-<position info="not_deleted" x="392" y="0"/>
+<item historyLabel="queue.cpp" index="0">
+<position info="not_deleted" x="14082" y="36"/>
 </item>
-<item historyLabel="CC1101.cpp" index="3">
-<position info="not_deleted" x="351" y="0"/>
+<item historyLabel="queue.cpp" index="0">
+<position info="not_deleted" x="6344" y="30"/>
 </item>
-<item historyLabel="rf_receive.cpp" index="4">
-<position info="not_deleted" x="86" y="0"/>
+<item historyLabel="queue.cpp" index="0">
+<position info="not_deleted" x="3169" y="45"/>
 </item>
-<item historyLabel="CC1101.cpp" index="3">
-<position info="not_deleted" x="263" y="0"/>
+<item historyLabel="queue.cpp" index="0">
+<position info="not_deleted" x="2955" y="55"/>
 </item>
-<item historyLabel="main.cpp" index="0">
-<position info="not_deleted" x="1528" y="0"/>
+<item historyLabel="queue.cpp" index="0">
+<position info="not_deleted" x="3011" y="54"/>
 </item>
-<item historyLabel="process.cpp" index="2">
-<position info="not_deleted" x="2647" y="0"/>
+<item historyLabel="queue.cpp" index="0">
+<position info="not_deleted" x="3284" y="0"/>
 </item>
-<item historyLabel="process.h" index="1">
-<position info="not_deleted" x="314" y="0"/>
+<item historyLabel="queue.cpp" index="0">
+<position info="not_deleted" x="14145" y="0"/>
 </item>
-<item historyLabel="main.cpp" index="0">
-<position info="not_deleted" x="1528" y="0"/>
+<item historyLabel="gdsl_list.c" index="2">
+<position info="not_deleted" x="982" y="0"/>
 </item>
-<item historyLabel="main.cpp" index="0">
-<position info="not_deleted" x="1606" y="21"/>
+<item historyLabel="queue.cpp" index="0">
+<position info="not_deleted" x="14117" y="0"/>
 </item>
-<item historyLabel="main.cpp" index="0">
-<position info="not_deleted" x="1283" y="0"/>
+<item historyLabel="gdsl_list.c" index="2">
+<position info="not_deleted" x="1105" y="0"/>
 </item>
-<item historyLabel="main.cpp" index="0">
-<position info="not_deleted" x="1559" y="0"/>
+<item historyLabel="queue.cpp" index="0">
+<position info="not_deleted" x="13990" y="36"/>
 </item>
-<item historyLabel="main.cpp" index="0">
-<position info="not_deleted" x="1606" y="0"/>
+<item historyLabel="queue.cpp" index="0">
+<position info="not_deleted" x="14082" y="36"/>
 </item>
-<item historyLabel="main.cpp" index="0">
-<position info="not_deleted" x="1686" y="0"/>
+<item historyLabel="queue.cpp" index="0">
+<position info="not_deleted" x="6344" y="30"/>
 </item>
-<item historyLabel="CC1101.cpp" index="3">
-<position info="not_deleted" x="20504" y="0"/>
+<item historyLabel="queue.cpp" index="0">
+<position info="not_deleted" x="3169" y="45"/>
 </item>
-<item historyLabel="main.cpp" index="0">
-<position info="not_deleted" x="1281" y="0"/>
+<item historyLabel="queue.cpp" index="0">
+<position info="not_deleted" x="6349" y="17"/>
 </item>
-<item historyLabel="process.cpp" index="2">
-<position info="not_deleted" x="3713" y="0"/>
+<item historyLabel="gdsl_list.c" index="2">
+<position info="not_deleted" x="1105" y="0"/>
 </item>
-<item historyLabel="CC1101.cpp" index="3">
-<position info="not_deleted" x="20160" y="0"/>
+<item historyLabel="queue.cpp" index="0">
+<position info="not_deleted" x="6349" y="17"/>
 </item>
-<item historyLabel="main.cpp" index="0">
-<position info="not_deleted" x="1469" y="0"/>
+<item historyLabel="queue.cpp" index="0">
+<position info="not_deleted" x="6803" y="0"/>
 </item>
-<item historyLabel="CC1101.cpp" index="3">
-<position info="not_deleted" x="20160" y="0"/>
+<item historyLabel="queue.cpp" index="0">
+<position info="not_deleted" x="13990" y="36"/>
 </item>
-<item historyLabel="main.cpp" index="0">
-<position info="not_deleted" x="1935" y="22"/>
+<item historyLabel="queue.cpp" index="0">
+<position info="not_deleted" x="3213" y="0"/>
 </item>
-<item historyLabel="process.cpp" index="2">
-<position info="not_deleted" x="3334" y="0"/>
+<item historyLabel="queue.cpp" index="0">
+<position info="not_deleted" x="13990" y="36"/>
 </item>
-<item historyLabel="main.cpp" index="0">
-<position info="not_deleted" x="1935" y="22"/>
+<item historyLabel="queue.cpp" index="0">
+<position info="not_deleted" x="14030" y="0"/>
 </item>
-<item historyLabel="main.cpp" index="0">
-<position info="not_deleted" x="1773" y="0"/>
+<item historyLabel="queue.cpp" index="0">
+<position info="not_deleted" x="14082" y="36"/>
 </item>
-<item historyLabel="main.cpp" index="0">
-<position info="not_deleted" x="1599" y="0"/>
+<item historyLabel="queue.cpp" index="0">
+<position info="not_deleted" x="14143" y="0"/>
 </item>
-<item historyLabel="CC1101.cpp" index="3">
-<position info="not_deleted" x="20160" y="0"/>
+<item historyLabel="queue.cpp" index="0">
+<position info="not_deleted" x="6344" y="30"/>
 </item>
-<item historyLabel="CC1101.cpp" index="3">
+<item historyLabel="queue.cpp" index="0">
+<position info="not_deleted" x="6501" y="0"/>
+</item>
+<item historyLabel="queue.cpp" index="0">
+<position info="not_deleted" x="14082" y="36"/>
+</item>
+<item historyLabel="queue.cpp" index="0">
+<position info="not_deleted" x="14077" y="0"/>
+</item>
+<item historyLabel="queue.cpp" index="0">
+<position info="not_deleted" x="14007" y="18"/>
+</item>
+<item historyLabel="queue.cpp" index="0">
+<position info="not_deleted" x="14078" y="0"/>
+</item>
+<item historyLabel="queue.cpp" index="0">
+<position info="not_deleted" x="3011" y="54"/>
+</item>
+<item historyLabel="queue.cpp" index="0">
+<position info="not_deleted" x="2955" y="55"/>
+</item>
+<item historyLabel="gdsl_types.h" index="1">
+<position info="not_deleted" x="1727" y="18"/>
+</item>
+<item historyLabel="init.h" index="3">
+<position info="not_deleted" x="619" y="0"/>
+</item>
+<item active="true" historyLabel="queue.cpp" index="0">
 <position/>
-</item>
-<item historyLabel="CC1101.cpp" index="3">
-<position info="not_deleted" x="20606" y="0"/>
-</item>
-<item historyLabel="main.cpp" index="0">
-<position info="not_deleted" x="1283" y="0"/>
-</item>
-<item historyLabel="CC1101.cpp" index="3">
-<position info="not_deleted" x="20850" y="0"/>
-</item>
-<item historyLabel="main.cpp" index="0">
-<position info="not_deleted" x="2102" y="22"/>
-</item>
-<item historyLabel="process.cpp" index="2">
-<position info="not_deleted" x="3062" y="22"/>
-</item>
-<item historyLabel="process.cpp" index="2">
-<position info="not_deleted" x="3904" y="16"/>
-</item>
-<item historyLabel="process.cpp" index="2">
-<position info="not_deleted" x="1307" y="0"/>
-</item>
-<item historyLabel="main.cpp" index="0">
-<position info="not_deleted" x="2102" y="22"/>
-</item>
-<item historyLabel="main.cpp" index="0">
-<position info="not_deleted" x="1643" y="0"/>
-</item>
-<item historyLabel="main.cpp" index="0">
-<position info="not_deleted" x="1935" y="22"/>
-</item>
-<item historyLabel="process.cpp" index="2">
-<position info="not_deleted" x="2131" y="22"/>
-</item>
-<item historyLabel="process.cpp" index="2">
-<position info="not_deleted" x="2488" y="21"/>
-</item>
-<item historyLabel="process.cpp" index="2">
-<position info="not_deleted" x="2088" y="0"/>
-</item>
-<item historyLabel="main.cpp" index="0">
-<position info="not_deleted" x="1283" y="0"/>
-</item>
-<item historyLabel="process.cpp" index="5">
-<position/>
-</item>
-<item historyLabel="main.cpp" index="0">
-<position/>
-</item>
-<item historyLabel="process.cpp" index="5">
-<position info="not_deleted" x="3927" y="0"/>
-</item>
-<item active="true" historyLabel="main.cpp" index="0">
-<position info="not_deleted" x="1283" y="0"/>
 </item>
 </navigationHistory>
 <stickyState>
@@ -559,50 +599,50 @@
 </trimLayout>
 </window>
 <mruList>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="queue.cpp" tooltip="Transceiver/queue.cpp">
+<persistable path="/Transceiver/queue.cpp"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="gdsl_list.c" tooltip="Transceiver/gdsl_list.c">
+<persistable path="/Transceiver/gdsl_list.c"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="gdsl_types.h" tooltip="Transceiver/gdsl_types.h">
+<persistable path="/Transceiver/gdsl_types.h"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="queue.h" tooltip="Transceiver/queue.h">
+<persistable path="/Transceiver/queue.h"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="init.h" tooltip="Transceiver/init.h">
+<persistable path="/Transceiver/init.h"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="flash.cpp" tooltip="Transceiver/flash.cpp">
+<persistable path="/Transceiver/flash.cpp"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="CC1101_reg.h" tooltip="Transceiver/CC1101_reg.h">
+<persistable path="/Transceiver/CC1101_reg.h"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="net_intf_transceive.cpp" tooltip="Transceiver/net_intf_transceive.cpp">
+<persistable path="/Transceiver/net_intf_transceive.cpp"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="define.h" tooltip="Transceiver/define.h">
+<persistable path="/Transceiver/define.h"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="spi.cpp" tooltip="Transceiver/spi.cpp">
+<persistable path="/Transceiver/spi.cpp"/>
+</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="rf_receive.cpp" tooltip="Transceiver/rf_receive.cpp">
 <persistable path="/Transceiver/rf_receive.cpp"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="timer_a.cpp" tooltip="Transceiver/timer_a.cpp">
-<persistable path="/Transceiver/timer_a.cpp"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.cpp" tooltip="Transceiver/main.cpp">
-<persistable path="/Transceiver/main.cpp"/>
-</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="CC1101.cpp" tooltip="Transceiver/CC1101.cpp">
 <persistable path="/Transceiver/CC1101.cpp"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="CC1101.h" tooltip="Transceiver/CC1101.h">
+<persistable path="/Transceiver/CC1101.h"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="process.h" tooltip="Transceiver/process.h">
 <persistable path="/Transceiver/process.h"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="process.cpp" tooltip="Transceiver/process.cpp">
 <persistable path="/Transceiver/process.cpp"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="net_intf_transceive.cpp" tooltip="Transceiver/net_intf_transceive.cpp">
-<persistable path="/Transceiver/net_intf_transceive.cpp"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="flash.cpp" tooltip="Transceiver/flash.cpp">
-<persistable path="/Transceiver/flash.cpp"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="define.h" tooltip="Transceiver/define.h">
-<persistable path="/Transceiver/define.h"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="CC1101_reg.h" tooltip="Transceiver/CC1101_reg.h">
-<persistable path="/Transceiver/CC1101_reg.h"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="init.h" tooltip="Transceiver/init.h">
-<persistable path="/Transceiver/init.h"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="CC1101.h" tooltip="Transceiver/CC1101.h">
-<persistable path="/Transceiver/CC1101.h"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="spi.cpp" tooltip="Transceiver/spi.cpp">
-<persistable path="/Transceiver/spi.cpp"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="rf_op.h" tooltip="Transceiver/rf_op.h">
-<persistable path="/Transceiver/rf_op.h"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="rf_op.cpp" tooltip="Transceiver/rf_op.cpp">
-<persistable path="/Transceiver/rf_op.cpp"/>
 </file>
 </mruList>
 </workbench>

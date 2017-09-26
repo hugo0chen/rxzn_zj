@@ -1,6 +1,7 @@
 #include "msp430f2272.h"
 #include "define.h"
 
+
 INT8U WriteFlash(INT16U addr, INT8U *buf, INT8U len){
 	INT8U reg1 = IE1;
 	INT8U reg2 = IE2;

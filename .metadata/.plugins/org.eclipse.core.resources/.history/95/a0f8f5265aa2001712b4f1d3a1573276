@@ -1,0 +1,78 @@
+#include "queue.h"
+#include "define.h"
+#include "stdlib.h"
+#include "string.h"
+
+#include <stdio.h>
+     
+void DelQueue(Queue* queue)
+{
+	while(queue->head != queue->tail)
+	{
+	  DeQueue(queue);
+	}
+}
+
+ void InitQueue(Queue* queue)
+ {
+     queue->tail = (Rs_485_Node*)malloc(sizeof(Rs_485_Node));//warning
+     memset(queue->tail->data, 0, MAX_QUEUE_DATA_LEN);
+     queue->tail->data_len	  = 0;
+     queue->tail->flag_success = 0;
+     queue->tail->retry_times  = 0;
+     queue->tail->time_delay   = 0;
+     queue->head = queue->tail;
+     queue->tail->next = NULL;
+ }
+  //入队列
+ INT8U EnQueue(Queue* queue, INT8U* inData, INT8U dataLen)
+ {
+ 	if(dataLen > MAX_QUEUE_DATA_LEN){
+ 		return 1;
+ 	}
+ 	
+    Rs_485_Node * newNode = (Rs_485_Node*)malloc(sizeof(Rs_485_Node));//warning
+    memcpy(newNode->data, inData, dataLen);
+    newNode->next = NULL;
+    queue->tail->next = newNode;//2b 这里漏了。。。导致链表连不上去
+    queue->tail = newNode;
+ 	return 0;
+ }
+ 
+ int DeQueue(Queue* queue)
+ {
+     int popValue = queue->head->data;
+     Rs_485_Node *popNode = queue->head;
+     queue->head = queue->head->next;
+     free(popNode);//warning
+     return popValue;
+ }
+ //1 means Null
+ int IsNull(Queue* queue)
+ {
+     return (queue->head == queue->tail);
+ }
+ void PrintQueue(Queue* queue)
+ {
+    if(IsNull(queue))
+    {
+         printf("empty queue.\n");
+         return ;
+     }
+     Rs_485_Node* curNode= queue->head->next;
+     while(curNode)
+     {
+         if(curNode->next !=NULL)
+         {
+             printf("%d==>", curNode->data);
+         }else
+         {
+             printf("%d ", curNode->data);
+ 
+         }
+         curNode = curNode->next;
+     }
+     printf("\n");
+ 
+ }
+ 

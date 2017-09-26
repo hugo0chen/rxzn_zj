@@ -1,0 +1,28 @@
+#include "msp430f2272.h"
+#include "define.h"
+
+#define MAX_QUEUE_DATA_LEN 20
+
+
+ typedef struct node
+ {
+    INT8U data[MAX_QUEUE_DATA_LEN];
+  	INT8U data_len;
+  	INT8U flag_success;
+  	unsigned int time_delay;
+  	INT8U retry_times;
+    struct node* next;
+ }Rs_485_Node;
+  
+ typedef struct queue
+ {
+    Rs_485_Node* head;
+    Rs_485_Node* tail;
+ }Queue;
+  
+void InitQueue(Queue*);
+ INT8U EnQueue(Queue* queue, INT8U* inData, INT8U dataLen, unsigned int delay_time, INT8U re_times);
+ INT8U DeQueue(Queue* queue, Rs_485_Node* outNode)
+void PrintQueue(Queue* queue);
+int IsNull(Queue* queue);
+void DelQueue(Queue* queue);

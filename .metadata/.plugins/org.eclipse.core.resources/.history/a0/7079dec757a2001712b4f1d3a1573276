@@ -1,0 +1,8 @@
+#include "msp430f2272.h"
+
+ void InitQueue(Queue*);
+ void EnQueue(Queue*, int);
+ int DeQueue(Queue* queue);
+ void PrintQueue(Queue* queue);
+ int IsNull(Queue* queue);
+ void DelQueue(Queue* queue);

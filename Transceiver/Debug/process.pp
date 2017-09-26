@@ -13,6 +13,8 @@ process.obj: ../timer_a.h
 process.obj: ../init.h
 process.obj: ../cc1101.h
 process.obj: ../CC1101_REG.h
+process.obj: ../queue.h
+process.obj: D:/ccsv4/tools/compiler/msp430/include/stdlib.h
 
 ../process.cpp: 
 D:/ccsv4/msp430/include/msp430f2272.h: 
@@ -27,3 +29,5 @@ D:/ccsv4/tools/compiler/msp430/include/linkage.h:
 ../init.h: 
 ../cc1101.h: 
 ../CC1101_REG.h: 
+../queue.h: 
+D:/ccsv4/tools/compiler/msp430/include/stdlib.h: 

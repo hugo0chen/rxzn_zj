@@ -10,6 +10,7 @@ Description : This module contains the low level operations for CC1101
 #include "msp430f2272.h"
 #include "define.h"
 
+#define DEFAULT_CH   4
 #define CC1101_ADDRESS 0x05
 
 #define MAX_CHANNEL_NUM 10
@@ -22,9 +23,10 @@ you must offer the following functions for this module
 3. CC_CSN_HIGH( );                       //Pull up the CSN Line
 ================================================================================
 */
-#define CC_CSN_LOW( )   P2OUT &= ~BIT2
-#define CC_CSN_HIGH( )  P2OUT |= BIT2;
-
+#define CC_CSN_LOW( )   P3OUT &= ~BIT0
+#define CC_CSN_HIGH( )  P3OUT |= BIT0;
+#define CC_2_CSN_LOW( )   P4OUT &= ~BIT1
+#define CC_2_CSN_HIGH( )  P4OUT |= BIT1;
 /*
 ================================================================================
 -----------------------------------macro definitions----------------------------
@@ -75,6 +77,7 @@ void  CC1101WORInit( void );
 
 INT8U cc1101_set_channel(INT8U ch_num);
 void init_cc1101(void);
+INT8U CC1101Init( void );
 #endif // _CC1101_H_
 /*
 ================================================================================

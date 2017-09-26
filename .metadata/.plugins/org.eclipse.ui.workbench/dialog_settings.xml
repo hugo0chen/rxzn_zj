@@ -29,9 +29,13 @@
 				<item value="0x05对"/>
 				<item value="0x05d4"/>
 				<item value="0x05ce"/>
+				<item value="0x02a2"/>
+				<item value="0x01010"/>
+				<item value="0x0202"/>
+				<item value="0x0100"/>
 			</list>
 			<list key="StartAddressDecoration.ADDRESS_TEXT_ID">
-				<item value="0x05ce"/>
+				<item value="0x01010"/>
 			</list>
 		</section>
 	</section>

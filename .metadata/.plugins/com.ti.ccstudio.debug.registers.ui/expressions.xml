@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <States>
 <Expressions>
-<Expression IMemento.internal.id="sendBuf">
-<Format/>
+<Expression IMemento.internal.id="version_pn">
+<Format Class="com.ti.ccstudio.debug.registers.model.VariableFormat" Name="Hexadecimal"/>
 </Expression>
-<VariableFormatMap Class="com.ti.ccstudio.debug.registers.model.VariableFormat" IMemento.internal.id="(status)[1]" Name="Hexadecimal"/>
-<VariableFormatMap Class="com.ti.ccstudio.debug.registers.model.VariableFormat" IMemento.internal.id="(para)[0]" Name="Hexadecimal"/>
-<VariableFormatMap Class="com.ti.ccstudio.debug.registers.model.VariableFormat" IMemento.internal.id="*(rxBuffer)" Name="Hexadecimal"/>
-<VariableFormatMap Class="com.ti.ccstudio.debug.registers.model.VariableFormat" IMemento.internal.id="(para)[2]" Name="Hexadecimal"/>
-<VariableFormatMap Class="com.ti.ccstudio.debug.registers.model.VariableFormat" IMemento.internal.id="(status)[0]" Name="Hexadecimal"/>
-<VariableFormatMap Class="com.ti.ccstudio.debug.registers.model.VariableFormat" IMemento.internal.id="(para)[1]" Name="Hexadecimal"/>
+<Expression IMemento.internal.id="version_pn">
+<Format Class="com.ti.ccstudio.debug.registers.model.VariableFormat" Name="Hexadecimal"/>
+</Expression>
+<VariableFormatMap Class="com.ti.ccstudio.debug.registers.model.VariableFormat" IMemento.internal.id="version_pn" Name="Hexadecimal"/>
 </Expressions>
 </States>

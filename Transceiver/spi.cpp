@@ -5,7 +5,7 @@
 */
 INT8U SPI_ExchangeByte(INT8U data){
 	INT8U i,temp;
-	
+	_DINT(); 
 	SCK_0 ;
 	for(i = 0; i < 8; i++){
 		if(data&0x80){
@@ -20,6 +20,7 @@ INT8U SPI_ExchangeByte(INT8U data){
 		if(MISO) temp++;  //MISO
 		SCK_0 ;
 	}
+	_EINT(); 
 	return temp;
 }
 

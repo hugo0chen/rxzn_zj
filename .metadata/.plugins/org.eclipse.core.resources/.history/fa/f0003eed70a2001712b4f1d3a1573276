@@ -1,0 +1,20 @@
+#ifndef PROCESS_H_
+#define PROCESS_H_
+
+#include "define.h"
+#include "tools.h"
+#define BASE_DELAY_TIME  300
+#define MAX_RETRY_TIMES  3
+
+void delay(unsigned long nus);
+void Delay_1ms(void);
+void Delay_nms(unsigned long s);
+
+void RfTransmitPacket(INT8U *buf, INT8U len);
+void UartTransmitPacket(INT8U *buf, INT8U len);
+INT8U process_data_from_node(INT8U*data, INT8U len);
+INT8U process_data_from_host(INT8U* data, INT8U len);
+void send_freq_request_ack(void);
+void transfer_data_to485(void);
+
+#endif 

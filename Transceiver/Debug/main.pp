@@ -13,6 +13,7 @@ main.obj: ../CC1101_REG.h
 main.obj: ../process.h
 main.obj: ../../shared/include/tools.h
 main.obj: ../timer_a.h
+main.obj: ../queue.h
 
 ../main.cpp: 
 D:/ccsv4/tools/compiler/msp430/include/string.h: 
@@ -27,3 +28,4 @@ D:/ccsv4/msp430/include/in430.h:
 ../process.h: 
 ../../shared/include/tools.h: 
 ../timer_a.h: 
+../queue.h: 

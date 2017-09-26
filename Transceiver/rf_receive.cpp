@@ -20,7 +20,7 @@ __interrupt void PORT2_ISR (void)
 			SET_FLG(bRfRcv);	
 		}
 	    RF_GDO2_INT_E;
-	    wireless_communicator_indicate();
+	    //wireless_communicator_indicate();
 	}
 	/*else if(RF_GDO0_INT){
 		RF_GDO0_INT_D;

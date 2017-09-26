@@ -4,6 +4,7 @@
 #include "process.h"
 #include "timer_a.h"
 
+extern INT8U ZJ_Ch ;
 INT8U tx_enable = 0;
 INT8U tx_done = 0;
 const INT8U Channel_Table[MAX_CHANNEL_NUM] = {0x01, 0x05, 0x09, 0x0D, 0x11, 0x15, 0x19, 0x1D, 0x21, 0x25};
@@ -463,10 +464,15 @@ void CC1101ClrRXBuff( void )
 }
 
 INT8U cc1101_set_channel(INT8U ch_num){
+	//CC1101Init();
 	if(ch_num < MAX_CHANNEL_NUM){
 		CC1101SetIdle();
 		CC1101WriteReg(CC1101_CHANNR, Channel_Table[ch_num]);
 		return 1;
+	}
+	else{
+		CC1101SetIdle();
+		CC1101WriteReg(CC1101_CHANNR, Channel_Table[DEFAULT_CH]);
 	}
 	return 0;	
 }
@@ -514,6 +520,7 @@ void CC1101SendPacket( INT8U *txbuffer, INT8U size, TX_DATA_MODE mode )
 	tx_done = 0;
 	Delay_nms(3);
 	CC1101SetTRMode( RX_MODE );
+	
 }
 /*
 ================================================================================
@@ -567,16 +574,20 @@ INPUT    : rxBuffer, A buffer store the received data
 OUTPUT   : 1:received count, 0:no data
 ================================================================================
 */
+#define RX_FIFO_SIZE    32
 #define WIRELESS_PKTLEN 13
-INT8U CC1101RecPacket( INT8U *rxBuffer )
-{
-	INT8U temp_rx_buf[33];
+
+INT8U CC1101RecPacket( INT8U *rxBuffer ){
+	INT8U temp_rx_buf[RX_FIFO_SIZE];
     INT8U status[2];
     INT8U pktLen;
     INT16U addr;
-
-    if ( CC1101GetRXCnt( ) != 0 )
-    {
+	CC1101SetIdle();
+	if(CC1101ReadStatus( CC1101_RXBYTES )&0x80){ //RX OverFlow
+		CC1101ClrRXBuff();
+		return 0;
+	}
+    if ( CC1101GetRXCnt() != 0 ){
         pktLen = CC1101ReadReg(CC1101_RXFIFO);           // Read length byte
 		if( pktLen == 0){
 			return 0; 
@@ -587,21 +598,20 @@ INT8U CC1101RecPacket( INT8U *rxBuffer )
             if(addr != CC1101_ADDRESS){
             		//todo
             }
-			pktLen --; 
+			pktLen--; 
         }
         if(pktLen == WIRELESS_PKTLEN){
-        	CC1101ReadMultiReg(CC1101_RXFIFO, rxBuffer, pktLen); // Pull data
+        	CC1101ReadMultiReg(CC1101_RXFIFO, rxBuffer, WIRELESS_PKTLEN); // Pull data
         }
         else{
+        	if(pktLen < RX_FIFO_SIZE)
         	CC1101ReadMultiReg(CC1101_RXFIFO, temp_rx_buf, pktLen); 
         }
         CC1101ReadMultiReg(CC1101_RXFIFO, status, 2);        // Read  CRC status bytes
-
-        CC1101ClrRXBuff( );
-
+        CC1101ClrRXBuff();
         if( status[1] & CRC_OK ){
        		if(pktLen == WIRELESS_PKTLEN){
-       			return pktLen;
+       			return WIRELESS_PKTLEN;
        		}
        	}
     }
@@ -619,16 +629,16 @@ INT8U CC1101Init( void )
 {
     INT8U version_pn, i;
 
-    CC1101Reset( );    
-    for( i = 0; i < SetNum; i++ )
-    {
+    CC1101Reset();    
+    for( i = 0; i < SetNum; i++ ){
 		CC1101WriteReg( CC1101InitData[i][0], CC1101InitData[i][1] );// 初始化寄存器参数表
     }
-    //CC1101SetAddress( 0x05, BROAD_0AND255 );//初始化device地址，模式为address_check and broadcast 255
-    CC1101SetSYNC( 0x8799 );			// set sync ox8799
-    CC1101WriteReg(CC1101_MDMCFG1,0x72); //Modem Configuration
-
-    CC1101WriteMultiReg(CC1101_PATABLE, PaTabel, 8 );// set the TX power table
+    //初始化device地址，模式为address_check and broadcast 255
+    //CC1101SetAddress( 0x05, BROAD_0AND255 );
+    CC1101SetSYNC( 0x8799 );			
+    CC1101WriteReg(CC1101_MDMCFG1,0x72); 
+	// set the TX power table
+    CC1101WriteMultiReg(CC1101_PATABLE, PaTabel, 8 );
 	//  chip part-number and chip version number
     version_pn = CC1101ReadStatus( CC1101_PARTNUM );//for test, 
     version_pn = CC1101ReadStatus( CC1101_VERSION );//for test, refer to the datasheet
@@ -641,7 +651,6 @@ void init_cc1101(void){
 	init_cc1101_gpio();
 	init_spi();
 	CC1101Init();
-	CC1101SetIdle();
-	cc1101_set_channel(0);
+	//cc1101_set_channel(DEFAULT_CH);
 }
 
