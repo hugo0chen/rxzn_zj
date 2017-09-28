@@ -32,23 +32,25 @@ void Delay_nms(unsigned long s){
 		Delay_1ms();	
 	}	
 }
-
+//len = MSG_LEN - 2
 void RfTransmitPacket(INT8U *buf, INT8U len){
 	INT8U i;
-	INT8U sendBuf[13];
+	INT8U sendBuf[MSG_LEN];
 	
 	wireless_trx_led_on();
 	sendBuf[0] = 0x55;
 	sendBuf[1] = 0xAA;
-	for(i = 0; i < len; i++){
+	for(i = 0; i < len; i++)
+	{
 		sendBuf[i+2] = buf[i];
 	}
  // crc_sum_calc
     sendBuf[len + 1] = 0;
-	for(i = 0; i < (len + 2 - 1); i++){
+	for(i = 0; i < (len + 1); i++)
+	{
 		sendBuf[len + 1] += sendBuf[i];
 	}
-	CC1101SendPacket(sendBuf, len+2, BROADCAST);
+	CC1101SendPacket(sendBuf, (len + 2), BROADCAST, WP1);
 	wireless_trx_led_off();
 }
 
@@ -61,11 +63,11 @@ void UartTransmitPacket(INT8U *buf, INT8U len){
 		UCA0TXBUF = buf[i];
 		timeOut_tick = _local_tickime();
 		while(!(IFG2&UCA0TXIFG)){
-			if(timeout(timeOut_tick, 500)) break;
+			if(timeout(timeOut_tick, 10)) break;
 		};
 		IFG2 &= ~UCA0TXIFG;
 	}
-	Delay_nms(5);
+	Delay_nms(2);
 	UART485_RX_E;
 	uart_trx_led_off();
 }
@@ -84,12 +86,12 @@ void send_freq_request_ack(void){
 	}
 	for(i = 0; i < 2; i++){
 		Delay_nms(20);
-		CC1101SendPacket(freq_ack_buf, MSG_LEN, BROADCAST);
+		CC1101SendPacket(freq_ack_buf, MSG_LEN, BROADCAST, WP1);
 	}
 }
 
 INT8U process_data_from_node(INT8U*data, INT8U len){
-	INT16U crc_sum_check = 0;
+	INT16U crc_sum_check ;
 	INT8U i;
 	INT8U data_to_pc[13] = {0};
 
@@ -99,7 +101,7 @@ INT8U process_data_from_node(INT8U*data, INT8U len){
 	if((data[0] == WIRE_PACKET_HEAD_1)&&(data[1] == WIRE_PACKET_HEAD_2)){
 		// scan freq req 
 		if((data[2] == 0x5A)&&(data[3] == 0x5A)){
-			for( i = 4; i < 13; i++){
+			for( i = 4; i < MSG_LEN; i++){
 				if(data[i] != (i - 3)){
 					break;	
 				}		
@@ -114,23 +116,22 @@ INT8U process_data_from_node(INT8U*data, INT8U len){
 			data_to_pc[1] = 0xcc;
 			data_to_pc[2] = (INT8U)(dev_id >> 8);
 			data_to_pc[3] = (INT8U)(dev_id);
-			for(i = 4; i < 13; i++){
+			for(i = 4; i < MSG_LEN; i++){
 				data_to_pc[i] = data[i];
 			}
-			
-			for(i = 2; i < 12; i++){
+			crc_sum_check = 0;
+			for(i = 4; i < (MSG_LEN - 1); i++){
 				crc_sum_check += data_to_pc[i];
 			}
 			data_to_pc[12] = (INT8U)crc_sum_check;
 			switch(data_to_pc[5]){
-				case 0x34: // 床号配置	
-					enArray(data_to_pc, 13);
-					break;
+				case 0x34: // 床号配置									
 				case 0x30: //start
 				case 0x31: //running				
 				case 0x32: //stop
 				case 0x33: // heartbeat
-					UartTransmitPacket(data_to_pc, 13);
+					enArray(data_to_pc, MSG_LEN);					
+					UartTransmitPacket(data_to_pc, MSG_LEN);
 					break;
 				default:
 					break;				
@@ -146,81 +147,109 @@ INT8U process_data_from_host(INT8U* data, INT8U len){
 	INT8U i;
 	INT16U id;
 	INT8U data_to_flash[3] = {0};
-	INT8U data_to_CZ[11] = {0};
+	INT8U data_to_CZ[MSG_LEN] = {0};
 
 	if(len == 0){
 		return 1;	
 	}
 	if((data[0] == 0x88) && (data[1] == 0xcc))
 	{
-		//sum 不包括帧头
-		for(i = 2; i < (len - 1); i++){
+		//sum 不包括帧头和ZJ_ID
+		for(i = 4; i < (len - 1); i++){
 			crc_sum_check += data[i];
 		}
 		
-		//if(crc_sum_check == data[len - 1])
+		if(crc_sum_check == data[len - 1])
 		{
 			id = data[2];
 			id = (id << 8) + data[3];
 			if((id == 0xfefe) || (dev_id == id))
 			{
-				if(data[5] == FREQ_CH_REG)  //频率配置
-				{			
-					//set cc1101 channel	
-					ZJ_Ch = data[8];
-					cc1101_set_channel(ZJ_Ch);
-					RfTransmitPacket(data_to_CZ, 11);
-					// write flash
-					data_to_flash[0] = 0x55;
-					data_to_flash[1] = data[8];
-					data_to_flash[2] = data[8];
-					WriteFlash(ZJ_PARA_FLASH_ADDR, data_to_flash, 3); 
-					// 回传给上位机
-					data[4] = 0x01; //ack
-					data[5] = 0x11; //cmd
-					data[12] = crc_sum_check + 2;
-					UartTransmitPacket(data, 13);			
-				}
-				if(data[5] == 0x34) //床号配置
-				{
-					if(data[4] == 0)
-					{
-						// 下发给称重器,去掉ZJ dev_id
-						data_to_CZ[0] = data[0];
-						data_to_CZ[1] = data[1];
-						for(i = 2; i < 11; i++){
-							data_to_CZ[i] = data[i+2];
-						}					
+				switch(data[5])  
+				{	
+					case 0x10:	//频率配置	
+						//set cc1101 channel	
+						ZJ_Ch = data[8];
+						cc1101_set_channel(ZJ_Ch, WP1);
 						RfTransmitPacket(data_to_CZ, 11);
+						// write flash
+						data_to_flash[0] = 0x55;
+						data_to_flash[1] = data[8];
+						data_to_flash[2] = data[8];
+						WriteFlash(ZJ_PARA_FLASH_ADDR, data_to_flash, 3); 
 						// 回传给上位机
 						data[4] = 0x01; //ack
-						data[12] = crc_sum_check + 1;
-						UartTransmitPacket(data, 13);
-					}
-					else
-					{
-						_485_send_ack = 1;					
-					}								
+						data[5] = 0x11; //cmd
+						data[12] = crc_sum_check + 2;
+						UartTransmitPacket(data, MSG_LEN);	
+						break;
+					case 0x34://床号配置
+						if(data[4] == 1)
+						{
+							_485_send_ack = 1;
+						}
+						else
+						{
+							// 下发给称重器,去掉ZJ dev_id
+							data_to_CZ[0] = data[0];
+							data_to_CZ[1] = data[1];						
+							for(i = 2; i < 11; i++)
+							{
+								data_to_CZ[i] = data[i+2];
+							}					
+							RfTransmitPacket(data_to_CZ, 11);
+							// 回传给上位机
+							data[4] = 0x01; //ack
+							data[12] = crc_sum_check + 1;
+							UartTransmitPacket(data, MSG_LEN);
+						}
+						break;
+					case 0x30:
+					case 0x31:
+					case 0x32:	
+					case 0x33:
+						if(data[4] == 1)
+						{
+							_485_send_ack = 1;
+						}
+						break;
+					default:
+						break;									
 				}
 			}
 		}
 	}
 	return 0;
 }
+
+void _485_setting_enable(void){
+	_485_send_lock = 0;	
+}
 void send_data_to485(void){
 	UartTransmitPacket(data_buf_to_transfer[0].data, data_buf_to_transfer[0].data_len);
-	_485_send_lock = 0;
+	Schd_After_Int(10, _485_setting_enable);	
 }
 void move_data_buf(void)
 {
 	Rs_485_Node* p1 = data_buf_to_transfer;
 	Rs_485_Node* p2 = data_buf_to_transfer + 1;
 	memmove(p1, p2, sizeof(data_buf_to_transfer) - sizeof(Rs_485_Node));
+	memset(&data_buf_to_transfer[MAX_NODE_NUM -1], 0, sizeof(Rs_485_Node));
 }
 
+INT16U _2index(INT8U index){
+	INT16U ret_val;
+	ret_val = 1;
+	for(INT8U i = 0; i < index; i++){
+		ret_val *= 2;	
+	}
+	return ret_val;
+}
 INT8U transfer_data_to485_(void)
 {
 	unsigned long time_delay;
+	//INT8U print_buf[5];
+	INT8U temp;
 
 	if(data_buf_to_transfer[0].data_len != 0)
 	{
@@ -234,11 +263,19 @@ INT8U transfer_data_to485_(void)
 		}
 		if(_485_send_lock == 1)
 			return 1;
-		UartTransmitPacket(data_buf_to_transfer[0].data, data_buf_to_transfer[0].data_len);
 		_485_send_lock = 1;
 		_485_send_ack = 0;
 		_485_send_retry_times++;
-		time_delay = 100 + rand() % 1000;
+		srand(_local_tickime());
+		temp = (rand() % _2index(_485_send_retry_times));
+		time_delay = (1 + temp)*10;
+		//Delay_nms(10);
+		/*print_buf[0] = (INT8U)(temp);
+		print_buf[1] = (INT8U)(0);
+		print_buf[2] = (INT8U)(time_delay >> 8);
+		print_buf[3] = (INT8U)(time_delay);
+		print_buf[4] = 0x11; */
+		//UartTransmitPacket(print_buf, 5);		
 		Schd_After_Int(time_delay, send_data_to485);
 		return 0;
 	}	

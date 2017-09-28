@@ -10840,3 +10840,830 @@ java.lang.NullPointerException
 	at org.eclipse.core.launcher.Main.basicRun(Main.java:280)
 	at org.eclipse.core.launcher.Main.run(Main.java:996)
 	at org.eclipse.core.launcher.Main.main(Main.java:971)
+!SESSION 2017-09-27 09:40:23.238 -----------------------------------------------
+eclipse.buildId=4.2.0.10018
+java.version=1.5.0_14
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=zh_CN
+Command-line arguments:  -os win32 -ws win32 -arch x86
+
+!ENTRY com.ti.ccstudio.debug.core 4 0 2017-09-27 17:45:44.321
+!MESSAGE An internal error was logged by 'com.ti.ccstudio.debug.core'.
+!STACK 0
+org.eclipse.core.runtime.OperationCanceledException
+	at com.ti.ccstudio.debug.core.licensing.LicenseManager.acquireLicense(LicenseManager.java:60)
+	at com.ti.ccstudio.debug.core.cdi.model.Session.createDebugServer(Session.java:540)
+	at com.ti.ccstudio.debug.core.cdi.model.Session.internalInitializeSession(Session.java:337)
+	at com.ti.ccstudio.debug.core.cdi.model.Session.initializeSession(Session.java:304)
+	at com.ti.ccstudio.debug.core.cdi.model.Debugger.createDebuggerSession(Debugger.java:27)
+	at com.ti.ccstudio.debug.core.launch.BaseCCELaunchDelegate.doLaunch(BaseCCELaunchDelegate.java:321)
+	at com.ti.ccstudio.debug.core.launch.BaseCCELaunchDelegate.launch(BaseCCELaunchDelegate.java:267)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:657)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:583)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:779)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$4.run(DebugUIPlugin.java:835)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:113)
+
+!ENTRY com.ti.ccstudio.debug.core 4 13 2017-09-27 17:45:45.738
+!MESSAGE Failed to load program 'Transceiver.out' on target 'TI MSP430 USB1/MSP430'.
+
+Reason:
+Cannot write to target
+
+!ENTRY com.ti.ccstudio.debug.core 4 0 2017-09-27 18:43:20.097
+!MESSAGE Error: MSP430: Trouble Halting Target CPU: Could not terminate EEM polling thread.
+
+
+!ENTRY com.ti.ccstudio.debug.core 4 0 2017-09-27 18:49:13.098
+!MESSAGE Error: MSP430: Error connecting to the target: Could not find device (or device not supported)
+
+
+!ENTRY com.ti.ccstudio.debug.core 4 0 2017-09-27 19:04:22.831
+!MESSAGE Error: MSP430: Trouble Halting Target CPU: Could not terminate EEM polling thread.
+
+
+!ENTRY com.ti.ccstudio.debug.core 4 0 2017-09-27 19:27:20.470
+!MESSAGE Error: MSP430: Error connecting to the target: Could not find device (or device not supported)
+
+
+!ENTRY org.eclipse.ui.workbench 4 0 2017-09-27 19:44:17.979
+!MESSAGE An unexpected exception was thrown.
+!STACK 0
+java.lang.NullPointerException
+	at org.eclipse.debug.internal.ui.views.launch.LaunchView.disposeActions(LaunchView.java:677)
+	at org.eclipse.debug.internal.ui.views.launch.LaunchView.dispose(LaunchView.java:621)
+	at org.eclipse.ui.internal.WorkbenchPartReference.doDisposePart(WorkbenchPartReference.java:687)
+	at org.eclipse.ui.internal.ViewReference.doDisposePart(ViewReference.java:97)
+	at org.eclipse.ui.internal.WorkbenchPartReference.dispose(WorkbenchPartReference.java:642)
+	at org.eclipse.ui.internal.WorkbenchPage.disposePart(WorkbenchPage.java:1541)
+	at org.eclipse.ui.internal.WorkbenchPage.partRemoved(WorkbenchPage.java:1533)
+	at org.eclipse.ui.internal.ViewFactory.releaseView(ViewFactory.java:252)
+	at org.eclipse.ui.internal.Perspective.dispose(Perspective.java:240)
+	at org.eclipse.ui.internal.WorkbenchPage.dispose(WorkbenchPage.java:1597)
+	at org.eclipse.ui.internal.WorkbenchWindow.closeAllPages(WorkbenchWindow.java:748)
+	at org.eclipse.ui.internal.WorkbenchWindow.hardClose(WorkbenchWindow.java:1499)
+	at org.eclipse.ui.internal.WorkbenchWindow.busyClose(WorkbenchWindow.java:622)
+	at org.eclipse.ui.internal.WorkbenchWindow.access$0(WorkbenchWindow.java:598)
+	at org.eclipse.ui.internal.WorkbenchWindow$2.run(WorkbenchWindow.java:713)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:67)
+	at org.eclipse.ui.internal.WorkbenchWindow.close(WorkbenchWindow.java:711)
+	at org.eclipse.jface.window.WindowManager.close(WindowManager.java:109)
+	at org.eclipse.ui.internal.Workbench$12.run(Workbench.java:712)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:37)
+	at org.eclipse.ui.internal.Workbench.busyClose(Workbench.java:709)
+	at org.eclipse.ui.internal.Workbench.access$8(Workbench.java:639)
+	at org.eclipse.ui.internal.Workbench$14.run(Workbench.java:839)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:67)
+	at org.eclipse.ui.internal.Workbench.close(Workbench.java:837)
+	at org.eclipse.ui.internal.Workbench.close(Workbench.java:812)
+	at org.eclipse.ui.internal.WorkbenchWindow.busyClose(WorkbenchWindow.java:619)
+	at org.eclipse.ui.internal.WorkbenchWindow.access$0(WorkbenchWindow.java:598)
+	at org.eclipse.ui.internal.WorkbenchWindow$2.run(WorkbenchWindow.java:713)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:67)
+	at org.eclipse.ui.internal.WorkbenchWindow.close(WorkbenchWindow.java:711)
+	at org.eclipse.jface.window.Window.handleShellCloseEvent(Window.java:736)
+	at org.eclipse.jface.window.Window$3.shellClosed(Window.java:682)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:159)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:66)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:928)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:952)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:937)
+	at org.eclipse.swt.widgets.Decorations.closeWidget(Decorations.java:257)
+	at org.eclipse.swt.widgets.Decorations.WM_CLOSE(Decorations.java:1606)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:3248)
+	at org.eclipse.swt.widgets.Decorations.windowProc(Decorations.java:1539)
+	at org.eclipse.swt.widgets.Shell.windowProc(Shell.java:1634)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:4025)
+	at org.eclipse.swt.internal.win32.OS.DefWindowProcW(Native Method)
+	at org.eclipse.swt.internal.win32.OS.DefWindowProc(OS.java:1922)
+	at org.eclipse.swt.widgets.Shell.callWindowProc(Shell.java:443)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:3334)
+	at org.eclipse.swt.widgets.Decorations.windowProc(Decorations.java:1539)
+	at org.eclipse.swt.widgets.Shell.windowProc(Shell.java:1634)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:4025)
+	at org.eclipse.swt.internal.win32.OS.DefWindowProcW(Native Method)
+	at org.eclipse.swt.internal.win32.OS.DefWindowProc(OS.java:1922)
+	at org.eclipse.swt.widgets.Shell.callWindowProc(Shell.java:443)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:3334)
+	at org.eclipse.swt.widgets.Decorations.windowProc(Decorations.java:1539)
+	at org.eclipse.swt.widgets.Shell.windowProc(Shell.java:1634)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:4025)
+	at org.eclipse.swt.internal.win32.OS.DispatchMessageW(Native Method)
+	at org.eclipse.swt.internal.win32.OS.DispatchMessage(OS.java:1927)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:2966)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:1914)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:1878)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:419)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.IDEApplication.run(IDEApplication.java:97)
+	at org.eclipse.core.internal.runtime.PlatformActivator$1.run(PlatformActivator.java:78)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:92)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:68)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:400)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:177)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.core.launcher.Main.invokeFramework(Main.java:336)
+	at org.eclipse.core.launcher.Main.basicRun(Main.java:280)
+	at org.eclipse.core.launcher.Main.run(Main.java:996)
+	at org.eclipse.core.launcher.Main.main(Main.java:971)
+!SESSION 2017-09-28 08:45:55.146 -----------------------------------------------
+eclipse.buildId=4.2.0.10018
+java.version=1.5.0_14
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=zh_CN
+Command-line arguments:  -os win32 -ws win32 -arch x86
+
+!ENTRY com.ti.ccstudio.debug.core 4 0 2017-09-28 09:37:29.330
+!MESSAGE Error: MSP430: Error initializing emulator: No USB FET was found
+
+
+!ENTRY org.eclipse.ui.workbench 4 0 2017-09-28 09:41:15.639
+!MESSAGE An unexpected exception was thrown.
+!STACK 0
+java.lang.NullPointerException
+	at org.eclipse.debug.internal.ui.views.launch.LaunchView.disposeActions(LaunchView.java:677)
+	at org.eclipse.debug.internal.ui.views.launch.LaunchView.dispose(LaunchView.java:621)
+	at org.eclipse.ui.internal.WorkbenchPartReference.doDisposePart(WorkbenchPartReference.java:687)
+	at org.eclipse.ui.internal.ViewReference.doDisposePart(ViewReference.java:97)
+	at org.eclipse.ui.internal.WorkbenchPartReference.dispose(WorkbenchPartReference.java:642)
+	at org.eclipse.ui.internal.WorkbenchPage.disposePart(WorkbenchPage.java:1541)
+	at org.eclipse.ui.internal.WorkbenchPage.partRemoved(WorkbenchPage.java:1533)
+	at org.eclipse.ui.internal.ViewFactory.releaseView(ViewFactory.java:252)
+	at org.eclipse.ui.internal.Perspective.dispose(Perspective.java:240)
+	at org.eclipse.ui.internal.WorkbenchPage.dispose(WorkbenchPage.java:1597)
+	at org.eclipse.ui.internal.WorkbenchWindow.closeAllPages(WorkbenchWindow.java:748)
+	at org.eclipse.ui.internal.WorkbenchWindow.hardClose(WorkbenchWindow.java:1499)
+	at org.eclipse.ui.internal.WorkbenchWindow.busyClose(WorkbenchWindow.java:622)
+	at org.eclipse.ui.internal.WorkbenchWindow.access$0(WorkbenchWindow.java:598)
+	at org.eclipse.ui.internal.WorkbenchWindow$2.run(WorkbenchWindow.java:713)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:67)
+	at org.eclipse.ui.internal.WorkbenchWindow.close(WorkbenchWindow.java:711)
+	at org.eclipse.jface.window.WindowManager.close(WindowManager.java:109)
+	at org.eclipse.ui.internal.Workbench$12.run(Workbench.java:712)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:37)
+	at org.eclipse.ui.internal.Workbench.busyClose(Workbench.java:709)
+	at org.eclipse.ui.internal.Workbench.access$8(Workbench.java:639)
+	at org.eclipse.ui.internal.Workbench$14.run(Workbench.java:839)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:67)
+	at org.eclipse.ui.internal.Workbench.close(Workbench.java:837)
+	at org.eclipse.ui.internal.Workbench.close(Workbench.java:812)
+	at org.eclipse.ui.internal.WorkbenchWindow.busyClose(WorkbenchWindow.java:619)
+	at org.eclipse.ui.internal.WorkbenchWindow.access$0(WorkbenchWindow.java:598)
+	at org.eclipse.ui.internal.WorkbenchWindow$2.run(WorkbenchWindow.java:713)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:67)
+	at org.eclipse.ui.internal.WorkbenchWindow.close(WorkbenchWindow.java:711)
+	at org.eclipse.jface.window.Window.handleShellCloseEvent(Window.java:736)
+	at org.eclipse.jface.window.Window$3.shellClosed(Window.java:682)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:159)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:66)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:928)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:952)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:937)
+	at org.eclipse.swt.widgets.Decorations.closeWidget(Decorations.java:257)
+	at org.eclipse.swt.widgets.Decorations.WM_CLOSE(Decorations.java:1606)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:3248)
+	at org.eclipse.swt.widgets.Decorations.windowProc(Decorations.java:1539)
+	at org.eclipse.swt.widgets.Shell.windowProc(Shell.java:1634)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:4025)
+	at org.eclipse.swt.internal.win32.OS.DefWindowProcW(Native Method)
+	at org.eclipse.swt.internal.win32.OS.DefWindowProc(OS.java:1922)
+	at org.eclipse.swt.widgets.Shell.callWindowProc(Shell.java:443)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:3334)
+	at org.eclipse.swt.widgets.Decorations.windowProc(Decorations.java:1539)
+	at org.eclipse.swt.widgets.Shell.windowProc(Shell.java:1634)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:4025)
+	at org.eclipse.swt.internal.win32.OS.DefWindowProcW(Native Method)
+	at org.eclipse.swt.internal.win32.OS.DefWindowProc(OS.java:1922)
+	at org.eclipse.swt.widgets.Shell.callWindowProc(Shell.java:443)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:3334)
+	at org.eclipse.swt.widgets.Decorations.windowProc(Decorations.java:1539)
+	at org.eclipse.swt.widgets.Shell.windowProc(Shell.java:1634)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:4025)
+	at org.eclipse.swt.internal.win32.OS.DispatchMessageW(Native Method)
+	at org.eclipse.swt.internal.win32.OS.DispatchMessage(OS.java:1927)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:2966)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:1914)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:1878)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:419)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.IDEApplication.run(IDEApplication.java:97)
+	at org.eclipse.core.internal.runtime.PlatformActivator$1.run(PlatformActivator.java:78)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:92)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:68)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:400)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:177)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.core.launcher.Main.invokeFramework(Main.java:336)
+	at org.eclipse.core.launcher.Main.basicRun(Main.java:280)
+	at org.eclipse.core.launcher.Main.run(Main.java:996)
+	at org.eclipse.core.launcher.Main.main(Main.java:971)
+!SESSION 2017-09-28 10:13:53.950 -----------------------------------------------
+eclipse.buildId=4.2.0.10018
+java.version=1.5.0_14
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=zh_CN
+Command-line arguments:  -os win32 -ws win32 -arch x86
+
+!ENTRY org.eclipse.core.jobs 4 2 2017-09-28 13:44:51.272
+!MESSAGE An internal error occurred during: "terminate".
+!STACK 0
+org.eclipse.core.runtime.AssertionFailedException: assertion failed: Malformed tree.
+	at org.eclipse.core.runtime.Assert.isTrue(Assert.java:109)
+	at org.eclipse.core.internal.dtree.DeltaDataTree.getChildNodes(DeltaDataTree.java:522)
+	at org.eclipse.core.internal.dtree.DeltaDataTree.getChildren(DeltaDataTree.java:534)
+	at org.eclipse.core.internal.watson.ElementTree.getChildIDs(ElementTree.java:331)
+	at org.eclipse.core.internal.watson.ElementTree.getChildren(ElementTree.java:347)
+	at org.eclipse.core.internal.resources.Container.getChildren(Container.java:91)
+	at org.eclipse.core.internal.resources.WorkspaceRoot.getProjects(WorkspaceRoot.java:187)
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.allPathsForLocation(FileSystemResourceManager.java:57)
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.allResourcesFor(FileSystemResourceManager.java:124)
+	at org.eclipse.core.internal.resources.WorkspaceRoot.findFilesForLocationURI(WorkspaceRoot.java:93)
+	at org.eclipse.core.internal.resources.WorkspaceRoot.findFilesForLocation(WorkspaceRoot.java:84)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.getFile(LaunchConfiguration.java:358)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.getContainer(LaunchConfiguration.java:331)
+	at org.eclipse.debug.internal.core.LaunchConfigurationWorkingCopy.isMoved(LaunchConfigurationWorkingCopy.java:490)
+	at org.eclipse.debug.internal.core.LaunchConfigurationWorkingCopy.getLocation(LaunchConfigurationWorkingCopy.java:454)
+	at org.eclipse.debug.internal.core.LaunchConfigurationWorkingCopy.doSave(LaunchConfigurationWorkingCopy.java:178)
+	at org.eclipse.cdt.debug.internal.core.CGlobalVariableManager.save(CGlobalVariableManager.java:291)
+	at org.eclipse.cdt.debug.internal.core.model.CDebugTarget.saveGlobalVariables(CDebugTarget.java:1571)
+	at org.eclipse.cdt.debug.internal.core.model.CDebugTarget.cleanup(CDebugTarget.java:1103)
+	at com.ti.ccstudio.debug.core.launch.CCEDebugTarget.cleanup(CCEDebugTarget.java:474)
+	at org.eclipse.cdt.debug.internal.core.model.CDebugTarget.terminated(CDebugTarget.java:1065)
+	at org.eclipse.cdt.debug.internal.core.model.CDebugTarget.handleExitedEvent(CDebugTarget.java:1290)
+	at org.eclipse.cdt.debug.internal.core.model.CDebugTarget.handleDebugEvents(CDebugTarget.java:962)
+	at com.ti.ccstudio.debug.core.cdi.model.EventManager.fireEvents(EventManager.java:134)
+	at com.ti.ccstudio.debug.core.cdi.model.Target.terminate(Target.java:574)
+	at com.ti.ccstudio.debug.core.cdi.model.Target.terminate(Target.java:599)
+	at org.eclipse.cdt.debug.internal.core.model.CDebugTarget.terminate(CDebugTarget.java:561)
+	at org.eclipse.debug.core.Launch.terminate(Launch.java:243)
+	at org.eclipse.debug.internal.ui.actions.context.TerminateAdapter$3.run(TerminateAdapter.java:89)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:58)
+
+!ENTRY com.ti.ccstudio.debug.core 4 0 2017-09-28 13:45:09.107
+!MESSAGE Error: MSP430: Trouble Halting Target CPU: Could not terminate EEM polling thread.
+
+
+!ENTRY com.ti.ccstudio.debug.core 4 0 2017-09-28 13:45:09.109
+!MESSAGE Error: MSP430: Trouble Halting Target CPU: Could not terminate EEM polling thread.
+
+
+!ENTRY com.ti.ccstudio.debug.core 4 0 2017-09-28 13:45:14.210
+!MESSAGE Error: MSP430: Trouble Halting Target CPU: Could not terminate EEM polling thread.
+
+
+!ENTRY com.ti.ccstudio.debug.core 4 0 2017-09-28 13:45:14.211
+!MESSAGE Error: MSP430: Trouble Halting Target CPU: Could not terminate EEM polling thread.
+
+
+!ENTRY com.ti.ccstudio.debug.core 4 13 2017-09-28 13:45:14.496
+!MESSAGE Failed to load program 'Transceiver.out' on target 'TI MSP430 USB1/MSP430'.
+
+Reason:
+Cannot write to target
+
+!ENTRY com.ti.ccstudio.debug.core 4 0 2017-09-28 13:45:34.543
+!MESSAGE Error: MSP430: Trouble Halting Target CPU: Could not terminate EEM polling thread.
+
+
+!ENTRY com.ti.ccstudio.debug.core 4 0 2017-09-28 13:45:34.543
+!MESSAGE Error: MSP430: Trouble Halting Target CPU: Could not terminate EEM polling thread.
+
+
+!ENTRY com.ti.ccstudio.debug.core 4 0 2017-09-28 13:45:39.644
+!MESSAGE Error: MSP430: Trouble Halting Target CPU: Could not terminate EEM polling thread.
+
+
+!ENTRY com.ti.ccstudio.debug.core 4 0 2017-09-28 13:45:39.648
+!MESSAGE Error: MSP430: Trouble Halting Target CPU: Could not terminate EEM polling thread.
+
+
+!ENTRY com.ti.ccstudio.debug.core 4 0 2017-09-28 13:46:26.958
+!MESSAGE Error: MSP430: Trouble Halting Target CPU: Could not terminate EEM polling thread.
+
+
+!ENTRY com.ti.ccstudio.debug.core 4 0 2017-09-28 13:46:26.962
+!MESSAGE Error: MSP430: Trouble Halting Target CPU: Could not terminate EEM polling thread.
+
+
+!ENTRY com.ti.ccstudio.debug.core 4 0 2017-09-28 13:46:32.077
+!MESSAGE Error: MSP430: Trouble Halting Target CPU: Could not terminate EEM polling thread.
+
+
+!ENTRY com.ti.ccstudio.debug.core 4 0 2017-09-28 13:46:32.081
+!MESSAGE Error: MSP430: Trouble Halting Target CPU: Could not terminate EEM polling thread.
+
+
+!ENTRY com.ti.ccstudio.debug.core 4 0 2017-09-28 13:48:20.364
+!MESSAGE Error: MSP430: Trouble Halting Target CPU: Could not terminate EEM polling thread.
+
+
+!ENTRY com.ti.ccstudio.debug.core 4 0 2017-09-28 13:48:20.364
+!MESSAGE Error: MSP430: Trouble Halting Target CPU: Could not terminate EEM polling thread.
+
+
+!ENTRY com.ti.ccstudio.debug.core 4 0 2017-09-28 13:48:25.465
+!MESSAGE Error: MSP430: Trouble Halting Target CPU: Could not terminate EEM polling thread.
+
+
+!ENTRY com.ti.ccstudio.debug.core 4 0 2017-09-28 13:48:25.467
+!MESSAGE Error: MSP430: Trouble Halting Target CPU: Could not terminate EEM polling thread.
+
+
+!ENTRY org.eclipse.ui.workbench 4 0 2017-09-28 13:48:43.396
+!MESSAGE An unexpected exception was thrown.
+!STACK 0
+java.lang.NullPointerException
+	at org.eclipse.debug.internal.ui.views.launch.LaunchView.disposeActions(LaunchView.java:677)
+	at org.eclipse.debug.internal.ui.views.launch.LaunchView.dispose(LaunchView.java:621)
+	at org.eclipse.ui.internal.WorkbenchPartReference.doDisposePart(WorkbenchPartReference.java:687)
+	at org.eclipse.ui.internal.ViewReference.doDisposePart(ViewReference.java:97)
+	at org.eclipse.ui.internal.WorkbenchPartReference.dispose(WorkbenchPartReference.java:642)
+	at org.eclipse.ui.internal.WorkbenchPage.disposePart(WorkbenchPage.java:1541)
+	at org.eclipse.ui.internal.WorkbenchPage.partRemoved(WorkbenchPage.java:1533)
+	at org.eclipse.ui.internal.ViewFactory.releaseView(ViewFactory.java:252)
+	at org.eclipse.ui.internal.Perspective.dispose(Perspective.java:240)
+	at org.eclipse.ui.internal.WorkbenchPage.dispose(WorkbenchPage.java:1597)
+	at org.eclipse.ui.internal.WorkbenchWindow.closeAllPages(WorkbenchWindow.java:748)
+	at org.eclipse.ui.internal.WorkbenchWindow.hardClose(WorkbenchWindow.java:1499)
+	at org.eclipse.ui.internal.WorkbenchWindow.busyClose(WorkbenchWindow.java:622)
+	at org.eclipse.ui.internal.WorkbenchWindow.access$0(WorkbenchWindow.java:598)
+	at org.eclipse.ui.internal.WorkbenchWindow$2.run(WorkbenchWindow.java:713)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:67)
+	at org.eclipse.ui.internal.WorkbenchWindow.close(WorkbenchWindow.java:711)
+	at org.eclipse.jface.window.WindowManager.close(WindowManager.java:109)
+	at org.eclipse.ui.internal.Workbench$12.run(Workbench.java:712)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:37)
+	at org.eclipse.ui.internal.Workbench.busyClose(Workbench.java:709)
+	at org.eclipse.ui.internal.Workbench.access$8(Workbench.java:639)
+	at org.eclipse.ui.internal.Workbench$14.run(Workbench.java:839)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:67)
+	at org.eclipse.ui.internal.Workbench.close(Workbench.java:837)
+	at org.eclipse.ui.internal.Workbench.close(Workbench.java:812)
+	at org.eclipse.ui.internal.WorkbenchWindow.busyClose(WorkbenchWindow.java:619)
+	at org.eclipse.ui.internal.WorkbenchWindow.access$0(WorkbenchWindow.java:598)
+	at org.eclipse.ui.internal.WorkbenchWindow$2.run(WorkbenchWindow.java:713)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:67)
+	at org.eclipse.ui.internal.WorkbenchWindow.close(WorkbenchWindow.java:711)
+	at org.eclipse.jface.window.Window.handleShellCloseEvent(Window.java:736)
+	at org.eclipse.jface.window.Window$3.shellClosed(Window.java:682)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:159)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:66)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:928)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:952)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:937)
+	at org.eclipse.swt.widgets.Decorations.closeWidget(Decorations.java:257)
+	at org.eclipse.swt.widgets.Decorations.WM_CLOSE(Decorations.java:1606)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:3248)
+	at org.eclipse.swt.widgets.Decorations.windowProc(Decorations.java:1539)
+	at org.eclipse.swt.widgets.Shell.windowProc(Shell.java:1634)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:4025)
+	at org.eclipse.swt.internal.win32.OS.DefWindowProcW(Native Method)
+	at org.eclipse.swt.internal.win32.OS.DefWindowProc(OS.java:1922)
+	at org.eclipse.swt.widgets.Shell.callWindowProc(Shell.java:443)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:3334)
+	at org.eclipse.swt.widgets.Decorations.windowProc(Decorations.java:1539)
+	at org.eclipse.swt.widgets.Shell.windowProc(Shell.java:1634)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:4025)
+	at org.eclipse.swt.internal.win32.OS.DefWindowProcW(Native Method)
+	at org.eclipse.swt.internal.win32.OS.DefWindowProc(OS.java:1922)
+	at org.eclipse.swt.widgets.Shell.callWindowProc(Shell.java:443)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:3334)
+	at org.eclipse.swt.widgets.Decorations.windowProc(Decorations.java:1539)
+	at org.eclipse.swt.widgets.Shell.windowProc(Shell.java:1634)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:4025)
+	at org.eclipse.swt.internal.win32.OS.DispatchMessageW(Native Method)
+	at org.eclipse.swt.internal.win32.OS.DispatchMessage(OS.java:1927)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:2966)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:1914)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:1878)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:419)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.IDEApplication.run(IDEApplication.java:97)
+	at org.eclipse.core.internal.runtime.PlatformActivator$1.run(PlatformActivator.java:78)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:92)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:68)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:400)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:177)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.core.launcher.Main.invokeFramework(Main.java:336)
+	at org.eclipse.core.launcher.Main.basicRun(Main.java:280)
+	at org.eclipse.core.launcher.Main.run(Main.java:996)
+	at org.eclipse.core.launcher.Main.main(Main.java:971)
+!SESSION 2017-09-28 13:49:04.349 -----------------------------------------------
+eclipse.buildId=4.2.0.10018
+java.version=1.5.0_14
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=zh_CN
+Command-line arguments:  -os win32 -ws win32 -arch x86
+
+!ENTRY org.eclipse.ui.workbench 4 0 2017-09-28 14:15:22.026
+!MESSAGE An unexpected exception was thrown.
+!STACK 0
+java.lang.NullPointerException
+	at org.eclipse.debug.internal.ui.views.launch.LaunchView.disposeActions(LaunchView.java:677)
+	at org.eclipse.debug.internal.ui.views.launch.LaunchView.dispose(LaunchView.java:621)
+	at org.eclipse.ui.internal.WorkbenchPartReference.doDisposePart(WorkbenchPartReference.java:687)
+	at org.eclipse.ui.internal.ViewReference.doDisposePart(ViewReference.java:97)
+	at org.eclipse.ui.internal.WorkbenchPartReference.dispose(WorkbenchPartReference.java:642)
+	at org.eclipse.ui.internal.WorkbenchPage.disposePart(WorkbenchPage.java:1541)
+	at org.eclipse.ui.internal.WorkbenchPage.partRemoved(WorkbenchPage.java:1533)
+	at org.eclipse.ui.internal.ViewFactory.releaseView(ViewFactory.java:252)
+	at org.eclipse.ui.internal.Perspective.dispose(Perspective.java:240)
+	at org.eclipse.ui.internal.WorkbenchPage.dispose(WorkbenchPage.java:1597)
+	at org.eclipse.ui.internal.WorkbenchWindow.closeAllPages(WorkbenchWindow.java:748)
+	at org.eclipse.ui.internal.WorkbenchWindow.hardClose(WorkbenchWindow.java:1499)
+	at org.eclipse.ui.internal.WorkbenchWindow.busyClose(WorkbenchWindow.java:622)
+	at org.eclipse.ui.internal.WorkbenchWindow.access$0(WorkbenchWindow.java:598)
+	at org.eclipse.ui.internal.WorkbenchWindow$2.run(WorkbenchWindow.java:713)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:67)
+	at org.eclipse.ui.internal.WorkbenchWindow.close(WorkbenchWindow.java:711)
+	at org.eclipse.jface.window.WindowManager.close(WindowManager.java:109)
+	at org.eclipse.ui.internal.Workbench$12.run(Workbench.java:712)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:37)
+	at org.eclipse.ui.internal.Workbench.busyClose(Workbench.java:709)
+	at org.eclipse.ui.internal.Workbench.access$8(Workbench.java:639)
+	at org.eclipse.ui.internal.Workbench$14.run(Workbench.java:839)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:67)
+	at org.eclipse.ui.internal.Workbench.close(Workbench.java:837)
+	at org.eclipse.ui.internal.Workbench.close(Workbench.java:812)
+	at org.eclipse.ui.internal.WorkbenchWindow.busyClose(WorkbenchWindow.java:619)
+	at org.eclipse.ui.internal.WorkbenchWindow.access$0(WorkbenchWindow.java:598)
+	at org.eclipse.ui.internal.WorkbenchWindow$2.run(WorkbenchWindow.java:713)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:67)
+	at org.eclipse.ui.internal.WorkbenchWindow.close(WorkbenchWindow.java:711)
+	at org.eclipse.jface.window.Window.handleShellCloseEvent(Window.java:736)
+	at org.eclipse.jface.window.Window$3.shellClosed(Window.java:682)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:159)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:66)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:928)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:952)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:937)
+	at org.eclipse.swt.widgets.Decorations.closeWidget(Decorations.java:257)
+	at org.eclipse.swt.widgets.Decorations.WM_CLOSE(Decorations.java:1606)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:3248)
+	at org.eclipse.swt.widgets.Decorations.windowProc(Decorations.java:1539)
+	at org.eclipse.swt.widgets.Shell.windowProc(Shell.java:1634)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:4025)
+	at org.eclipse.swt.internal.win32.OS.DefWindowProcW(Native Method)
+	at org.eclipse.swt.internal.win32.OS.DefWindowProc(OS.java:1922)
+	at org.eclipse.swt.widgets.Shell.callWindowProc(Shell.java:443)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:3334)
+	at org.eclipse.swt.widgets.Decorations.windowProc(Decorations.java:1539)
+	at org.eclipse.swt.widgets.Shell.windowProc(Shell.java:1634)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:4025)
+	at org.eclipse.swt.internal.win32.OS.DefWindowProcW(Native Method)
+	at org.eclipse.swt.internal.win32.OS.DefWindowProc(OS.java:1922)
+	at org.eclipse.swt.widgets.Shell.callWindowProc(Shell.java:443)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:3334)
+	at org.eclipse.swt.widgets.Decorations.windowProc(Decorations.java:1539)
+	at org.eclipse.swt.widgets.Shell.windowProc(Shell.java:1634)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:4025)
+	at org.eclipse.swt.internal.win32.OS.DispatchMessageW(Native Method)
+	at org.eclipse.swt.internal.win32.OS.DispatchMessage(OS.java:1927)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:2966)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:1914)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:1878)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:419)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.IDEApplication.run(IDEApplication.java:97)
+	at org.eclipse.core.internal.runtime.PlatformActivator$1.run(PlatformActivator.java:78)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:92)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:68)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:400)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:177)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.core.launcher.Main.invokeFramework(Main.java:336)
+	at org.eclipse.core.launcher.Main.basicRun(Main.java:280)
+	at org.eclipse.core.launcher.Main.run(Main.java:996)
+	at org.eclipse.core.launcher.Main.main(Main.java:971)
+!SESSION 2017-09-28 14:18:51.821 -----------------------------------------------
+eclipse.buildId=4.2.0.10018
+java.version=1.5.0_14
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=zh_CN
+Command-line arguments:  -os win32 -ws win32 -arch x86
+
+!ENTRY com.ti.ccstudio.debug.core 4 104 2017-09-28 15:22:36.486
+!MESSAGE Program file does not exist
+!STACK 0
+java.io.FileNotFoundException: C:\Users\hugo\Desktop\2cc1101\Transceiver\Debug\Transceiver.out not found
+	at org.eclipse.cdt.launch.AbstractCLaunchDelegate.verifyProgramPath(AbstractCLaunchDelegate.java:370)
+	at com.ti.ccstudio.debug.core.launch.BaseCCELaunchDelegate.doLaunch(BaseCCELaunchDelegate.java:295)
+	at com.ti.ccstudio.debug.core.launch.BaseCCELaunchDelegate.launch(BaseCCELaunchDelegate.java:267)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:657)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:583)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:779)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$4.run(DebugUIPlugin.java:835)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:113)
+!SUBENTRY 1 com.ti.ccstudio.debug.core 4 104 2017-09-28 15:22:36.486
+!MESSAGE C:\Users\hugo\Desktop\2cc1101\Transceiver\Debug\Transceiver.out not found
+!STACK 0
+java.io.FileNotFoundException: C:\Users\hugo\Desktop\2cc1101\Transceiver\Debug\Transceiver.out not found
+	at org.eclipse.cdt.launch.AbstractCLaunchDelegate.verifyProgramPath(AbstractCLaunchDelegate.java:370)
+	at com.ti.ccstudio.debug.core.launch.BaseCCELaunchDelegate.doLaunch(BaseCCELaunchDelegate.java:295)
+	at com.ti.ccstudio.debug.core.launch.BaseCCELaunchDelegate.launch(BaseCCELaunchDelegate.java:267)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:657)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:583)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:779)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$4.run(DebugUIPlugin.java:835)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:113)
+
+!ENTRY com.ti.ccstudio.debug.core 4 104 2017-09-28 15:22:45.031
+!MESSAGE Program file does not exist
+!STACK 0
+java.io.FileNotFoundException: C:\Users\hugo\Desktop\2cc1101\Transceiver\Debug\Transceiver.out not found
+	at org.eclipse.cdt.launch.AbstractCLaunchDelegate.verifyProgramPath(AbstractCLaunchDelegate.java:370)
+	at com.ti.ccstudio.debug.core.launch.BaseCCELaunchDelegate.doLaunch(BaseCCELaunchDelegate.java:295)
+	at com.ti.ccstudio.debug.core.launch.BaseCCELaunchDelegate.launch(BaseCCELaunchDelegate.java:267)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:657)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:583)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:779)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$4.run(DebugUIPlugin.java:835)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:113)
+!SUBENTRY 1 com.ti.ccstudio.debug.core 4 104 2017-09-28 15:22:45.031
+!MESSAGE C:\Users\hugo\Desktop\2cc1101\Transceiver\Debug\Transceiver.out not found
+!STACK 0
+java.io.FileNotFoundException: C:\Users\hugo\Desktop\2cc1101\Transceiver\Debug\Transceiver.out not found
+	at org.eclipse.cdt.launch.AbstractCLaunchDelegate.verifyProgramPath(AbstractCLaunchDelegate.java:370)
+	at com.ti.ccstudio.debug.core.launch.BaseCCELaunchDelegate.doLaunch(BaseCCELaunchDelegate.java:295)
+	at com.ti.ccstudio.debug.core.launch.BaseCCELaunchDelegate.launch(BaseCCELaunchDelegate.java:267)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:657)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:583)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:779)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$4.run(DebugUIPlugin.java:835)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:113)
+
+!ENTRY com.ti.ccstudio.debug.core 4 104 2017-09-28 15:23:03.681
+!MESSAGE Program file does not exist
+!STACK 0
+java.io.FileNotFoundException: C:\Users\hugo\Desktop\2cc1101\Transceiver\Debug\Transceiver.out not found
+	at org.eclipse.cdt.launch.AbstractCLaunchDelegate.verifyProgramPath(AbstractCLaunchDelegate.java:370)
+	at com.ti.ccstudio.debug.core.launch.BaseCCELaunchDelegate.doLaunch(BaseCCELaunchDelegate.java:295)
+	at com.ti.ccstudio.debug.core.launch.BaseCCELaunchDelegate.launch(BaseCCELaunchDelegate.java:267)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:657)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:583)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:779)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$4.run(DebugUIPlugin.java:835)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:113)
+!SUBENTRY 1 com.ti.ccstudio.debug.core 4 104 2017-09-28 15:23:03.681
+!MESSAGE C:\Users\hugo\Desktop\2cc1101\Transceiver\Debug\Transceiver.out not found
+!STACK 0
+java.io.FileNotFoundException: C:\Users\hugo\Desktop\2cc1101\Transceiver\Debug\Transceiver.out not found
+	at org.eclipse.cdt.launch.AbstractCLaunchDelegate.verifyProgramPath(AbstractCLaunchDelegate.java:370)
+	at com.ti.ccstudio.debug.core.launch.BaseCCELaunchDelegate.doLaunch(BaseCCELaunchDelegate.java:295)
+	at com.ti.ccstudio.debug.core.launch.BaseCCELaunchDelegate.launch(BaseCCELaunchDelegate.java:267)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:657)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:583)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:779)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$4.run(DebugUIPlugin.java:835)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:113)
+
+!ENTRY org.eclipse.ui.workbench 4 0 2017-09-28 15:23:05.905
+!MESSAGE An unexpected exception was thrown.
+!STACK 0
+java.lang.NullPointerException
+	at org.eclipse.debug.internal.ui.views.launch.LaunchView.disposeActions(LaunchView.java:677)
+	at org.eclipse.debug.internal.ui.views.launch.LaunchView.dispose(LaunchView.java:621)
+	at org.eclipse.ui.internal.WorkbenchPartReference.doDisposePart(WorkbenchPartReference.java:687)
+	at org.eclipse.ui.internal.ViewReference.doDisposePart(ViewReference.java:97)
+	at org.eclipse.ui.internal.WorkbenchPartReference.dispose(WorkbenchPartReference.java:642)
+	at org.eclipse.ui.internal.WorkbenchPage.disposePart(WorkbenchPage.java:1541)
+	at org.eclipse.ui.internal.WorkbenchPage.partRemoved(WorkbenchPage.java:1533)
+	at org.eclipse.ui.internal.ViewFactory.releaseView(ViewFactory.java:252)
+	at org.eclipse.ui.internal.Perspective.dispose(Perspective.java:240)
+	at org.eclipse.ui.internal.WorkbenchPage.dispose(WorkbenchPage.java:1597)
+	at org.eclipse.ui.internal.WorkbenchWindow.closeAllPages(WorkbenchWindow.java:748)
+	at org.eclipse.ui.internal.WorkbenchWindow.hardClose(WorkbenchWindow.java:1499)
+	at org.eclipse.ui.internal.WorkbenchWindow.busyClose(WorkbenchWindow.java:622)
+	at org.eclipse.ui.internal.WorkbenchWindow.access$0(WorkbenchWindow.java:598)
+	at org.eclipse.ui.internal.WorkbenchWindow$2.run(WorkbenchWindow.java:713)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:67)
+	at org.eclipse.ui.internal.WorkbenchWindow.close(WorkbenchWindow.java:711)
+	at org.eclipse.jface.window.WindowManager.close(WindowManager.java:109)
+	at org.eclipse.ui.internal.Workbench$12.run(Workbench.java:712)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:37)
+	at org.eclipse.ui.internal.Workbench.busyClose(Workbench.java:709)
+	at org.eclipse.ui.internal.Workbench.access$8(Workbench.java:639)
+	at org.eclipse.ui.internal.Workbench$14.run(Workbench.java:839)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:67)
+	at org.eclipse.ui.internal.Workbench.close(Workbench.java:837)
+	at org.eclipse.ui.internal.Workbench.close(Workbench.java:812)
+	at org.eclipse.ui.internal.WorkbenchWindow.busyClose(WorkbenchWindow.java:619)
+	at org.eclipse.ui.internal.WorkbenchWindow.access$0(WorkbenchWindow.java:598)
+	at org.eclipse.ui.internal.WorkbenchWindow$2.run(WorkbenchWindow.java:713)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:67)
+	at org.eclipse.ui.internal.WorkbenchWindow.close(WorkbenchWindow.java:711)
+	at org.eclipse.jface.window.Window.handleShellCloseEvent(Window.java:736)
+	at org.eclipse.jface.window.Window$3.shellClosed(Window.java:682)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:159)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:66)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:928)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:952)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:937)
+	at org.eclipse.swt.widgets.Decorations.closeWidget(Decorations.java:257)
+	at org.eclipse.swt.widgets.Decorations.WM_CLOSE(Decorations.java:1606)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:3248)
+	at org.eclipse.swt.widgets.Decorations.windowProc(Decorations.java:1539)
+	at org.eclipse.swt.widgets.Shell.windowProc(Shell.java:1634)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:4025)
+	at org.eclipse.swt.internal.win32.OS.DefWindowProcW(Native Method)
+	at org.eclipse.swt.internal.win32.OS.DefWindowProc(OS.java:1922)
+	at org.eclipse.swt.widgets.Shell.callWindowProc(Shell.java:443)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:3334)
+	at org.eclipse.swt.widgets.Decorations.windowProc(Decorations.java:1539)
+	at org.eclipse.swt.widgets.Shell.windowProc(Shell.java:1634)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:4025)
+	at org.eclipse.swt.internal.win32.OS.DefWindowProcW(Native Method)
+	at org.eclipse.swt.internal.win32.OS.DefWindowProc(OS.java:1922)
+	at org.eclipse.swt.widgets.Shell.callWindowProc(Shell.java:443)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:3334)
+	at org.eclipse.swt.widgets.Decorations.windowProc(Decorations.java:1539)
+	at org.eclipse.swt.widgets.Shell.windowProc(Shell.java:1634)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:4025)
+	at org.eclipse.swt.internal.win32.OS.DispatchMessageW(Native Method)
+	at org.eclipse.swt.internal.win32.OS.DispatchMessage(OS.java:1927)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:2966)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:1914)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:1878)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:419)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.IDEApplication.run(IDEApplication.java:97)
+	at org.eclipse.core.internal.runtime.PlatformActivator$1.run(PlatformActivator.java:78)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:92)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:68)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:400)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:177)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.core.launcher.Main.invokeFramework(Main.java:336)
+	at org.eclipse.core.launcher.Main.basicRun(Main.java:280)
+	at org.eclipse.core.launcher.Main.run(Main.java:996)
+	at org.eclipse.core.launcher.Main.main(Main.java:971)
+!SESSION 2017-09-28 15:23:10.672 -----------------------------------------------
+eclipse.buildId=4.2.0.10018
+java.version=1.5.0_14
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=zh_CN
+Command-line arguments:  -os win32 -ws win32 -arch x86
+
+!ENTRY org.eclipse.ui 4 0 2017-09-28 15:43:17.124
+!MESSAGE Unable to create editor ID org.eclipse.cdt.ui.editor.ExternalSearchEditor: java.io.FileNotFoundException: C:\Users\hugo\Desktop\multi_product\Transceiver\timer_a.cpp (系统找不到指定的路径。)
+!STACK 0
+java.io.FileNotFoundException: C:\Users\hugo\Desktop\multi_product\Transceiver\timer_a.cpp (系统找不到指定的路径。)
+	at java.io.FileInputStream.open(Native Method)
+	at java.io.FileInputStream.<init>(Unknown Source)
+	at org.eclipse.cdt.core.resources.FileStorage.getContents(FileStorage.java:38)
+	at org.eclipse.ui.editors.text.StorageDocumentProvider.setDocumentContent(StorageDocumentProvider.java:191)
+	at org.eclipse.ui.editors.text.FileDocumentProvider.setDocumentContent(FileDocumentProvider.java:426)
+	at org.eclipse.ui.editors.text.StorageDocumentProvider.createDocument(StorageDocumentProvider.java:228)
+	at org.eclipse.cdt.internal.ui.editor.ExternalSearchDocumentProvider.createDocument(ExternalSearchDocumentProvider.java:86)
+	at org.eclipse.cdt.internal.ui.editor.ExternalSearchDocumentProvider.createElementInfo(ExternalSearchDocumentProvider.java:40)
+	at org.eclipse.ui.texteditor.AbstractDocumentProvider.connect(AbstractDocumentProvider.java:398)
+	at org.eclipse.ui.texteditor.AbstractTextEditor.doSetInput(AbstractTextEditor.java:3077)
+	at org.eclipse.ui.texteditor.StatusTextEditor.doSetInput(StatusTextEditor.java:173)
+	at org.eclipse.ui.texteditor.AbstractDecoratedTextEditor.doSetInput(AbstractDecoratedTextEditor.java:1513)
+	at org.eclipse.ui.editors.text.TextEditor.doSetInput(TextEditor.java:182)
+	at org.eclipse.cdt.internal.ui.editor.CEditor.doSetInput(CEditor.java:252)
+	at org.eclipse.ui.texteditor.AbstractTextEditor$17.run(AbstractTextEditor.java:2410)
+	at org.eclipse.jface.operation.ModalContext.runInCurrentThread(ModalContext.java:369)
+	at org.eclipse.jface.operation.ModalContext.run(ModalContext.java:313)
+	at org.eclipse.jface.window.ApplicationWindow$1.run(ApplicationWindow.java:763)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:67)
+	at org.eclipse.jface.window.ApplicationWindow.run(ApplicationWindow.java:760)
+	at org.eclipse.ui.internal.WorkbenchWindow.run(WorkbenchWindow.java:2296)
+	at org.eclipse.ui.texteditor.AbstractTextEditor.internalInit(AbstractTextEditor.java:2428)
+	at org.eclipse.ui.texteditor.AbstractTextEditor.init(AbstractTextEditor.java:2455)
+	at org.eclipse.ui.internal.EditorManager.createSite(EditorManager.java:839)
+	at org.eclipse.ui.internal.EditorReference.createPartHelper(EditorReference.java:583)
+	at org.eclipse.ui.internal.EditorReference.createPart(EditorReference.java:372)
+	at org.eclipse.ui.internal.WorkbenchPartReference.getPart(WorkbenchPartReference.java:566)
+	at org.eclipse.ui.internal.EditorReference.getEditor(EditorReference.java:214)
+	at org.eclipse.ui.internal.WorkbenchPage.busyOpenEditorBatched(WorkbenchPage.java:2588)
+	at org.eclipse.ui.internal.WorkbenchPage.busyOpenEditor(WorkbenchPage.java:2521)
+	at org.eclipse.ui.internal.WorkbenchPage.access$10(WorkbenchPage.java:2513)
+	at org.eclipse.ui.internal.WorkbenchPage$9.run(WorkbenchPage.java:2498)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:67)
+	at org.eclipse.ui.internal.WorkbenchPage.openEditor(WorkbenchPage.java:2493)
+	at org.eclipse.ui.internal.WorkbenchPage.openEditor(WorkbenchPage.java:2470)
+	at org.eclipse.cdt.internal.ui.search.actions.SelectionParseAction.open(SelectionParseAction.java:548)
+	at org.eclipse.cdt.internal.ui.search.actions.OpenDefinitionAction$Runner$1.run(OpenDefinitionAction.java:76)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:123)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:3325)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:2971)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:1914)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:1878)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:419)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.IDEApplication.run(IDEApplication.java:97)
+	at org.eclipse.core.internal.runtime.PlatformActivator$1.run(PlatformActivator.java:78)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:92)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:68)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:400)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:177)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.core.launcher.Main.invokeFramework(Main.java:336)
+	at org.eclipse.core.launcher.Main.basicRun(Main.java:280)
+	at org.eclipse.core.launcher.Main.run(Main.java:996)
+	at org.eclipse.core.launcher.Main.main(Main.java:971)
+
+!ENTRY org.eclipse.ui.workbench 4 0 2017-09-28 17:15:58.293
+!MESSAGE An unexpected exception was thrown.
+!STACK 0
+java.lang.NullPointerException
+	at org.eclipse.debug.internal.ui.views.launch.LaunchView.disposeActions(LaunchView.java:677)
+	at org.eclipse.debug.internal.ui.views.launch.LaunchView.dispose(LaunchView.java:621)
+	at org.eclipse.ui.internal.WorkbenchPartReference.doDisposePart(WorkbenchPartReference.java:687)
+	at org.eclipse.ui.internal.ViewReference.doDisposePart(ViewReference.java:97)
+	at org.eclipse.ui.internal.WorkbenchPartReference.dispose(WorkbenchPartReference.java:642)
+	at org.eclipse.ui.internal.WorkbenchPage.disposePart(WorkbenchPage.java:1541)
+	at org.eclipse.ui.internal.WorkbenchPage.partRemoved(WorkbenchPage.java:1533)
+	at org.eclipse.ui.internal.ViewFactory.releaseView(ViewFactory.java:252)
+	at org.eclipse.ui.internal.Perspective.dispose(Perspective.java:240)
+	at org.eclipse.ui.internal.WorkbenchPage.dispose(WorkbenchPage.java:1597)
+	at org.eclipse.ui.internal.WorkbenchWindow.closeAllPages(WorkbenchWindow.java:748)
+	at org.eclipse.ui.internal.WorkbenchWindow.hardClose(WorkbenchWindow.java:1499)
+	at org.eclipse.ui.internal.WorkbenchWindow.busyClose(WorkbenchWindow.java:622)
+	at org.eclipse.ui.internal.WorkbenchWindow.access$0(WorkbenchWindow.java:598)
+	at org.eclipse.ui.internal.WorkbenchWindow$2.run(WorkbenchWindow.java:713)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:67)
+	at org.eclipse.ui.internal.WorkbenchWindow.close(WorkbenchWindow.java:711)
+	at org.eclipse.jface.window.WindowManager.close(WindowManager.java:109)
+	at org.eclipse.ui.internal.Workbench$12.run(Workbench.java:712)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:37)
+	at org.eclipse.ui.internal.Workbench.busyClose(Workbench.java:709)
+	at org.eclipse.ui.internal.Workbench.access$8(Workbench.java:639)
+	at org.eclipse.ui.internal.Workbench$14.run(Workbench.java:839)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:67)
+	at org.eclipse.ui.internal.Workbench.close(Workbench.java:837)
+	at org.eclipse.ui.internal.Workbench.close(Workbench.java:812)
+	at org.eclipse.ui.internal.WorkbenchWindow.busyClose(WorkbenchWindow.java:619)
+	at org.eclipse.ui.internal.WorkbenchWindow.access$0(WorkbenchWindow.java:598)
+	at org.eclipse.ui.internal.WorkbenchWindow$2.run(WorkbenchWindow.java:713)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:67)
+	at org.eclipse.ui.internal.WorkbenchWindow.close(WorkbenchWindow.java:711)
+	at org.eclipse.jface.window.Window.handleShellCloseEvent(Window.java:736)
+	at org.eclipse.jface.window.Window$3.shellClosed(Window.java:682)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:159)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:66)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:928)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:952)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:937)
+	at org.eclipse.swt.widgets.Decorations.closeWidget(Decorations.java:257)
+	at org.eclipse.swt.widgets.Decorations.WM_CLOSE(Decorations.java:1606)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:3248)
+	at org.eclipse.swt.widgets.Decorations.windowProc(Decorations.java:1539)
+	at org.eclipse.swt.widgets.Shell.windowProc(Shell.java:1634)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:4025)
+	at org.eclipse.swt.internal.win32.OS.DefWindowProcW(Native Method)
+	at org.eclipse.swt.internal.win32.OS.DefWindowProc(OS.java:1922)
+	at org.eclipse.swt.widgets.Shell.callWindowProc(Shell.java:443)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:3334)
+	at org.eclipse.swt.widgets.Decorations.windowProc(Decorations.java:1539)
+	at org.eclipse.swt.widgets.Shell.windowProc(Shell.java:1634)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:4025)
+	at org.eclipse.swt.internal.win32.OS.DefWindowProcW(Native Method)
+	at org.eclipse.swt.internal.win32.OS.DefWindowProc(OS.java:1922)
+	at org.eclipse.swt.widgets.Shell.callWindowProc(Shell.java:443)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:3334)
+	at org.eclipse.swt.widgets.Decorations.windowProc(Decorations.java:1539)
+	at org.eclipse.swt.widgets.Shell.windowProc(Shell.java:1634)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:4025)
+	at org.eclipse.swt.internal.win32.OS.DispatchMessageW(Native Method)
+	at org.eclipse.swt.internal.win32.OS.DispatchMessage(OS.java:1927)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:2966)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:1914)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:1878)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:419)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.IDEApplication.run(IDEApplication.java:97)
+	at org.eclipse.core.internal.runtime.PlatformActivator$1.run(PlatformActivator.java:78)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:92)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:68)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:400)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:177)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.core.launcher.Main.invokeFramework(Main.java:336)
+	at org.eclipse.core.launcher.Main.basicRun(Main.java:280)
+	at org.eclipse.core.launcher.Main.run(Main.java:996)
+	at org.eclipse.core.launcher.Main.main(Main.java:971)

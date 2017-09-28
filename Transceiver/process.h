@@ -3,8 +3,8 @@
 
 #include "define.h"
 #include "tools.h"
-#define BASE_DELAY_TIME  300
-#define MAX_RETRY_TIMES  3
+
+#define MAX_RETRY_TIMES  10
 
 void delay(unsigned long nus);
 void Delay_1ms(void);

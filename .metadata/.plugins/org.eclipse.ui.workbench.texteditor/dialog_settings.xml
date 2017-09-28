@@ -8,18 +8,18 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="485_send_lock"/>
+		<item key="selection" value="_schd_last_microsecond"/>
 		<item key="wrap" value="false"/>
 		<item key="casesensitive" value="false"/>
 		<list key="findhistory">
-			<item value="485_send_lock"/>
+			<item value="_schd_last_microsecond"/>
+			<item value="enArray"/>
+			<item value="RfTransmitPacket"/>
+			<item value="CC1101SendPacket"/>
 			<item value="UartTransmitPacket"/>
+			<item value="13"/>
+			<item value="485_send_lock"/>
 			<item value="_gdsl_list_remove"/>
-			<item value="RST_FROM_OFIFG"/>
-			<item value="flash"/>
-			<item value="process_data_from_node"/>
-			<item value="mem"/>
-			<item value="sizeof"/>
 		</list>
 		<list key="replacehistory">
 			<item value="Delay_nms"/>

@@ -25,10 +25,10 @@ struct SchdItem {
 };
 
 struct SchdItem _schd_items[MAX_SCHD_ITEMS] = {{0,0},{0,0},{0,0},{0,0}};
-int _schd_last_microsecond = 0;
+ulong _schd_last_microsecond = 0;
 
 int Schd_After_Int(ulong microsecond, SchdCallback callback) {
-	int idx = 0;
+	INT8U idx = 0;
 	for (idx = 0; idx < MAX_SCHD_ITEMS; ++idx) {
 		if (_schd_items[idx].timeout_microsecond == 0) {
 			_schd_items[idx].timeout_microsecond = _schd_last_microsecond
@@ -41,14 +41,16 @@ int Schd_After_Int(ulong microsecond, SchdCallback callback) {
 }
 
 void Schd_Run(ulong current_microsecond) {
-	int idx = 0;
+	INT8U idx = 0;
 	_schd_last_microsecond = current_microsecond;
 
 	for (idx = 0; idx < MAX_SCHD_ITEMS; ++idx) {
 		if (_schd_items[idx].timeout_microsecond > 0){
-			if((current_microsecond - _schd_items[idx].timeout_microsecond) > 0) {
-				_schd_items[idx].callback();
-				_schd_items[idx].timeout_microsecond = 0;
+			if(current_microsecond > _schd_items[idx].timeout_microsecond){
+				if((current_microsecond - _schd_items[idx].timeout_microsecond) > 0) {
+					_schd_items[idx].callback();
+					_schd_items[idx].timeout_microsecond = 0;
+				}
 			}
 		}
 	}

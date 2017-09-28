@@ -19,14 +19,29 @@ __interrupt void PORT2_ISR (void)
 		else{
 			SET_FLG(bRfRcv);	
 		}
-	    RF_GDO2_INT_E;
-	    //wireless_communicator_indicate();
+	    RF_GDO2_INT_E;	   
 	}
 	/*else if(RF_GDO0_INT){
 		RF_GDO0_INT_D;
 		RF_GDO0_INT_C;
 		SET_FLG(bRfRcv);
-	    RF_GDO0_INT_E;
-	    wireless_communicator_indicate();
+	    RF_GDO0_INT_E;	  
+	}*/
+	if(RF_2_GDO2_INT){
+		RF_2_GDO2_INT_D;
+		RF_2_GDO2_INT_C;
+		if(tx_enable == 1){
+			tx_done = 1;	
+		}
+		else{
+			SET_FLG(bRfRcv);	
+		}
+	    RF_2_GDO2_INT_E;
+	}
+	/*else if(RF_GDO0_INT){
+		RF_GDO0_INT_D;
+		RF_GDO0_INT_C;
+		SET_FLG(bRfRcv);
+	    RF_GDO0_INT_E;	  
 	}*/
 }

@@ -8,7 +8,6 @@
 #include "timer_a.h"
 #include "queue.h"
 
-
 INT8U   bRfRcv           = 0;
 INT8U   bRfSend          = 0;
 INT8U wireless_rxbuf[32];
@@ -16,8 +15,8 @@ INT8U wireless_rxlen;
 INT8U data_from_host[MAX_DATA_SIZE];
 INT8U data_from_host_len;
 extern INT8U usart_rx_success;
-INT8U ZJ_Ch = DEFAULT_CH; 
-INT16U dev_id = 0;
+INT8U ZJ_Ch     = DEFAULT_CH; 
+INT16U dev_id   = 0;
 
 void init_drivers(void){   
 	_DINT(); 
@@ -43,7 +42,6 @@ INT8U led_flash(void){
 	
 	if(timeout(led_time_tick, LED_PERIOD)){
 		status_led_reverse();
-		//send_freq_request_ack();
 		led_time_tick = _local_tickime();
 		return 1;	
 	}
@@ -58,47 +56,44 @@ INT8U read_para_from_flash(void){
 		ReadFlash(ZJ_PARA_FLASH_ADDR, para, 2);
 		if(para[0] == 0x55){
 			ZJ_Ch = para[1];
-			cc1101_set_channel(ZJ_Ch);
+			cc1101_set_channel(ZJ_Ch, WP1);
+			cc1101_set_channel(ZJ_Ch, WP2);
 			return 1;
 		}	
 	}
 	return 0;
 }
 
-
 int main(void){ 
 	WDTCTL = WDTPW + WDTHOLD; 
 	InitSysClk();
-	//if((IFG1&OFIFG) == 1) goto RST_FROM_OFIFG;
   	init_drivers();
-  	//get dev id from switch
   	dev_id = (P1IN&0xF0);
   	dev_id = dev_id >> 4;
   	init_485_data_buf();
-  	uart_trx_led_on();	
-  	wireless_trx_led_on();
   	if(!read_para_from_flash()){
-  		cc1101_set_channel(DEFAULT_CH);
+  		cc1101_set_channel(DEFAULT_CH, WP1);
+  		cc1101_set_channel(DEFAULT_CH, WP2);
   	}
 	debug_print((INT8U*)"reset\n\r", sizeof("reset\n\r"));
 	WDTCTL = WDT_ARST_1000;
-	CC1101SetTRMode(RX_MODE );
+	CC1101SetTRMode(RX_MODE, WP1 );
+	CC1101SetTRMode(RX_MODE, WP2 );
 	RF_GDO2_INT_E;
 	
 	while(1){	
-		//RST_FROM_OFIFG:
 		 led_flash();
 		feed_watchdog();
 		if (bRfRcv){
 			bRfRcv = 0;
 			wireless_trx_led_on();
 			memset(wireless_rxbuf, 0, 32);
-			wireless_rxlen = CC1101RecPacket(wireless_rxbuf);
+			wireless_rxlen = CC1101RecPacket(wireless_rxbuf, WP1);
 			if(wireless_rxlen){
 				//debug_print(wireless_rxbuf, wireless_rxlen);		
 				process_data_from_node(wireless_rxbuf, wireless_rxlen);
 			}
-			CC1101SetTRMode(RX_MODE);
+			CC1101SetTRMode(RX_MODE, WP1);
 			wireless_trx_led_off();
 		}
 		if(usart_rx_success == 1){

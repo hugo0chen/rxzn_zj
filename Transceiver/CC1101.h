@@ -36,51 +36,36 @@ typedef enum { TX_MODE, RX_MODE }TRMODE;
 typedef enum { BROAD_ALL, BROAD_NO, BROAD_0, BROAD_0AND255 }ADDR_MODE;
 typedef enum { BROADCAST, ADDRESS_CHECK} TX_DATA_MODE;
 
+typedef enum { WP1, WP2} WIRELESS_PART;
 /*
 ================================================================================
 -------------------------------------exported APIs------------------------------
 ================================================================================
 */
 
-/*read a byte from the specified register*/
-INT8U CC1101ReadReg( INT8U addr );
-
-/*Read a status register*/
-INT8U CC1101ReadStatus( INT8U addr );
-
-/*Write a byte to the specified register*/
-void CC1101WriteReg( INT8U addr, INT8U value );
-
 /*Set the device as TX mode or RX mode*/
-void CC1101SetTRMode( TRMODE mode );
-
-/*Write a command byte to the device*/
-void CC1101WriteCmd( INT8U command );
+void CC1101SetTRMode( TRMODE mode , WIRELESS_PART num);
 
 /*Set the CC1101 into IDLE mode*/
-void CC1101SetIdle( void );
+void CC1101SetIdle( WIRELESS_PART num );
 
 /*Send a packet*/
-void CC1101SendPacket( INT8U *txbuffer, INT8U size, TX_DATA_MODE mode );
+void CC1101SendPacket( INT8U *txbuffer, INT8U size, TX_DATA_MODE mode, WIRELESS_PART num );
 
 /*Set the address and address mode of the CC1101*/
-void CC1101SetAddress( INT8U address, ADDR_MODE AddressMode);
+void CC1101SetAddress( INT8U address, ADDR_MODE AddressMode, WIRELESS_PART num);
 
 /*Set the SYNC bytes of the CC1101*/
-void CC1101SetSYNC( INT16U sync );
+void CC1101SetSYNC( INT16U sync, WIRELESS_PART num);
 
 /*Receive a packet*/
-INT8U CC1101RecPacket( INT8U *rxBuffer );
+INT8U CC1101RecPacket( INT8U *rxBuffer, WIRELESS_PART num );
 
 /*Initialize the WOR function of CC1101*/
-void  CC1101WORInit( void );
+void  CC1101WORInit( WIRELESS_PART num );
 
-INT8U cc1101_set_channel(INT8U ch_num);
+INT8U cc1101_set_channel(INT8U ch_num, WIRELESS_PART num);
+
 void init_cc1101(void);
-INT8U CC1101Init( void );
+
 #endif // _CC1101_H_
-/*
-================================================================================
-------------------------------------THE END-------------------------------------
-================================================================================
-*/

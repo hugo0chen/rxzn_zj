@@ -73,8 +73,6 @@ static const INT8U CC1101InitData[SetNum][2]=
 {
   {CC1101_IOCFG2,      0x46},// assert when sync word has been sent and received
   {CC1101_FIFOTHR,     0x07},//set the threshold of RXFIFO and TXFIFO
-  //{CC1101_ADDR,		   0x00},
-  //{CC1101_CHANNR,      Channel_Table[1]},
   {CC1101_PKTCTRL0,    0x05},//whitening off,crc check,variable packet length mode
   {CC1101_FSCTRL1,     0x0c},//RX中使用的理想IF，subtracted from RX signal
   {CC1101_FREQ2,       0x10},// 设置基准频率 433MHZ
@@ -235,49 +233,31 @@ static const INT8U CC1101InitData[SetNum][2]=
 */
 
 /*read a byte from the specified register*/
-INT8U CC1101ReadReg( INT8U addr );
+INT8U CC1101ReadReg( INT8U addr, WIRELESS_PART num );
 
 /*Read some bytes from the rigisters continously*/
-void CC1101ReadMultiReg( INT8U addr, INT8U *buff, INT8U size );
+void CC1101ReadMultiReg( INT8U addr, INT8U *buff, INT8U size, WIRELESS_PART num );
 
 /*Write a byte to the specified register*/
-void CC1101WriteReg( INT8U addr, INT8U value );
+void CC1101WriteReg( INT8U addr, INT8U value, WIRELESS_PART num );
 
 /*Flush the TX buffer of CC1101*/
-void CC1101ClrTXBuff( void );
+void CC1101ClrTXBuff(WIRELESS_PART num );
 
 /*Flush the RX buffer of CC1101*/
-void CC1101ClrRXBuff( void );
+void CC1101ClrRXBuff(WIRELESS_PART num);
 
 /*Get received count of CC1101*/
-INT8U CC1101GetRXCnt( void );
+INT8U CC1101GetRXCnt(WIRELESS_PART num );
 
 /*Reset the CC1101 device*/
-void CC1101Reset( void );
+void CC1101Reset(WIRELESS_PART num );
 
 /*Write some bytes to the specified register*/
-void CC1101WriteMultiReg( INT8U addr, INT8U *buff, INT8U size );
+void CC1101WriteMultiReg( INT8U addr, INT8U *buff, INT8U size, WIRELESS_PART num );
 
 
-/*
-================================================================================
-Function : CC1101WORInit( )
-    Initialize the WOR function of CC1101
-INPUT    : None
-OUTPUT   : None
-================================================================================
-*/
-void  CC1101WORInit( void )
-{
 
-    CC1101WriteReg(CC1101_MCSM0,0x18); // when calibrate,and timeout after xosc start
-    CC1101WriteReg(CC1101_WORCTRL,0x78); //Wake On Radio Control,enable RC calibration
-    CC1101WriteReg(CC1101_MCSM2,0x00);
-		CC1101WriteReg(CC1101_WOREVT1,0x8C);//Event0 timeout [15:8]
-    CC1101WriteReg(CC1101_WOREVT0,0xA0); //Event0 timeout [7:0]
-	
-	CC1101WriteCmd( CC1101_SWORRST );
-}
 /*
 ================================================================================
 Function : CC1101ReadReg( )
@@ -286,13 +266,26 @@ INPUT    : addr, The address of the register
 OUTPUT   : the byte read from the rigister
 ================================================================================
 */
-INT8U CC1101ReadReg( INT8U addr )
+INT8U CC1101ReadReg( INT8U addr, WIRELESS_PART num )
 {
     INT8U i;
-    CC_CSN_LOW( );
+    if(num  == WP1){
+    	CC_CSN_LOW( );
+    }
+    else{
+    	CC_2_CSN_LOW( );	
+    }
+	    
     SPI_ExchangeByte( addr | READ_SINGLE);
     i = SPI_ExchangeByte( 0xFF );
-    CC_CSN_HIGH( );
+	    
+    if(num  == WP1){
+    	CC_CSN_HIGH( );
+    }
+    else{
+    	CC_2_CSN_HIGH( );	
+    }
+ 
     return i;
 }
 /*
@@ -305,17 +298,28 @@ INPUT    : addr, The address of the register
 OUTPUT   : None
 ================================================================================
 */
-void CC1101ReadMultiReg( INT8U addr, INT8U *buff, INT8U size )
+void CC1101ReadMultiReg( INT8U addr, INT8U *buff, INT8U size, WIRELESS_PART num )
 {
     INT8U i, j;
-    CC_CSN_LOW( );
+    
+    if(num  == WP1){
+    	CC_CSN_LOW( );
+    }
+    else{
+    	CC_2_CSN_LOW( );	
+    }
     SPI_ExchangeByte( addr | READ_BURST);   // burst read, that is read continously
     for( i = 0; i < size; i ++ )
     {
         for( j = 0; j < 20; j ++ );
         *( buff + i ) = SPI_ExchangeByte( 0xFF );
     }
-    CC_CSN_HIGH( );
+     if(num  == WP1){
+    	CC_CSN_HIGH( );
+    }
+    else{
+    	CC_2_CSN_HIGH( );	
+    }
 }
 /*
 ================================================================================
@@ -325,35 +329,25 @@ INPUT    : addr, The address of the register
 OUTPUT   : the value read from the status register
 ================================================================================
 */
-INT8U CC1101ReadStatus( INT8U addr )
+INT8U CC1101ReadStatus( INT8U addr, WIRELESS_PART num )
 {
     INT8U i;
-    CC_CSN_LOW( );
+    
+    if(num  == WP1){
+    	CC_CSN_LOW( );
+    }
+    else{
+    	CC_2_CSN_LOW( );	
+    }
     SPI_ExchangeByte( addr | READ_BURST);
     i = SPI_ExchangeByte( 0xFF );
-    CC_CSN_HIGH( );
+    if(num  == WP1){
+    	CC_CSN_HIGH( );
+    }
+    else{
+    	CC_2_CSN_HIGH( );	
+    }
     return i;
-}
-/*
-================================================================================
-Function : CC1101SetTRMode( )
-    Set the device as TX mode or RX mode
-INPUT    : mode selection
-OUTPUT   : None
-================================================================================
-*/
-void CC1101SetTRMode( TRMODE mode )
-{
-    if( mode == TX_MODE )
-    {
-        CC1101WriteReg(CC1101_IOCFG2,0x46);// 
-        CC1101WriteCmd( CC1101_STX );
-    }
-    else if( mode == RX_MODE )
-    {
-        CC1101WriteReg(CC1101_IOCFG2,0x46);//invert output ,active low
-        CC1101WriteCmd( CC1101_SRX );
-    }
 }
 /*
 ================================================================================
@@ -364,12 +358,24 @@ INPUT    : addr, The address of the register
 OUTPUT   : None
 ================================================================================
 */
-void CC1101WriteReg( INT8U addr, INT8U value )
+void CC1101WriteReg( INT8U addr, INT8U value, WIRELESS_PART num )
 {
-    CC_CSN_LOW( );
+    if(num  == WP1){
+    	CC_CSN_LOW( );
+    }
+    else{
+    	CC_2_CSN_LOW( );	
+    }
+    
     SPI_ExchangeByte( addr );
     SPI_ExchangeByte( value );
-    CC_CSN_HIGH( );
+    
+    if(num  == WP1){
+    	CC_CSN_HIGH( );
+    }
+    else{
+    	CC_2_CSN_HIGH( );	
+    }
 }
 /*
 ================================================================================
@@ -381,16 +387,28 @@ INPUT    : addr, The address of the register
 OUTPUT   : None
 ================================================================================
 */
-void CC1101WriteMultiReg( INT8U addr, INT8U *buff, INT8U size )
+void CC1101WriteMultiReg( INT8U addr, INT8U *buff, INT8U size, WIRELESS_PART num )
 {
     INT8U i;
-    CC_CSN_LOW( );
+    
+ 	if(num  == WP1){
+    	CC_CSN_LOW( );
+    }
+    else{
+    	CC_2_CSN_LOW( );	
+    }
     SPI_ExchangeByte( addr | WRITE_BURST );//连续写
     for( i = 0; i < size; i ++ )
     {
 			SPI_ExchangeByte( *( buff + i ) );
     }
-    CC_CSN_HIGH( );
+     
+     if(num  == WP1){
+    	CC_CSN_HIGH( );
+    }
+    else{
+    	CC_2_CSN_HIGH( );	
+    }
 }
 /*
 ================================================================================
@@ -400,12 +418,62 @@ INPUT    : command, the byte you want to write
 OUTPUT   : None
 ================================================================================
 */
-void CC1101WriteCmd( INT8U command )
+void CC1101WriteCmd( INT8U command, WIRELESS_PART num )
 {
-    CC_CSN_LOW( );
+    if(num  == WP1){
+    	CC_CSN_LOW( );
+    }
+    else{
+    	CC_2_CSN_LOW( );	
+    }
     SPI_ExchangeByte( command );
-    CC_CSN_HIGH( );
+     
+    if(num  == WP1){
+    	CC_CSN_HIGH( );
+    }
+    else{
+    	CC_2_CSN_HIGH( );	
+    }
 }
+/*
+================================================================================
+Function : CC1101WORInit( )
+    Initialize the WOR function of CC1101
+INPUT    : None
+OUTPUT   : None
+================================================================================
+*/
+void  CC1101WORInit(WIRELESS_PART num )
+{
+    CC1101WriteReg(CC1101_MCSM0, 0x18, num); // when calibrate,and timeout after xosc start
+    CC1101WriteReg(CC1101_WORCTRL, 0x78, num); //Wake On Radio Control,enable RC calibration
+    CC1101WriteReg(CC1101_MCSM2, 0x00, num);
+	CC1101WriteReg(CC1101_WOREVT1, 0x8C, num);//Event0 timeout [15:8]
+    CC1101WriteReg(CC1101_WOREVT0, 0xA0, num); //Event0 timeout [7:0]
+	CC1101WriteCmd( CC1101_SWORRST, num );
+}
+/*
+================================================================================
+Function : CC1101SetTRMode( )
+    Set the device as TX mode or RX mode
+INPUT    : mode selection
+OUTPUT   : None
+================================================================================
+*/
+void CC1101SetTRMode( TRMODE mode, WIRELESS_PART num )
+{
+    if( mode == TX_MODE )
+    {
+        CC1101WriteReg(CC1101_IOCFG2, 0x46, num);// 
+        CC1101WriteCmd( CC1101_STX, num );
+    }
+    else if( mode == RX_MODE )
+    {
+        CC1101WriteReg(CC1101_IOCFG2, 0x46, num);//invert output ,active low
+        CC1101WriteCmd( CC1101_SRX, num);
+    }
+}
+
 /*
 ================================================================================
 Function : CC1101Reset( )
@@ -414,15 +482,21 @@ INPUT    : None
 OUTPUT   : None
 ================================================================================
 */
-void CC1101Reset( void )
+void CC1101Reset(WIRELESS_PART num )
 {
     INT8U x;
-
-    CC_CSN_HIGH( );
-    CC_CSN_LOW( );
-    CC_CSN_HIGH( );
+	if(num  == WP1){
+	    CC_CSN_HIGH( );
+	    CC_CSN_LOW( );
+	    CC_CSN_HIGH( );
+	}
+	else{
+		CC_2_CSN_HIGH( );
+	    CC_2_CSN_LOW( );
+	    CC_2_CSN_HIGH( );
+	}
     for( x = 0; x < 100; x ++ );
-    CC1101WriteCmd( CC1101_SRES );
+    CC1101WriteCmd( CC1101_SRES, num );
 }
 /*
 ================================================================================
@@ -432,9 +506,9 @@ INPUT    : None
 OUTPUT   : None
 ================================================================================
 */
-void CC1101SetIdle( void )
+void CC1101SetIdle(WIRELESS_PART num )
 {
-    CC1101WriteCmd(CC1101_SIDLE);
+    CC1101WriteCmd(CC1101_SIDLE, num);
 }
 /*
 ================================================================================
@@ -444,10 +518,10 @@ INPUT    : None
 OUTPUT   : None
 ================================================================================
 */
-void CC1101ClrTXBuff( void )
+void CC1101ClrTXBuff(WIRELESS_PART num )
 {
-    CC1101SetIdle();//MUST BE IDLE MODE
-    CC1101WriteCmd( CC1101_SFTX );
+    CC1101SetIdle(num);//MUST BE IDLE MODE
+    CC1101WriteCmd( CC1101_SFTX, num );
 }
 /*
 ================================================================================
@@ -457,22 +531,21 @@ INPUT    : None
 OUTPUT   : None
 ================================================================================
 */
-void CC1101ClrRXBuff( void )
+void CC1101ClrRXBuff(WIRELESS_PART num)
 {
-    CC1101SetIdle();//MUST BE IDLE MODE
-    CC1101WriteCmd( CC1101_SFRX );
+    CC1101SetIdle(num);//MUST BE IDLE MODE
+    CC1101WriteCmd( CC1101_SFRX, num );
 }
 
-INT8U cc1101_set_channel(INT8U ch_num){
-	//CC1101Init();
+INT8U cc1101_set_channel(INT8U ch_num, WIRELESS_PART num){
 	if(ch_num < MAX_CHANNEL_NUM){
-		CC1101SetIdle();
-		CC1101WriteReg(CC1101_CHANNR, Channel_Table[ch_num]);
+		CC1101SetIdle(num);
+		CC1101WriteReg(CC1101_CHANNR, Channel_Table[ch_num], num);
 		return 1;
 	}
 	else{
-		CC1101SetIdle();
-		CC1101WriteReg(CC1101_CHANNR, Channel_Table[DEFAULT_CH]);
+		CC1101SetIdle(num);
+		CC1101WriteReg(CC1101_CHANNR, Channel_Table[DEFAULT_CH], num);
 	}
 	return 0;	
 }
@@ -486,30 +559,30 @@ INPUT    : txbuffer, The buffer stores data to be sent
 OUTPUT   : None
 ================================================================================
 */
-void CC1101SendPacket( INT8U *txbuffer, INT8U size, TX_DATA_MODE mode )
+void CC1101SendPacket( INT8U *txbuffer, INT8U size, TX_DATA_MODE mode, WIRELESS_PART num )
 {
 	ulong CC1101_OVT;
     INT8U address;
     
     if( mode == BROADCAST )             { address = 0; }
-    else if( mode == ADDRESS_CHECK )    { address = CC1101ReadReg( CC1101_ADDR ); }
+    else if( mode == ADDRESS_CHECK )    { address = CC1101ReadReg( CC1101_ADDR, num ); }
 
 	tx_enable = 1;
 	tx_done = 0;
 	
-    CC1101ClrTXBuff( );
+    CC1101ClrTXBuff(num );
      // address check mode
-    if( ( CC1101ReadReg( CC1101_PKTCTRL1 ) & 0x03 ) != 0 ){
-        CC1101WriteReg( CC1101_TXFIFO, size + 1 );
-        CC1101WriteReg( CC1101_TXFIFO, address );
+    if( ( CC1101ReadReg( CC1101_PKTCTRL1, num ) & 0x03 ) != 0 ){
+        CC1101WriteReg( CC1101_TXFIFO, (size + 1), num );
+        CC1101WriteReg( CC1101_TXFIFO, address , num);
     }
     else{
-        CC1101WriteReg( CC1101_TXFIFO, size );
+        CC1101WriteReg( CC1101_TXFIFO, size, num );
     }
 	
-    CC1101WriteMultiReg( CC1101_TXFIFO, txbuffer, size );
-	CC1101SetIdle();
-    CC1101SetTRMode( TX_MODE );
+    CC1101WriteMultiReg( CC1101_TXFIFO, txbuffer, size, num );
+	CC1101SetIdle(num);
+    CC1101SetTRMode( TX_MODE, num );
 	CC1101_OVT = _local_tickime();
 	// Wait for GDO2 to be set -> sync transmitted   ms low level 
 	while(!tx_done){
@@ -519,7 +592,7 @@ void CC1101SendPacket( INT8U *txbuffer, INT8U size, TX_DATA_MODE mode )
 	tx_enable = 0;
 	tx_done = 0;
 	Delay_nms(3);
-	CC1101SetTRMode( RX_MODE );
+	CC1101SetTRMode( RX_MODE, num );
 	
 }
 /*
@@ -530,9 +603,9 @@ INPUT    : None
 OUTPUT   : How many bytes has been received
 ================================================================================
 */
-INT8U CC1101GetRXCnt( void )
+INT8U CC1101GetRXCnt(WIRELESS_PART num )
 {
-    return ( CC1101ReadStatus( CC1101_RXBYTES )  & BYTES_IN_RXFIFO );
+    return ( CC1101ReadStatus( CC1101_RXBYTES, num )  & BYTES_IN_RXFIFO );
 }
 /*
 ================================================================================
@@ -543,10 +616,10 @@ INPUT    : address, The address byte
 OUTPUT   : None
 ================================================================================
 */
-void CC1101SetAddress( INT8U address, ADDR_MODE AddressMode)// set address check configuration of received packages
+void CC1101SetAddress( INT8U address, ADDR_MODE AddressMode, WIRELESS_PART num)// set address check configuration of received packages
 {
-    INT8U btmp = CC1101ReadReg( CC1101_PKTCTRL1 ) & ~0x03;
-    CC1101WriteReg(CC1101_ADDR, address);//device address setting
+    INT8U btmp = CC1101ReadReg( CC1101_PKTCTRL1, num ) & ~0x03;
+    CC1101WriteReg(CC1101_ADDR, address, num);//device address setting
 		
     if     ( AddressMode == BROAD_ALL )     {}
     else if( AddressMode == BROAD_NO  )     { btmp |= 0x01; }
@@ -561,10 +634,10 @@ INPUT    : sync, 16bit sync
 OUTPUT   : None
 ================================================================================
 */
-void CC1101SetSYNC( INT16U sync )
+void CC1101SetSYNC( INT16U sync, WIRELESS_PART num )
 {
-    CC1101WriteReg(CC1101_SYNC1, 0xFF & ( sync>>8 ) );
-    CC1101WriteReg(CC1101_SYNC0, 0xFF & sync ); 
+    CC1101WriteReg(CC1101_SYNC1, (0xFF & ( sync>>8 )), num );
+    CC1101WriteReg(CC1101_SYNC0, (0xFF & sync), num ); 
 }
 /*
 ================================================================================
@@ -577,38 +650,39 @@ OUTPUT   : 1:received count, 0:no data
 #define RX_FIFO_SIZE    32
 #define WIRELESS_PKTLEN 13
 
-INT8U CC1101RecPacket( INT8U *rxBuffer ){
+INT8U CC1101RecPacket( INT8U *rxBuffer, WIRELESS_PART num ){
 	INT8U temp_rx_buf[RX_FIFO_SIZE];
     INT8U status[2];
     INT8U pktLen;
     INT16U addr;
-	CC1101SetIdle();
-	if(CC1101ReadStatus( CC1101_RXBYTES )&0x80){ //RX OverFlow
-		CC1101ClrRXBuff();
+    
+	CC1101SetIdle(num);
+	if(CC1101ReadStatus( CC1101_RXBYTES, num )&0x80){ //RX OverFlow
+		CC1101ClrRXBuff(num);
 		return 0;
 	}
-    if ( CC1101GetRXCnt() != 0 ){
-        pktLen = CC1101ReadReg(CC1101_RXFIFO);           // Read length byte
+    if ( CC1101GetRXCnt(num) != 0 ){
+        pktLen = CC1101ReadReg(CC1101_RXFIFO, num);           // Read length byte
 		if( pktLen == 0){
 			return 0; 
 		}
         //address check
-        if( ( CC1101ReadReg( CC1101_PKTCTRL1 ) & 0x03 ) != 0 ){
-            addr = CC1101ReadReg(CC1101_RXFIFO);  // get address
+        if( ( CC1101ReadReg( CC1101_PKTCTRL1, num ) & 0x03 ) != 0 ){
+            addr = CC1101ReadReg(CC1101_RXFIFO, num);  // get address
             if(addr != CC1101_ADDRESS){
             		//todo
             }
 			pktLen--; 
         }
         if(pktLen == WIRELESS_PKTLEN){
-        	CC1101ReadMultiReg(CC1101_RXFIFO, rxBuffer, WIRELESS_PKTLEN); // Pull data
+        	CC1101ReadMultiReg(CC1101_RXFIFO, rxBuffer, WIRELESS_PKTLEN, num); // Pull data
         }
         else{
         	if(pktLen < RX_FIFO_SIZE)
-        	CC1101ReadMultiReg(CC1101_RXFIFO, temp_rx_buf, pktLen); 
+        	CC1101ReadMultiReg(CC1101_RXFIFO, temp_rx_buf, pktLen, num); 
         }
-        CC1101ReadMultiReg(CC1101_RXFIFO, status, 2);        // Read  CRC status bytes
-        CC1101ClrRXBuff();
+        CC1101ReadMultiReg(CC1101_RXFIFO, status, 2, num);        // Read  CRC status bytes
+        CC1101ClrRXBuff(num);
         if( status[1] & CRC_OK ){
        		if(pktLen == WIRELESS_PKTLEN){
        			return WIRELESS_PKTLEN;
@@ -625,23 +699,23 @@ INPUT    : None
 OUTPUT   : None
 ================================================================================
 */
-INT8U CC1101Init( void )
+INT8U CC1101Init(WIRELESS_PART num )
 {
     INT8U version_pn, i;
 
-    CC1101Reset();    
+    CC1101Reset(num);    
     for( i = 0; i < SetNum; i++ ){
-		CC1101WriteReg( CC1101InitData[i][0], CC1101InitData[i][1] );// 初始化寄存器参数表
+		CC1101WriteReg( CC1101InitData[i][0], CC1101InitData[i][1], num );// 初始化寄存器参数表
     }
     //初始化device地址，模式为address_check and broadcast 255
     //CC1101SetAddress( 0x05, BROAD_0AND255 );
-    CC1101SetSYNC( 0x8799 );			
-    CC1101WriteReg(CC1101_MDMCFG1,0x72); 
+    CC1101SetSYNC( 0x8799, num);			
+    CC1101WriteReg(CC1101_MDMCFG1, 0x72, num); 
 	// set the TX power table
-    CC1101WriteMultiReg(CC1101_PATABLE, PaTabel, 8 );
+    CC1101WriteMultiReg(CC1101_PATABLE, PaTabel, 8, num );
 	//  chip part-number and chip version number
-    version_pn = CC1101ReadStatus( CC1101_PARTNUM );//for test, 
-    version_pn = CC1101ReadStatus( CC1101_VERSION );//for test, refer to the datasheet
+    version_pn = CC1101ReadStatus( CC1101_PARTNUM, num );//for test, 
+    version_pn = CC1101ReadStatus( CC1101_VERSION, num );//for test, refer to the datasheet
     if(version_pn == 0x14){
     	return 1;
     }
@@ -650,7 +724,7 @@ INT8U CC1101Init( void )
 void init_cc1101(void){
 	init_cc1101_gpio();
 	init_spi();
-	CC1101Init();
-	//cc1101_set_channel(DEFAULT_CH);
+	CC1101Init(WP1);
+	CC1101Init(WP2);
 }
 
