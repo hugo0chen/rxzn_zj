@@ -74,12 +74,11 @@ int main(void){
   	//get dev id from switch
   	dev_id = (P1IN&0xF0);
   	dev_id = dev_id >> 4;
+  	init_485_data_buf();
   	uart_trx_led_on();	
   	wireless_trx_led_on();
   	if(!read_para_from_flash()){
   		cc1101_set_channel(DEFAULT_CH);
-  		//reset mcu
-  		//((void (*)())0xFFFE)();
   	}
 	debug_print((INT8U*)"reset\n\r", sizeof("reset\n\r"));
 	WDTCTL = WDT_ARST_1000;

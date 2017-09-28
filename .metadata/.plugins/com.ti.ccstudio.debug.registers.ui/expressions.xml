@@ -1,12 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <States>
 <Expressions>
-<Expression IMemento.internal.id="version_pn">
+<Expression IMemento.internal.id="dev_id">
 <Format Class="com.ti.ccstudio.debug.registers.model.VariableFormat" Name="Hexadecimal"/>
 </Expression>
-<Expression IMemento.internal.id="version_pn">
+<Expression IMemento.internal.id="data_to_pc">
+<Format/>
+</Expression>
+<Expression IMemento.internal.id="data_buf_to_transfer">
+<Format/>
+</Expression>
+<Expression IMemento.internal.id="i">
 <Format Class="com.ti.ccstudio.debug.registers.model.VariableFormat" Name="Hexadecimal"/>
 </Expression>
+<Expression IMemento.internal.id="data_buf_to_transfer[i].data_len">
+<Format Class="com.ti.ccstudio.debug.registers.model.VariableFormat" Name="Hexadecimal"/>
+</Expression>
+<Expression IMemento.internal.id="_485_send_ack">
+<Format Class="com.ti.ccstudio.debug.registers.model.VariableFormat" Name="Hexadecimal"/>
+</Expression>
+<Expression IMemento.internal.id="_485_send_retry_times">
+<Format Class="com.ti.ccstudio.debug.registers.model.VariableFormat" Name="Hexadecimal"/>
+</Expression>
+<Expression IMemento.internal.id="_485_send_lock">
+<Format Class="com.ti.ccstudio.debug.registers.model.VariableFormat" Name="Hexadecimal"/>
+</Expression>
+<Expression IMemento.internal.id="data_buf_to_transfer[0].data_len">
+<Format Class="com.ti.ccstudio.debug.registers.model.VariableFormat" Name="Hexadecimal"/>
+</Expression>
+<VariableFormatMap Class="com.ti.ccstudio.debug.registers.model.VariableFormat" IMemento.internal.id="_485_send_retry_times" Name="Hexadecimal"/>
+<VariableFormatMap Class="com.ti.ccstudio.debug.registers.model.VariableFormat" IMemento.internal.id="i" Name="Hexadecimal"/>
 <VariableFormatMap Class="com.ti.ccstudio.debug.registers.model.VariableFormat" IMemento.internal.id="version_pn" Name="Hexadecimal"/>
+<VariableFormatMap Class="com.ti.ccstudio.debug.registers.model.VariableFormat" IMemento.internal.id="_485_send_lock" Name="Hexadecimal"/>
+<VariableFormatMap Class="com.ti.ccstudio.debug.registers.model.VariableFormat" IMemento.internal.id="data_buf_to_transfer[0].data_len" Name="Hexadecimal"/>
+<VariableFormatMap Class="com.ti.ccstudio.debug.registers.model.VariableFormat" IMemento.internal.id="data_buf_to_transfer[i].data_len" Name="Hexadecimal"/>
+<VariableFormatMap Class="com.ti.ccstudio.debug.registers.model.VariableFormat" IMemento.internal.id="dev_id" Name="Hexadecimal"/>
+<VariableFormatMap Class="com.ti.ccstudio.debug.registers.model.VariableFormat" IMemento.internal.id="_485_send_ack" Name="Hexadecimal"/>
 </Expressions>
 </States>

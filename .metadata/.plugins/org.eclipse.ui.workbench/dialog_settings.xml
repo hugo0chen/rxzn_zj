@@ -2,11 +2,11 @@
 <section name="Workbench">
 	<section name="ImportExportAction">
 	</section>
+	<section name="ShowViewDialog">
+	</section>
 	<section name="WorkbenchPreferenceDialogSettings">
 		<item key="DIALOG_X_ORIGIN" value="670"/>
 		<item key="DIALOG_Y_ORIGIN" value="143"/>
-	</section>
-	<section name="ShowViewDialog">
 	</section>
 	<section name="StartAddressDecoration">
 		<section name="TI MSP430 USB1/MSP430">
@@ -33,9 +33,10 @@
 				<item value="0x01010"/>
 				<item value="0x0202"/>
 				<item value="0x0100"/>
+				<item value="0x02Ac"/>
 			</list>
 			<list key="StartAddressDecoration.ADDRESS_TEXT_ID">
-				<item value="0x01010"/>
+				<item value="0x02Ac"/>
 			</list>
 		</section>
 	</section>

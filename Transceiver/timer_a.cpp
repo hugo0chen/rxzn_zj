@@ -17,7 +17,6 @@ bool timeout(ulong last_time, ulong ms){
 		return (bool)((last_time - _local_time_tick) > ms);
 }
 
-
 #define MAX_SCHD_ITEMS 4
 
 struct SchdItem {	

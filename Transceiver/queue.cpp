@@ -17,7 +17,7 @@ void init_485_data_buf(void){
 INT8U enArray(INT8U*data, INT8U dataLen){
 	INT8U i;
 	
-	if(dataLen > MAX_NODE_NUM)
+	if(dataLen > MAX_DATA_LEN)
 		return 1;
 	for(i = 0; i < MAX_NODE_NUM; i++){
 		if(	data_buf_to_transfer[i].data_len == 0){
@@ -38,8 +38,8 @@ INT8U queue_isEmpty(void){
 			break;	
 	}
 	if(i < MAX_NODE_NUM)
-		return 1;
-	return 0;	
+		return 0;
+	return 1;	
 }
 /*
 void DelQueue(Queue* queue)

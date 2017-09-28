@@ -8,18 +8,18 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="_gdsl_list_remove"/>
+		<item key="selection" value="485_send_lock"/>
 		<item key="wrap" value="false"/>
 		<item key="casesensitive" value="false"/>
 		<list key="findhistory">
+			<item value="485_send_lock"/>
+			<item value="UartTransmitPacket"/>
 			<item value="_gdsl_list_remove"/>
 			<item value="RST_FROM_OFIFG"/>
 			<item value="flash"/>
 			<item value="process_data_from_node"/>
 			<item value="mem"/>
 			<item value="sizeof"/>
-			<item value="32768不起振，"/>
-			<item value="MAX_DATA_SIZE"/>
 		</list>
 		<list key="replacehistory">
 			<item value="Delay_nms"/>

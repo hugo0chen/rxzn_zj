@@ -110,12 +110,12 @@ INT8U process_data_from_node(INT8U*data, INT8U len){
 		}
 		// 
 		else if((data[2] == 0x88) && (data[3] == 0xcc)){
-			data_to_pc[0] = data[0];
-			data_to_pc[1] = data[1];
+			data_to_pc[0] = 0x88;
+			data_to_pc[1] = 0xcc;
 			data_to_pc[2] = (INT8U)(dev_id >> 8);
 			data_to_pc[3] = (INT8U)(dev_id);
 			for(i = 4; i < 13; i++){
-				data_to_pc[i] = data[i-2];
+				data_to_pc[i] = data[i];
 			}
 			
 			for(i = 2; i < 12; i++){
@@ -215,7 +215,7 @@ void move_data_buf(void)
 {
 	Rs_485_Node* p1 = data_buf_to_transfer;
 	Rs_485_Node* p2 = data_buf_to_transfer + 1;
-	memmove(p1, p2, sizeof(Rs_485_Node) - sizeof(Rs_485_Node));
+	memmove(p1, p2, sizeof(data_buf_to_transfer) - sizeof(Rs_485_Node));
 }
 
 INT8U transfer_data_to485_(void)
