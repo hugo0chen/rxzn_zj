@@ -16,8 +16,13 @@ INT8U _485_send_retry_times = 0;
 INT8U _485_send_ack = 0;
 
 extern INT8U ZJ_Ch;
-extern Rs_485_Node data_buf_to_transfer[ MAX_NODE_NUM];
+extern Rs_485_Node data_buf_to_tx[ MAX_NODE_NUM];
+extern Rs_485_Node data_buf_from_rx[ MAX_NODE_NUM];
 
+
+void debug_print(INT8U* string, INT8U len){
+	UartTransmitPacket((INT8U*)string, len);
+}
 void delay(unsigned long nus){
 	for(unsigned long i = nus; i > 0; i--){
 	}
@@ -67,7 +72,6 @@ void UartTransmitPacket(INT8U *buf, INT8U len){
 		};
 		IFG2 &= ~UCA0TXIFG;
 	}
-	Delay_nms(2);
 	UART485_RX_E;
 	uart_trx_led_off();
 }
@@ -130,8 +134,7 @@ INT8U process_data_from_node(INT8U*data, INT8U len){
 				case 0x31: //running				
 				case 0x32: //stop
 				case 0x33: // heartbeat
-					enArray(data_to_pc, MSG_LEN);					
-					UartTransmitPacket(data_to_pc, MSG_LEN);
+					enArray(data_to_pc, MSG_LEN,data_buf_to_tx);				
 					break;
 				default:
 					break;				
@@ -142,75 +145,81 @@ INT8U process_data_from_node(INT8U*data, INT8U len){
 }
 
 // data from uppper monitor, 485 communication
-INT8U process_data_from_host(INT8U* data, INT8U len){
+INT8U process_data_from_host(void){
 	INT8U crc_sum_check = 0;
 	INT8U i;
 	INT16U id;
 	INT8U data_to_flash[3] = {0};
 	INT8U data_to_CZ[MSG_LEN] = {0};
+	INT8U temp_data[MAX_DATA_LEN] = {0};
+	INT8U temp_data_len;
 
-	if(len == 0){
+	if(data_buf_from_rx[0].data_len == 0){
 		return 1;	
 	}
-	if((data[0] == 0x88) && (data[1] == 0xcc))
-	{
-		//sum 不包括帧头和ZJ_ID
-		for(i = 4; i < (len - 1); i++){
-			crc_sum_check += data[i];
-		}
-		
-		if(crc_sum_check == data[len - 1])
-		{
-			id = data[2];
-			id = (id << 8) + data[3];
-			if((id == 0xfefe) || (dev_id == id))
+	memcpy(temp_data, data_buf_from_rx[0].data, MAX_DATA_LEN);
+	temp_data_len = data_buf_from_rx[0].data_len;
+	//UartTransmitPacket(&temp_data_len, 1); //debug
+	if((temp_data[0] == 0x88) && (temp_data[1] == 0xcc))
+	{		
+		id = temp_data[2];
+		id = (id << 8) + temp_data[3];
+		if((id == 0xfefe) || (dev_id == id))		
+		{			
+			//sum 不包括帧头和ZJ_ID
+			for(i = 4; i < (temp_data_len - 1); i++){
+				crc_sum_check += temp_data[i];
+			}
+			if(crc_sum_check == temp_data[temp_data_len - 1])
 			{
-				switch(data[5])  
+				//debug_print((INT8U*)"1", 1);
+				switch(temp_data[5])  
 				{	
 					case 0x10:	//频率配置	
 						//set cc1101 channel	
-						ZJ_Ch = data[8];
+						ZJ_Ch = temp_data[8];
 						cc1101_set_channel(ZJ_Ch, WP1);
 						RfTransmitPacket(data_to_CZ, 11);
 						// write flash
 						data_to_flash[0] = 0x55;
-						data_to_flash[1] = data[8];
-						data_to_flash[2] = data[8];
+						data_to_flash[1] = temp_data[8];
+						data_to_flash[2] = temp_data[8];
 						WriteFlash(ZJ_PARA_FLASH_ADDR, data_to_flash, 3); 
 						// 回传给上位机
-						data[4] = 0x01; //ack
-						data[5] = 0x11; //cmd
-						data[12] = crc_sum_check + 2;
-						UartTransmitPacket(data, MSG_LEN);	
+						temp_data[4] = 0x01; //ack
+						temp_data[5] = 0x11; //cmd
+						temp_data[12] = crc_sum_check + 2;
+						UartTransmitPacket(temp_data, MSG_LEN);	
 						break;
 					case 0x34://床号配置
-						if(data[4] == 1)
+						if(temp_data[4] == 1)
 						{
 							_485_send_ack = 1;
 						}
 						else
 						{
 							// 下发给称重器,去掉ZJ dev_id
-							data_to_CZ[0] = data[0];
-							data_to_CZ[1] = data[1];						
+							data_to_CZ[0] = temp_data[0];
+							data_to_CZ[1] = temp_data[1];						
 							for(i = 2; i < 11; i++)
 							{
-								data_to_CZ[i] = data[i+2];
+								data_to_CZ[i] = temp_data[i+2];
 							}					
 							RfTransmitPacket(data_to_CZ, 11);
 							// 回传给上位机
-							data[4] = 0x01; //ack
-							data[12] = crc_sum_check + 1;
-							UartTransmitPacket(data, MSG_LEN);
+							temp_data[4] = 0x01; //ack
+							temp_data[12] = crc_sum_check + 1;
+							UartTransmitPacket(temp_data, MSG_LEN);
 						}
 						break;
 					case 0x30:
 					case 0x31:
 					case 0x32:	
 					case 0x33:
-						if(data[4] == 1)
+						if(temp_data[4] == 1)
 						{
 							_485_send_ack = 1;
+							//UartTransmitPacket(&_485_send_ack, 1);	
 						}
 						break;
 					default:
@@ -225,16 +234,12 @@ INT8U process_data_from_host(INT8U* data, INT8U len){
 void _485_setting_enable(void){
 	_485_send_lock = 0;	
 }
+
 void send_data_to485(void){
-	UartTransmitPacket(data_buf_to_transfer[0].data, data_buf_to_transfer[0].data_len);
+	if(!_485_send_ack){
+		UartTransmitPacket(data_buf_to_tx[0].data, data_buf_to_tx[0].data_len);
+	}
 	Schd_After_Int(10, _485_setting_enable);	
-}
-void move_data_buf(void)
-{
-	Rs_485_Node* p1 = data_buf_to_transfer;
-	Rs_485_Node* p2 = data_buf_to_transfer + 1;
-	memmove(p1, p2, sizeof(data_buf_to_transfer) - sizeof(Rs_485_Node));
-	memset(&data_buf_to_transfer[MAX_NODE_NUM -1], 0, sizeof(Rs_485_Node));
 }
 
 INT16U _2index(INT8U index){
@@ -248,14 +253,13 @@ INT16U _2index(INT8U index){
 INT8U transfer_data_to485_(void)
 {
 	unsigned long time_delay;
-	//INT8U print_buf[5];
 	INT8U temp;
 
-	if(data_buf_to_transfer[0].data_len != 0)
+	if(data_buf_to_tx[0].data_len != 0)
 	{
 		if((_485_send_retry_times >= MAX_RETRY_TIMES) || (_485_send_ack == 1))
 		{
-			move_data_buf();//  move data fifo
+			move_data_buf(data_buf_to_tx);//  move data fifo
 			_485_send_lock = 0;
 			_485_send_ack = 0;
 			_485_send_retry_times = 0;			
@@ -268,14 +272,7 @@ INT8U transfer_data_to485_(void)
 		_485_send_retry_times++;
 		srand(_local_tickime());
 		temp = (rand() % _2index(_485_send_retry_times));
-		time_delay = (1 + temp)*10;
-		//Delay_nms(10);
-		/*print_buf[0] = (INT8U)(temp);
-		print_buf[1] = (INT8U)(0);
-		print_buf[2] = (INT8U)(time_delay >> 8);
-		print_buf[3] = (INT8U)(time_delay);
-		print_buf[4] = 0x11; */
-		//UartTransmitPacket(print_buf, 5);		
+		time_delay = 10 + temp*10;	
 		Schd_After_Int(time_delay, send_data_to485);
 		return 0;
 	}	

@@ -8,18 +8,18 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="_schd_last_microsecond"/>
+		<item key="selection" value="data_buf_from_rx"/>
 		<item key="wrap" value="false"/>
 		<item key="casesensitive" value="false"/>
 		<list key="findhistory">
+			<item value="data_buf_from_rx"/>
+			<item value="data_buf_from_rx[0].data"/>
+			<item value="data_buf_to_tx"/>
+			<item value="trans"/>
 			<item value="_schd_last_microsecond"/>
 			<item value="enArray"/>
 			<item value="RfTransmitPacket"/>
 			<item value="CC1101SendPacket"/>
-			<item value="UartTransmitPacket"/>
-			<item value="13"/>
-			<item value="485_send_lock"/>
-			<item value="_gdsl_list_remove"/>
 		</list>
 		<list key="replacehistory">
 			<item value="Delay_nms"/>

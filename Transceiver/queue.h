@@ -13,14 +13,9 @@ typedef struct _node
   	INT8U data_len;
 }Rs_485_Node;
   
-void  init_485_data_buf(void);
-INT8U enArray(INT8U*data, INT8U dataLen);
-INT8U queue_isEmpty(void); 
-  /*
-void InitQueue(Queue*);
- INT8U EnQueue(Queue* queue, INT8U* inData, INT8U dataLen, unsigned int delay_time, INT8U re_times);
- INT8U DeQueue(Queue* queue, Rs_485_Node* outNode);
-void PrintQueue(Queue* queue);
-INT8U  IsNull(Queue* queue);
-void DelQueue(Queue* queue);*/
+void  init_485_data_buf(Rs_485_Node*buf);
+INT8U enArray(INT8U*data, INT8U dataLen,Rs_485_Node*buf);
+INT8U queue_isEmpty(Rs_485_Node*buf); 
+void move_data_buf(Rs_485_Node*buf);
+
 #endif

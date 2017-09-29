@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
-	<section name="SearchDialog.ScopePart">
-		<item key="scope" value="0"/>
-	</section>
 	<section name="DialogBounds_SearchDialog">
 		<item key="DIALOG_X_ORIGIN" value="635"/>
-		<item key="DIALOG_HEIGHT" value="482"/>
 		<item key="DIALOG_FONT_NAME" value="1|Microsoft YaHei UI|9|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|Microsoft YaHei UI"/>
+		<item key="DIALOG_HEIGHT" value="482"/>
 		<item key="DIALOG_Y_ORIGIN" value="185"/>
 		<item key="DIALOG_WIDTH" value="576"/>
+	</section>
+	<section name="SearchDialog.ScopePart">
+		<item key="scope" value="0"/>
 	</section>
 	<section name="Search">
 		<list key="Search.enabledPageIds">
@@ -18,22 +18,24 @@
 			<item value="org.eclipse.search.internal.ui.text.TextSearchPage"/>
 		</list>
 	</section>
+	<section name="DialogBounds_ReplaceDialog2">
+		<item key="DIALOG_X_ORIGIN" value="726"/>
+		<item key="DIALOG_HEIGHT" value="308"/>
+		<item key="DIALOG_FONT_NAME" value="1|微软雅黑|9|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|微软雅黑"/>
+		<item key="DIALOG_Y_ORIGIN" value="320"/>
+		<item key="DIALOG_WIDTH" value="487"/>
+	</section>
 	<section name="ReplaceDialog2">
 		<list key="replace_with">
 			<item value="LED_STATUS_BLINK"/>
 		</list>
 	</section>
-	<section name="DialogBounds_ReplaceDialog2">
-		<item key="DIALOG_X_ORIGIN" value="726"/>
-		<item key="DIALOG_FONT_NAME" value="1|微软雅黑|9|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|微软雅黑"/>
-		<item key="DIALOG_HEIGHT" value="308"/>
-		<item key="DIALOG_Y_ORIGIN" value="320"/>
-		<item key="DIALOG_WIDTH" value="487"/>
+	<section name="org.eclipse.cdt.ui.pdomSearchViewPage">
 	</section>
 	<section name="TextSearchPage">
 		<item key="HISTORY_SIZE" value="12"/>
-		<item key="CASE_SENSITIVE" value="false"/>
 		<item key="SEARCH_DERIVED" value="false"/>
+		<item key="CASE_SENSITIVE" value="false"/>
 		<item key="REG_EX_SEARCH" value="false"/>
 		<section name="HISTORY4">
 			<item key="isRegExSearch" value="false"/>
@@ -269,11 +271,11 @@
 				<item value="*.xs"/>
 			</list>
 		</section>
-		<section name="HISTORY10">
+		<section name="HISTORY2">
 			<item key="isRegExSearch" value="false"/>
 			<item key="scope" value="0"/>
 			<item key="ignoreCase" value="false"/>
-			<item key="textPattern" value="halSpiStrobe"/>
+			<item key="textPattern" value="halSpiReadStatus"/>
 			<list key="workingSets">
 			</list>
 			<list key="fileNamePatterns">
@@ -425,11 +427,11 @@
 				<item value="*.xs"/>
 			</list>
 		</section>
-		<section name="HISTORY2">
+		<section name="HISTORY10">
 			<item key="isRegExSearch" value="false"/>
 			<item key="scope" value="0"/>
 			<item key="ignoreCase" value="false"/>
-			<item key="textPattern" value="halSpiReadStatus"/>
+			<item key="textPattern" value="halSpiStrobe"/>
 			<list key="workingSets">
 			</list>
 			<list key="fileNamePatterns">
@@ -659,11 +661,11 @@
 				<item value="*.xs"/>
 			</list>
 		</section>
-		<section name="HISTORY6">
+		<section name="HISTORY11">
 			<item key="isRegExSearch" value="false"/>
 			<item key="scope" value="0"/>
 			<item key="ignoreCase" value="false"/>
-			<item key="textPattern" value="USART_Init"/>
+			<item key="textPattern" value="SpiInit"/>
 			<list key="workingSets">
 			</list>
 			<list key="fileNamePatterns">
@@ -815,11 +817,11 @@
 				<item value="*.xs"/>
 			</list>
 		</section>
-		<section name="HISTORY11">
+		<section name="HISTORY6">
 			<item key="isRegExSearch" value="false"/>
 			<item key="scope" value="0"/>
 			<item key="ignoreCase" value="false"/>
-			<item key="textPattern" value="SpiInit"/>
+			<item key="textPattern" value="USART_Init"/>
 			<list key="workingSets">
 			</list>
 			<list key="fileNamePatterns">
@@ -971,8 +973,6 @@
 				<item value="*.xs"/>
 			</list>
 		</section>
-	</section>
-	<section name="org.eclipse.cdt.ui.pdomSearchViewPage">
 	</section>
 	<section name="org.eclipse.search.text.FileSearchResultPage">
 	</section>

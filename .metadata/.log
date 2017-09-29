@@ -11667,3 +11667,239 @@ java.lang.NullPointerException
 	at org.eclipse.core.launcher.Main.basicRun(Main.java:280)
 	at org.eclipse.core.launcher.Main.run(Main.java:996)
 	at org.eclipse.core.launcher.Main.main(Main.java:971)
+!SESSION 2017-09-29 08:54:57.797 -----------------------------------------------
+eclipse.buildId=4.2.0.10018
+java.version=1.5.0_14
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=zh_CN
+Command-line arguments:  -os win32 -ws win32 -arch x86
+
+!ENTRY com.ti.ccstudio.debug.core 4 0 2017-09-29 08:56:47.143
+!MESSAGE Error: MSP430: Error initializing emulator: No USB FET was found
+
+
+!ENTRY com.ti.ccstudio.debug.core 4 0 2017-09-29 11:38:25.794
+!MESSAGE Error: MSP430: Trouble Halting Target CPU: Could not terminate EEM polling thread.
+
+
+!ENTRY com.ti.ccstudio.debug.core 4 0 2017-09-29 11:38:30.935
+!MESSAGE Error: MSP430: Trouble Halting Target CPU: Could not terminate EEM polling thread.
+
+
+!ENTRY com.ti.ccstudio.debug.core 4 13 2017-09-29 11:38:31.402
+!MESSAGE Failed to load program 'Transceiver.out' on target 'TI MSP430 USB1/MSP430'.
+
+Reason:
+Cannot write to target
+
+!ENTRY com.ti.ccstudio.debug.core 4 0 2017-09-29 11:38:47.523
+!MESSAGE Error: MSP430: Error initializing emulator: No USB FET was found
+
+
+!ENTRY com.ti.ccstudio.debug.core 4 0 2017-09-29 11:58:58.580
+!MESSAGE Error: MSP430: Trouble Halting Target CPU: Could not terminate EEM polling thread.
+
+
+!ENTRY com.ti.ccstudio.debug.core 4 0 2017-09-29 11:59:03.718
+!MESSAGE Error: MSP430: Trouble Halting Target CPU: Could not terminate EEM polling thread.
+
+
+!ENTRY com.ti.ccstudio.debug.core 4 13 2017-09-29 11:59:04.143
+!MESSAGE Failed to load program 'Transceiver.out' on target 'TI MSP430 USB1/MSP430'.
+
+Reason:
+Cannot write to target
+
+!ENTRY com.ti.ccstudio.debug.core 4 0 2017-09-29 12:06:04.408
+!MESSAGE Error: MSP430: Trouble Halting Target CPU: Could not terminate EEM polling thread.
+
+
+!ENTRY com.ti.ccstudio.debug.core 4 0 2017-09-29 12:06:04.409
+!MESSAGE Error: MSP430: Trouble Halting Target CPU: Could not terminate EEM polling thread.
+
+
+!ENTRY com.ti.ccstudio.debug.core 4 0 2017-09-29 12:06:09.535
+!MESSAGE Error: MSP430: Trouble Halting Target CPU: Could not terminate EEM polling thread.
+
+
+!ENTRY com.ti.ccstudio.debug.core 4 0 2017-09-29 12:06:09.535
+!MESSAGE Error: MSP430: Trouble Halting Target CPU: Could not terminate EEM polling thread.
+
+
+!ENTRY com.ti.ccstudio.debug.core 4 13 2017-09-29 12:06:10.669
+!MESSAGE Failed to load program 'Transceiver.out' on target 'TI MSP430 USB1/MSP430'.
+
+Reason:
+Cannot write to target
+
+!ENTRY com.ti.ccstudio.debug.core 4 0 2017-09-29 15:07:27.113
+!MESSAGE Error: MSP430: Trouble Halting Target CPU: Could not terminate EEM polling thread.
+
+
+!ENTRY com.ti.ccstudio.debug.core 4 0 2017-09-29 15:07:32.231
+!MESSAGE Error: MSP430: Trouble Halting Target CPU: Could not terminate EEM polling thread.
+
+
+!ENTRY com.ti.ccstudio.debug.core 4 0 2017-09-29 15:15:08.587
+!MESSAGE Error: MSP430: Trouble Halting Target CPU: Could not terminate EEM polling thread.
+
+
+!ENTRY com.ti.ccstudio.debug.core 4 0 2017-09-29 15:15:08.589
+!MESSAGE Error: MSP430: Trouble Halting Target CPU: Could not terminate EEM polling thread.
+
+
+!ENTRY com.ti.ccstudio.debug.core 4 0 2017-09-29 15:15:13.704
+!MESSAGE Error: MSP430: Trouble Halting Target CPU: Could not terminate EEM polling thread.
+
+
+!ENTRY com.ti.ccstudio.debug.core 4 0 2017-09-29 15:15:13.708
+!MESSAGE Error: MSP430: Trouble Halting Target CPU: Could not terminate EEM polling thread.
+
+
+!ENTRY com.ti.ccstudio.debug.core 4 13 2017-09-29 15:15:20.128
+!MESSAGE Failed to load program 'Transceiver.out' on target 'TI MSP430 USB1/MSP430'.
+
+Reason:
+Cannot write to target
+
+!ENTRY com.ti.ccstudio.debug.core 4 0 2017-09-29 16:47:50.426
+!MESSAGE Error: MSP430: Trouble Halting Target CPU: Could not terminate EEM polling thread.
+
+
+!ENTRY com.ti.ccstudio.debug.core 4 0 2017-09-29 16:47:55.597
+!MESSAGE Error: MSP430: Trouble Halting Target CPU: Could not terminate EEM polling thread.
+
+
+!ENTRY com.ti.ccstudio.debug.core 4 13 2017-09-29 16:47:56.399
+!MESSAGE Failed to load program 'C:\Users\hugo\Desktop\2cc1101\Transceiver\Debug\Transceiver.out' on target 'TI MSP430 USB1/MSP430'.
+
+Reason:
+Cannot write to target
+
+!ENTRY com.ti.ccstudio.debug.core 4 0 2017-09-29 18:14:00.143
+!MESSAGE Error: MSP430: Trouble Halting Target CPU: Could not terminate EEM polling thread.
+
+
+!ENTRY com.ti.ccstudio.debug.core 4 0 2017-09-29 18:14:00.151
+!MESSAGE Error: MSP430: Trouble Halting Target CPU: Could not terminate EEM polling thread.
+
+
+!ENTRY com.ti.ccstudio.debug.core 4 0 2017-09-29 18:14:05.288
+!MESSAGE Error: MSP430: Trouble Halting Target CPU: Could not terminate EEM polling thread.
+
+
+!ENTRY com.ti.ccstudio.debug.core 4 0 2017-09-29 18:14:05.290
+!MESSAGE Error: MSP430: Trouble Halting Target CPU: Could not terminate EEM polling thread.
+
+
+!ENTRY com.ti.ccstudio.debug.core 4 13 2017-09-29 18:14:05.571
+!MESSAGE Failed to load program 'Transceiver.out' on target 'TI MSP430 USB1/MSP430'.
+
+Reason:
+Cannot write to target
+
+!ENTRY com.ti.ccstudio.debug.core 4 0 2017-09-29 18:50:58.337
+!MESSAGE Error: MSP430: Trouble Halting Target CPU: Could not terminate EEM polling thread.
+
+
+!ENTRY com.ti.ccstudio.debug.core 4 0 2017-09-29 18:50:58.339
+!MESSAGE Error: MSP430: Trouble Halting Target CPU: Could not terminate EEM polling thread.
+
+
+!ENTRY com.ti.ccstudio.debug.core 4 0 2017-09-29 18:51:03.442
+!MESSAGE Error: MSP430: Trouble Halting Target CPU: Could not terminate EEM polling thread.
+
+
+!ENTRY com.ti.ccstudio.debug.core 4 0 2017-09-29 18:51:03.443
+!MESSAGE Error: MSP430: Trouble Halting Target CPU: Could not terminate EEM polling thread.
+
+
+!ENTRY com.ti.ccstudio.debug.core 4 13 2017-09-29 18:51:20.754
+!MESSAGE Failed to load program 'Transceiver.out' on target 'TI MSP430 USB1/MSP430'.
+
+Reason:
+Cannot write to target
+
+!ENTRY org.eclipse.ui.workbench 4 0 2017-09-29 18:52:36.230
+!MESSAGE An unexpected exception was thrown.
+!STACK 0
+java.lang.NullPointerException
+	at org.eclipse.debug.internal.ui.views.launch.LaunchView.disposeActions(LaunchView.java:677)
+	at org.eclipse.debug.internal.ui.views.launch.LaunchView.dispose(LaunchView.java:621)
+	at org.eclipse.ui.internal.WorkbenchPartReference.doDisposePart(WorkbenchPartReference.java:687)
+	at org.eclipse.ui.internal.ViewReference.doDisposePart(ViewReference.java:97)
+	at org.eclipse.ui.internal.WorkbenchPartReference.dispose(WorkbenchPartReference.java:642)
+	at org.eclipse.ui.internal.WorkbenchPage.disposePart(WorkbenchPage.java:1541)
+	at org.eclipse.ui.internal.WorkbenchPage.partRemoved(WorkbenchPage.java:1533)
+	at org.eclipse.ui.internal.ViewFactory.releaseView(ViewFactory.java:252)
+	at org.eclipse.ui.internal.Perspective.dispose(Perspective.java:240)
+	at org.eclipse.ui.internal.WorkbenchPage.dispose(WorkbenchPage.java:1597)
+	at org.eclipse.ui.internal.WorkbenchWindow.closeAllPages(WorkbenchWindow.java:748)
+	at org.eclipse.ui.internal.WorkbenchWindow.hardClose(WorkbenchWindow.java:1499)
+	at org.eclipse.ui.internal.WorkbenchWindow.busyClose(WorkbenchWindow.java:622)
+	at org.eclipse.ui.internal.WorkbenchWindow.access$0(WorkbenchWindow.java:598)
+	at org.eclipse.ui.internal.WorkbenchWindow$2.run(WorkbenchWindow.java:713)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:67)
+	at org.eclipse.ui.internal.WorkbenchWindow.close(WorkbenchWindow.java:711)
+	at org.eclipse.jface.window.WindowManager.close(WindowManager.java:109)
+	at org.eclipse.ui.internal.Workbench$12.run(Workbench.java:712)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:37)
+	at org.eclipse.ui.internal.Workbench.busyClose(Workbench.java:709)
+	at org.eclipse.ui.internal.Workbench.access$8(Workbench.java:639)
+	at org.eclipse.ui.internal.Workbench$14.run(Workbench.java:839)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:67)
+	at org.eclipse.ui.internal.Workbench.close(Workbench.java:837)
+	at org.eclipse.ui.internal.Workbench.close(Workbench.java:812)
+	at org.eclipse.ui.internal.WorkbenchWindow.busyClose(WorkbenchWindow.java:619)
+	at org.eclipse.ui.internal.WorkbenchWindow.access$0(WorkbenchWindow.java:598)
+	at org.eclipse.ui.internal.WorkbenchWindow$2.run(WorkbenchWindow.java:713)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:67)
+	at org.eclipse.ui.internal.WorkbenchWindow.close(WorkbenchWindow.java:711)
+	at org.eclipse.jface.window.Window.handleShellCloseEvent(Window.java:736)
+	at org.eclipse.jface.window.Window$3.shellClosed(Window.java:682)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:159)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:66)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:928)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:952)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:937)
+	at org.eclipse.swt.widgets.Decorations.closeWidget(Decorations.java:257)
+	at org.eclipse.swt.widgets.Decorations.WM_CLOSE(Decorations.java:1606)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:3248)
+	at org.eclipse.swt.widgets.Decorations.windowProc(Decorations.java:1539)
+	at org.eclipse.swt.widgets.Shell.windowProc(Shell.java:1634)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:4025)
+	at org.eclipse.swt.internal.win32.OS.DefWindowProcW(Native Method)
+	at org.eclipse.swt.internal.win32.OS.DefWindowProc(OS.java:1922)
+	at org.eclipse.swt.widgets.Shell.callWindowProc(Shell.java:443)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:3334)
+	at org.eclipse.swt.widgets.Decorations.windowProc(Decorations.java:1539)
+	at org.eclipse.swt.widgets.Shell.windowProc(Shell.java:1634)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:4025)
+	at org.eclipse.swt.internal.win32.OS.DefWindowProcW(Native Method)
+	at org.eclipse.swt.internal.win32.OS.DefWindowProc(OS.java:1922)
+	at org.eclipse.swt.widgets.Shell.callWindowProc(Shell.java:443)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:3334)
+	at org.eclipse.swt.widgets.Decorations.windowProc(Decorations.java:1539)
+	at org.eclipse.swt.widgets.Shell.windowProc(Shell.java:1634)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:4025)
+	at org.eclipse.swt.internal.win32.OS.DispatchMessageW(Native Method)
+	at org.eclipse.swt.internal.win32.OS.DispatchMessage(OS.java:1927)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:2966)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:1914)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:1878)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:419)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.IDEApplication.run(IDEApplication.java:97)
+	at org.eclipse.core.internal.runtime.PlatformActivator$1.run(PlatformActivator.java:78)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:92)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:68)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:400)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:177)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.core.launcher.Main.invokeFramework(Main.java:336)
+	at org.eclipse.core.launcher.Main.basicRun(Main.java:280)
+	at org.eclipse.core.launcher.Main.run(Main.java:996)
+	at org.eclipse.core.launcher.Main.main(Main.java:971)

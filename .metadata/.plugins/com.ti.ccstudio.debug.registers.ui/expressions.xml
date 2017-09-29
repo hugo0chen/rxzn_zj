@@ -16,6 +16,27 @@
 <Expression IMemento.internal.id="microsecond">
 <Format/>
 </Expression>
+<Expression IMemento.internal.id="data_buf_from_rx">
+<Format/>
+</Expression>
+<Expression IMemento.internal.id="data_buf_from_rx[0].data">
+<Format/>
+</Expression>
+<Expression IMemento.internal.id="data_buf_from_rx[0].data_len">
+<Format Class="com.ti.ccstudio.debug.registers.model.VariableFormat" Name="Hexadecimal"/>
+</Expression>
+<Expression IMemento.internal.id="data_buf_to_tx[0].data_len">
+<Format Class="com.ti.ccstudio.debug.registers.model.VariableFormat" Name="Hexadecimal"/>
+</Expression>
+<Expression IMemento.internal.id="i">
+<Format Class="com.ti.ccstudio.debug.registers.model.VariableFormat" Name="Hexadecimal"/>
+</Expression>
+<Expression IMemento.internal.id="data">
+<Format/>
+</Expression>
+<VariableFormatMap Class="com.ti.ccstudio.debug.registers.model.VariableFormat" IMemento.internal.id="current_microsecond" Name="Hexadecimal"/>
+<VariableFormatMap Class="com.ti.ccstudio.debug.registers.model.VariableFormat" IMemento.internal.id="_schd_last_microsecond" Name="Hexadecimal"/>
 <VariableFormatMap Class="com.ti.ccstudio.debug.registers.model.VariableFormat" IMemento.internal.id="_local_time_tick" Name="Hexadecimal"/>
+<VariableFormatMap Class="com.ti.ccstudio.debug.registers.model.VariableFormat" IMemento.internal.id="_schd_items[0].timeout_microsecond" Name="Hexadecimal"/>
 </Expressions>
 </States>

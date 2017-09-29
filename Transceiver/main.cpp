@@ -12,11 +12,11 @@ INT8U   bRfRcv           = 0;
 INT8U   bRfSend          = 0;
 INT8U wireless_rxbuf[32];
 INT8U wireless_rxlen;
-INT8U data_from_host[MAX_DATA_SIZE];
-INT8U data_from_host_len;
-extern INT8U usart_rx_success;
+
 INT8U ZJ_Ch     = DEFAULT_CH; 
 INT16U dev_id   = 0;
+Rs_485_Node data_buf_to_tx[ MAX_NODE_NUM];
+Rs_485_Node data_buf_from_rx[ MAX_NODE_NUM];
 
 void init_drivers(void){   
 	_DINT(); 
@@ -32,9 +32,7 @@ void feed_watchdog(void){
 	WDTCTL = WDT_ARST_1000;
 }
 
-void debug_print(INT8U* string, INT8U len){
-	UartTransmitPacket((INT8U*)string, len);
-}
+
 #define LED_PERIOD 1000
 
 INT8U led_flash(void){
@@ -70,7 +68,8 @@ int main(void){
   	init_drivers();
   	dev_id = (P1IN&0xF0);
   	dev_id = dev_id >> 4;
-  	init_485_data_buf();
+  	init_485_data_buf(data_buf_to_tx);
+  	init_485_data_buf(data_buf_from_rx);
   	if(!read_para_from_flash()){
   		cc1101_set_channel(DEFAULT_CH, WP1);
   		cc1101_set_channel(DEFAULT_CH, WP2);
@@ -96,16 +95,14 @@ int main(void){
 			CC1101SetTRMode(RX_MODE, WP1);
 			wireless_trx_led_off();
 		}
-		if(usart_rx_success == 1){
+		if(!queue_isEmpty(data_buf_from_rx)){
 			uart_trx_led_on();
-			//debug_print(data_from_host, data_from_host_len);
-			process_data_from_host(data_from_host, data_from_host_len);
-			memset(data_from_host, 0, data_from_host_len);
-			data_from_host_len = 0;
-			usart_rx_success = 0;
+			debug_print((INT8U*)"0", 1);
+			process_data_from_host();
+			move_data_buf(data_buf_from_rx);
 			uart_trx_led_off();
 		}
-		if(!queue_isEmpty()){
+		if(!queue_isEmpty(data_buf_to_tx)){
 			transfer_data_to485_();
 		}
 	}
